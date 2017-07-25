@@ -1,5 +1,5 @@
 //
-//  PasscodeViewController.swift
+//  ChangePasscodeViewController.swift
 //  Eyes
 //
 //  Created by Ava Crnkovic-Rubsamen on 7/25/17.
@@ -8,24 +8,14 @@
 
 import UIKit
 
-class PasscodeViewController: UIViewController {
-    @IBOutlet weak var passcodeTextField: UITextField!
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "passcode inputted" {
-                person.passcode = passcodeTextField.text ?? ""
-            }
-        }
-    }
+class ChangePasscodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.hideKeyboardWhenTappedAround()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

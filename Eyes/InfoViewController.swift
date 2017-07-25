@@ -31,8 +31,8 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
     @IBAction func chooseContactsButtonTapped(_ sender: UIButton) {
         

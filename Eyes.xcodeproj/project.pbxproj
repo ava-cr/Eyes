@@ -12,6 +12,7 @@
 		37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */; };
 		37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E0E1F27B8EF00BE29E4 /* SettingsViewController.swift */; };
 		37D47E141F27CBE800BE29E4 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E131F27CBE800BE29E4 /* PasscodeViewController.swift */; };
+		37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3E8E91F27DFC900BE9721 /* ChangePasscodeViewController.swift */; };
 		37EBC1091F264401000015DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC1081F264401000015DD /* AppDelegate.swift */; };
 		37EBC10B1F264401000015DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC10A1F264401000015DD /* ViewController.swift */; };
 		37EBC10E1F264401000015DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EBC10C1F264401000015DD /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		37D47E0E1F27B8EF00BE29E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		37D47E131F27CBE800BE29E4 /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
+		37E3E8E91F27DFC900BE9721 /* ChangePasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasscodeViewController.swift; sourceTree = "<group>"; };
 		37EBC1051F264401000015DD /* Eyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EBC1081F264401000015DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EBC10A1F264401000015DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */,
 				37D47E0E1F27B8EF00BE29E4 /* SettingsViewController.swift */,
 				37D47E131F27CBE800BE29E4 /* PasscodeViewController.swift */,
+				37E3E8E91F27DFC900BE9721 /* ChangePasscodeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				37EBC1111F264401000015DD /* Eyes.xcdatamodeld in Sources */,
 				37EBC10B1F264401000015DD /* ViewController.swift in Sources */,
 				37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */,
+				37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */,
 				37EBC1091F264401000015DD /* AppDelegate.swift in Sources */,
 				37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */,
 				37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */,

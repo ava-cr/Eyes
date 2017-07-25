@@ -249,6 +249,9 @@
                                         <state key="normal" title="Edit Passcode">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ZaP-MG-eEU" kind="show" id="E28-VK-fhc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-ew-UmL">
                                         <rect key="frame" x="0.0" y="331.5" width="323" height="165.5"/>
@@ -304,6 +307,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3x-qG-FuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2953" y="1487"/>
+        </scene>
+        <!--Change Passcode View Controller-->
+        <scene sceneID="Laj-Dr-apQ">
+            <objects>
+                <viewController id="ZaP-MG-eEU" customClass="ChangePasscodeViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dnM-t8-u73"/>
+                        <viewControllerLayoutGuide type="bottom" id="QmI-pO-btj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JSy-r3-ZJU" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bkw-Ut-pEK">
+                                <rect key="frame" x="5" y="74" width="365" height="35.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Bkw-Ut-pEK" secondAttribute="trailing" constant="5" id="esH-pd-obw"/>
+                            <constraint firstItem="Bkw-Ut-pEK" firstAttribute="top" secondItem="dnM-t8-u73" secondAttribute="bottom" constant="10" id="h2H-gY-P6c"/>
+                            <constraint firstItem="Bkw-Ut-pEK" firstAttribute="leading" secondItem="JSy-r3-ZJU" secondAttribute="leading" constant="5" id="wVs-KZ-XFb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0H1-Db-3CL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3632.8000000000002" y="1485.6071964017992"/>
         </scene>
         <!--Action View Controller-->
         <scene sceneID="I47-cI-ONi">
