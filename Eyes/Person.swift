@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import Contacts
 
 class Person {
-//    var contacts = [String]
+    var namesNumbers = [String: String]()
+    var contacts = [CNContact]()
 }

@@ -10,7 +10,12 @@ import UIKit
 import ContactsUI
 import Contacts
 
+var person = Person()
+
 class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, CNContactPickerDelegate {
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var contactInfoLabel: UILabel!
+    @IBOutlet weak var okButton: UIButton!
     
     @IBOutlet weak var chooseContactsButton: UIButton!
     var displayedKeys: [String] = ["givenName", "phoneNumbers"]
@@ -31,51 +36,35 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         contactPickerViewController.displayedPropertyKeys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey, CNContactImageDataKey]
         
-        
-        
-        
-        
     }
     
-    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-        var phoneNumber: Any
+        var phoneNumber = ""
 
         for contact in contacts {
-            
             if contact.phoneNumbers.count > 1 {
                 for number in contact.phoneNumbers {
-                    if number.identifier == "mobile" {
-                        phoneNumber = (number.value).value(forKey: "digits")
-                        print(phoneNumber)
+                    if number.label == "_$!<Mobile>!$_" || number.label == "_$!<iPhone>!$_" {
+                        phoneNumber = (number.value).value(forKey: "digits")! as! String
                         break
                     }
                 }
             }
-            else {
-                phoneNumber = (contact.phoneNumbers[0].value).value(forKey: "digits")
-                print("hi")
-                print(phoneNumber)
+            if contact.phoneNumbers.count == 1 {
+                phoneNumber = (contact.phoneNumbers[0].value).value(forKey: "digits")! as! String
             }
-            
-            //let phoneNumber = (contact.phoneNumbers[0].value).value(forKey: "digits")
-            print(contact.givenName)
-            
+            person.namesNumbers[contact.givenName] = phoneNumber
+            person.contacts.append(contact)
         }
+        print(person.contacts.count)
+        print(person.namesNumbers)
+        
+        // after contacts have been chosen
+        contactInfoLabel.text = "If a contact has multiple numbers, the \"mobile\" or \"iPhone\" number was selected. This can be changed in Settings."
+//        okButton.titleLabel?.textColor = UIColor(red: 167, green: 196, blue: 194, alpha: 1)
+        okButton.setTitle("Ok, thanks.", for: UIControlState.normal)
+        
     }
-    
-    //     func contactPicker(_ picker: CNContactPickerViewController, didSelectContactProperties contactProperties: [CNContactProperty]) {
-    //        for contactProperty in contactProperties {
-    //            if contactProperty.key == "phoneNumbers" {
-    //                print("HI")
-    //                print(contactProperty.contact.givenName)
-    //            }
-    //        }
-    //    }
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
