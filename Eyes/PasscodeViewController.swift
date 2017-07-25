@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  PasscodeViewController.swift
 //  Eyes
 //
 //  Created by Ava Crnkovic-Rubsamen on 7/25/17.
@@ -8,18 +8,23 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    @IBOutlet weak var activateButton: UIButton!
+class PasscodeViewController: UIViewController {
+    @IBOutlet weak var passcodeTextField: UITextField!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "passcode inputted" {
+                person.passcode = passcodeTextField.text ?? ""
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func activateButtonTapped(_ sender: UIButton) {
-        print("activateButtonTapped")
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

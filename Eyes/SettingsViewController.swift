@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  SettingsViewController.swift
 //  Eyes
 //
 //  Created by Ava Crnkovic-Rubsamen on 7/25/17.
@@ -8,16 +8,12 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    @IBOutlet weak var activateButton: UIButton!
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    @IBAction func activateButtonTapped(_ sender: UIButton) {
-        print("activateButtonTapped")
     }
 
     override func didReceiveMemoryWarning() {

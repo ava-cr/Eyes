@@ -20,6 +20,14 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var chooseContactsButton: UIButton!
     var displayedKeys: [String] = ["givenName", "phoneNumbers"]
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "infoFinished" {
+                person.name = nameTextField.text ?? ""
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +68,7 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         print(person.namesNumbers)
         
         // after contacts have been chosen
-        contactInfoLabel.text = "If a contact has multiple numbers, the \"mobile\" or \"iPhone\" number was selected. This can be changed in Settings."
+        contactInfoLabel.text = "If a contact has multiple numbers, Eyes will select the \"mobile\" or \"iPhone\" number. This can be modified in Settings."
 //        okButton.titleLabel?.textColor = UIColor(red: 167, green: 196, blue: 194, alpha: 1)
         okButton.setTitle("Ok, thanks.", for: UIControlState.normal)
         

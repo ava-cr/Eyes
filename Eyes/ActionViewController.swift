@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  ActionViewController.swift
 //  Eyes
 //
 //  Created by Ava Crnkovic-Rubsamen on 7/25/17.
@@ -8,16 +8,21 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    @IBOutlet weak var activateButton: UIButton!
+class ActionViewController: UIViewController {
+    @IBOutlet weak var activatedStatusLabel: UILabel!
+    @IBOutlet weak var alertButton: UIButton!
+    @IBOutlet weak var deactivateButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func activateButtonTapped(_ sender: UIButton) {
-        print("activateButtonTapped")
+    @IBAction func alertButtonTapped(_ sender: UIButton) {
+        print("alertButtonTapped")
+    }
+    @IBAction func deactivateButtonTapped(_ sender: UIButton) {
+        print("deactivateButtonTapped")
     }
 
     override func didReceiveMemoryWarning() {

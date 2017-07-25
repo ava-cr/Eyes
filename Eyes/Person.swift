@@ -12,4 +12,6 @@ import Contacts
 class Person {
     var namesNumbers = [String: String]()
     var contacts = [CNContact]()
+    var passcode = ""
+    var name = ""
 }
