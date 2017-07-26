@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */; };
 		37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */; };
+		37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */; };
 		37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E081F27A2D800BE29E4 /* HomeViewController.swift */; };
 		37D47E0B1F27AFC000BE29E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E0A1F27AFC000BE29E4 /* HomeView.swift */; };
 		37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContactsTableViewCell.swift; sourceTree = "<group>"; };
 		37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContactsTableViewController.swift; sourceTree = "<group>"; };
+		37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextViewController.swift; sourceTree = "<group>"; };
 		37D47E081F27A2D800BE29E4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		37D47E0A1F27AFC000BE29E4 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				37F248231F28F0C300076789 /* CallTextViewController.swift */,
 				37F248251F290BAF00076789 /* DeactivateViewController.swift */,
 				37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */,
+				37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				37D47E141F27CBE800BE29E4 /* PasscodeViewController.swift in Sources */,
 				37F248241F28F0C300076789 /* CallTextViewController.swift in Sources */,
 				37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */,
+				37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */,
 				37EBC1111F264401000015DD /* Eyes.xcdatamodeld in Sources */,
 				37EBC10B1F264401000015DD /* ViewController.swift in Sources */,
 				37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */,

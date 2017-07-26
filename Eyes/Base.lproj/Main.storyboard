@@ -429,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="5104.8000000000002" y="787.55622188905556"/>
         </scene>
-        <!--View Controller-->
+        <!--Send Text View Controller-->
         <scene sceneID="sf0-QE-0Xg">
             <objects>
-                <viewController id="Yzt-FD-fNT" sceneMemberID="viewController">
+                <viewController id="Yzt-FD-fNT" customClass="SendTextViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fA7-dL-TwM"/>
                         <viewControllerLayoutGuide type="bottom" id="dAm-0b-fzq"/>
@@ -461,6 +461,9 @@
                                 <rect key="frame" x="300" y="328" width="54" height="39"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="Yzt-FD-fNT" eventType="touchUpInside" id="JxK-K9-e5u"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -475,6 +478,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="c8s-QD-ilJ" secondAttribute="trailing" constant="5" id="s4T-Ci-iSy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sendButton" destination="c8s-QD-ilJ" id="b1G-5l-yDl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtC-nO-l4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

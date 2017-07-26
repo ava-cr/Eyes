@@ -66,12 +66,12 @@ class TextContactsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -81,14 +81,26 @@ class TextContactsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let identifier = segue.identifier {
+            if identifier == "contactChosen" {
+                
+                let indexPath = tableView.indexPathForSelectedRow!
+                // 2
+                let contact = person.contacts[indexPath.row]
+                // 3
+                let sendTextViewController = segue.destination as! SendTextViewController
+                // 4
+                sendTextViewController.contact = contact
+            }
+        }
     }
-    */
+    
 
 }
