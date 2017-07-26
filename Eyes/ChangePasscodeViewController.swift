@@ -9,11 +9,15 @@
 import UIKit
 
 class ChangePasscodeViewController: UIViewController {
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "unwindToSettings", sender: self)
     }
 
     override func didReceiveMemoryWarning() {

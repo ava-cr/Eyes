@@ -1,27 +1,20 @@
 //
-//  SettingsViewController.swift
+//  DeactivateViewController.swift
 //  Eyes
 //
-//  Created by Ava Crnkovic-Rubsamen on 7/25/17.
+//  Created by Ava Crnkovic-Rubsamen on 7/26/17.
 //  Copyright © 2017 Ava Crnkovic-Rubsamen. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
-    @IBOutlet weak var backButton: UIBarButtonItem!
+class DeactivateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "settingsToHome", sender: self)
-    }
-    
-    
-    @IBAction func unwindToSettings(segue:UIStoryboardSegue) { }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
