@@ -9,11 +9,15 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    @IBOutlet weak var backHomeButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func backHomeButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "settingsToHome", sender: self)
     }
 
     override func didReceiveMemoryWarning() {

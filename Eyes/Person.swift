@@ -14,4 +14,5 @@ class Person {
     var contacts = [CNContact]()
     var passcode = ""
     var name = ""
+    var activated = false
 }

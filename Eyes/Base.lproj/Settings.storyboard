@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dBe-le-1gq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="5eX-PN-CMm">
+            <objects>
+                <viewController id="dBe-le-1gq" customClass="SettingsViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyd-Lt-WHs"/>
+                        <viewControllerLayoutGuide type="bottom" id="7La-uT-fYN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q3U-uV-6de" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="thX-jR-e9P">
+                                <rect key="frame" x="26" y="140" width="323" height="497"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="165.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                        <state key="normal" title="Edit Contacts">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
+                                        <rect key="frame" x="0.0" y="165.5" width="323" height="166"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                        <state key="normal" title="Edit Passcode">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="vSF-Ab-VDo" kind="presentation" id="MgG-w6-f6j"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-ew-UmL">
+                                        <rect key="frame" x="0.0" y="331.5" width="323" height="165.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                        <state key="normal" title="Change Time Interval">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ArA-fw-Qq2" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="Ytq-Q0-dHK"/>
+                                    <constraint firstItem="vCp-ew-UmL" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="qeK-jY-Ked"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhA-qa-ZDG">
+                                <rect key="frame" x="16" y="84" width="120" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Back to Home">
+                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backHomeButtonTapped:" destination="dBe-le-1gq" eventType="touchUpInside" id="GN8-VL-IWM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7La-uT-fYN" firstAttribute="top" secondItem="thX-jR-e9P" secondAttribute="bottom" constant="30" id="9qc-UW-WOL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="thX-jR-e9P" secondAttribute="trailing" constant="10" id="GT4-q0-Sx3"/>
+                            <constraint firstItem="thX-jR-e9P" firstAttribute="leading" secondItem="Q3U-uV-6de" secondAttribute="leadingMargin" constant="10" id="Lgb-ZF-NvZ"/>
+                            <constraint firstItem="thX-jR-e9P" firstAttribute="top" secondItem="AhA-qa-ZDG" secondAttribute="bottom" constant="20" id="Tu5-eD-75N"/>
+                            <constraint firstItem="AhA-qa-ZDG" firstAttribute="top" secondItem="jyd-Lt-WHs" secondAttribute="bottom" constant="20" id="rcM-eV-kmQ"/>
+                            <constraint firstItem="AhA-qa-ZDG" firstAttribute="leading" secondItem="Q3U-uV-6de" secondAttribute="leadingMargin" id="t2j-uJ-pdq"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="vFF-iW-ma5">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K0w-V8-qcq">
+                            <rect key="frame" x="129.5" y="7" width="116" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
+                            <state key="normal" title="Settings">
+                                <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO">
+                        <color key="tintColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </simulatedNavigationBarMetrics>
+                    <connections>
+                        <outlet property="backHomeButton" destination="AhA-qa-ZDG" id="sgO-YQ-S8h"/>
+                        <segue destination="iXd-a3-vxP" kind="unwind" identifier="settingsToHome" unwindAction="unwindToHomeWithSegue:" id="hAZ-hb-Twz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3x-qG-FuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iXd-a3-vxP" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2918" y="1486"/>
+        </scene>
+        <!--Change Passcode View Controller-->
+        <scene sceneID="Q72-w3-6kR">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-ZaP-MG-eEU" id="vSF-Ab-VDo" customClass="ChangePasscodeViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VJp-gG-7QE"/>
+                        <viewControllerLayoutGuide type="bottom" id="s6R-HS-Jxu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vpe-eD-KdU" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgn-71-I8d">
+                                <rect key="frame" x="5" y="30" width="365" height="35.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tgn-71-I8d" firstAttribute="top" secondItem="VJp-gG-7QE" secondAttribute="bottom" constant="10" id="7ZI-nu-3o2"/>
+                            <constraint firstItem="Tgn-71-I8d" firstAttribute="leading" secondItem="Vpe-eD-KdU" secondAttribute="leading" constant="5" id="Lpz-9u-ce0"/>
+                            <constraint firstAttribute="trailing" secondItem="Tgn-71-I8d" secondAttribute="trailing" constant="5" id="q2j-5R-1aL"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10P-bE-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3632.8000000000002" y="1485.6071964017992"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+</document>

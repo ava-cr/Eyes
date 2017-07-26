@@ -9,7 +9,6 @@
 import UIKit
 
 class ActionViewController: UIViewController {
-    @IBOutlet weak var activatedStatusLabel: UILabel!
     @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var deactivateButton: UIButton!
 
@@ -24,6 +23,8 @@ class ActionViewController: UIViewController {
     @IBAction func deactivateButtonTapped(_ sender: UIButton) {
         print("deactivateButtonTapped")
     }
+    
+    @IBAction func unwindToActionView(segue:UIStoryboardSegue) { }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

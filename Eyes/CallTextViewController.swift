@@ -1,28 +1,25 @@
 //
-//  HomeViewController.swift
+//  CallTextViewController.swift
 //  Eyes
 //
-//  Created by Ava Crnkovic-Rubsamen on 7/25/17.
+//  Created by Ava Crnkovic-Rubsamen on 7/26/17.
 //  Copyright © 2017 Ava Crnkovic-Rubsamen. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    @IBOutlet weak var activateButton: UIButton!
+class CallTextViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func activateButtonTapped(_ sender: UIButton) {
-        print("activateButtonTapped")
-        person.activated = true
-    }
-    
-    @IBAction func unwindToHome(segue:UIStoryboardSegue) { }
 
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "callTextToAction", sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
