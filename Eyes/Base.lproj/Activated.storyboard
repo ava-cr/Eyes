@@ -183,7 +183,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="umP-G9-Wlz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textContactsTableViewCell" rowHeight="100" id="Vgr-XG-ANr" customClass="TextContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -243,48 +243,66 @@
                         <viewControllerLayoutGuide type="top" id="fA7-dL-TwM"/>
                         <viewControllerLayoutGuide type="bottom" id="dAm-0b-fzq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Dsp-EE-94n">
+                    <view key="view" contentMode="scaleToFill" id="Dsp-EE-94n" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one of the following or create a custom text:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-EC-u2Y">
-                                <rect key="frame" x="26" y="94" width="323" height="64"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dz-gO-Wjs">
-                                <rect key="frame" x="21" y="382" width="333" height="275"/>
-                                <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="275" id="gua-lk-rjs"/>
-                                </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-QD-ilJ">
-                                <rect key="frame" x="300" y="328" width="54" height="39"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendButtonTapped:" destination="Yzt-FD-fNT" eventType="touchUpInside" id="JxK-K9-e5u"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YRm-Ik-IHD">
+                                <rect key="frame" x="5" y="69" width="365" height="593"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one of the following or create a custom text:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-EC-u2Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="73"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
+                                        <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNg-H5-vzf">
+                                        <rect key="frame" x="0.0" y="73" width="365" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="2Ur-Cr-Nsc"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-QD-ilJ">
+                                        <rect key="frame" x="0.0" y="273" width="365" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="3kC-Kg-TfL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="SEND">
+                                            <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="Yzt-FD-fNT" eventType="touchUpInside" id="JxK-K9-e5u"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dz-gO-Wjs">
+                                        <rect key="frame" x="0.0" y="318" width="365" height="275"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="275" id="gua-lk-rjs"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dAm-0b-fzq" firstAttribute="top" secondItem="3dz-gO-Wjs" secondAttribute="bottom" constant="10" id="3fz-Ge-z8F"/>
-                            <constraint firstItem="3dz-gO-Wjs" firstAttribute="top" secondItem="c8s-QD-ilJ" secondAttribute="bottom" constant="15" id="4Bk-tz-MGL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3dz-gO-Wjs" secondAttribute="trailing" constant="5" id="M3V-3q-bgl"/>
-                            <constraint firstItem="LPn-EC-u2Y" firstAttribute="leading" secondItem="Dsp-EE-94n" secondAttribute="leadingMargin" constant="10" id="QRH-7S-VbP"/>
-                            <constraint firstItem="LPn-EC-u2Y" firstAttribute="top" secondItem="fA7-dL-TwM" secondAttribute="bottom" constant="30" id="UYV-zW-4EY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LPn-EC-u2Y" secondAttribute="trailing" constant="10" id="ffa-Ym-Bj7"/>
-                            <constraint firstItem="3dz-gO-Wjs" firstAttribute="leading" secondItem="Dsp-EE-94n" secondAttribute="leadingMargin" constant="5" id="l2r-8e-wpK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="c8s-QD-ilJ" secondAttribute="trailing" constant="5" id="s4T-Ci-iSy"/>
+                            <constraint firstItem="YRm-Ik-IHD" firstAttribute="top" secondItem="fA7-dL-TwM" secondAttribute="bottom" constant="5" id="2OS-JF-H4P"/>
+                            <constraint firstAttribute="trailing" secondItem="YRm-Ik-IHD" secondAttribute="trailing" constant="5" id="5ZO-Im-Qe1"/>
+                            <constraint firstItem="YRm-Ik-IHD" firstAttribute="leading" secondItem="Dsp-EE-94n" secondAttribute="leading" constant="5" id="CVE-Tu-3qX"/>
+                            <constraint firstItem="dAm-0b-fzq" firstAttribute="top" secondItem="YRm-Ik-IHD" secondAttribute="bottom" constant="5" id="OE2-1t-qO8"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="messageTextView" destination="3dz-gO-Wjs" id="dVw-vL-xAr"/>
@@ -400,7 +418,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Ib-pS-uAZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="callContactsTableViewCell" rowHeight="100" id="3EC-yl-BTq" customClass="CallContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
