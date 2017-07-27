@@ -1,27 +1,26 @@
 //
-//  CallTextViewController.swift
+//  CallViewController.swift
 //  Eyes
 //
-//  Created by Ava Crnkovic-Rubsamen on 7/26/17.
+//  Created by Ava Crnkovic-Rubsamen on 7/27/17.
 //  Copyright © 2017 Ava Crnkovic-Rubsamen. All rights reserved.
 //
 
 import UIKit
+import ContactsUI
+import Contacts
 
-class CallTextViewController: UIViewController {
-    @IBOutlet weak var backButton: UIButton!
+class CallViewController: UIViewController {
+    
+    var contact: CNContact?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-    }
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "backToAction", sender: self)
-    }
-    
-    @IBAction func backToCallText(segue:UIStoryboardSegue) { }
+        guard let phoneURL = URL(string: "tel://" + person.namesNumbers[contact!.givenName]!) else { return }
+        UIApplication.shared.open(phoneURL , options: [:], completionHandler: nil)
 
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

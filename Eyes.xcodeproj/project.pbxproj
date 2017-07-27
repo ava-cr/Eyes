@@ -10,6 +10,10 @@
 		37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */; };
 		37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */; };
 		37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */; };
+		37CB7CF11F2A614500036AA9 /* Activated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CB7CEF1F2A614500036AA9 /* Activated.storyboard */; };
+		37CB7CF31F2A62EE00036AA9 /* CallContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB7CF21F2A62EE00036AA9 /* CallContactsTableViewCell.swift */; };
+		37CB7CF51F2A631500036AA9 /* CallContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB7CF41F2A631500036AA9 /* CallContactsTableViewController.swift */; };
+		37CB7CF71F2A66D900036AA9 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CB7CF61F2A66D900036AA9 /* CallViewController.swift */; };
 		37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E081F27A2D800BE29E4 /* HomeViewController.swift */; };
 		37D47E0B1F27AFC000BE29E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E0A1F27AFC000BE29E4 /* HomeView.swift */; };
 		37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */; };
@@ -33,6 +37,10 @@
 		37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContactsTableViewCell.swift; sourceTree = "<group>"; };
 		37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContactsTableViewController.swift; sourceTree = "<group>"; };
 		37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextViewController.swift; sourceTree = "<group>"; };
+		37CB7CF01F2A614500036AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activated.storyboard; sourceTree = "<group>"; };
+		37CB7CF21F2A62EE00036AA9 /* CallContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallContactsTableViewCell.swift; sourceTree = "<group>"; };
+		37CB7CF41F2A631500036AA9 /* CallContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallContactsTableViewController.swift; sourceTree = "<group>"; };
+		37CB7CF61F2A66D900036AA9 /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		37D47E081F27A2D800BE29E4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		37D47E0A1F27AFC000BE29E4 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +78,7 @@
 			children = (
 				37D47E0A1F27AFC000BE29E4 /* HomeView.swift */,
 				37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */,
+				37CB7CF21F2A62EE00036AA9 /* CallContactsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -98,6 +107,7 @@
 				37D47E101F27B8F400BE29E4 /* Views */,
 				37EBC11D1F266347000015DD /* Controllers */,
 				37EBC10C1F264401000015DD /* Main.storyboard */,
+				37CB7CEF1F2A614500036AA9 /* Activated.storyboard */,
 				37F2481E1F28D35C00076789 /* Settings.storyboard */,
 				37EBC1121F264401000015DD /* Assets.xcassets */,
 				37EBC1141F264401000015DD /* LaunchScreen.storyboard */,
@@ -121,6 +131,8 @@
 				37F248251F290BAF00076789 /* DeactivateViewController.swift */,
 				37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */,
 				37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */,
+				37CB7CF41F2A631500036AA9 /* CallContactsTableViewController.swift */,
+				37CB7CF61F2A66D900036AA9 /* CallViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EBC1161F264401000015DD /* LaunchScreen.storyboard in Resources */,
+				37CB7CF11F2A614500036AA9 /* Activated.storyboard in Resources */,
 				37EBC1131F264401000015DD /* Assets.xcassets in Resources */,
 				37EBC10E1F264401000015DD /* Main.storyboard in Resources */,
 				37F248201F28D35C00076789 /* Settings.storyboard in Resources */,
@@ -199,7 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CB7CF51F2A631500036AA9 /* CallContactsTableViewController.swift in Sources */,
 				37EBC1211F267B13000015DD /* Person.swift in Sources */,
+				37CB7CF71F2A66D900036AA9 /* CallViewController.swift in Sources */,
 				37D47E0B1F27AFC000BE29E4 /* HomeView.swift in Sources */,
 				37D47E141F27CBE800BE29E4 /* PasscodeViewController.swift in Sources */,
 				37F248241F28F0C300076789 /* CallTextViewController.swift in Sources */,
@@ -210,6 +225,7 @@
 				37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */,
 				37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */,
 				37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */,
+				37CB7CF31F2A62EE00036AA9 /* CallContactsTableViewCell.swift in Sources */,
 				37EBC1091F264401000015DD /* AppDelegate.swift in Sources */,
 				37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */,
 				37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */,
@@ -221,6 +237,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		37CB7CEF1F2A614500036AA9 /* Activated.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37CB7CF01F2A614500036AA9 /* Base */,
+			);
+			name = Activated.storyboard;
+			sourceTree = "<group>";
+		};
 		37EBC10C1F264401000015DD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

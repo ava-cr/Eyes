@@ -9,11 +9,15 @@
 import UIKit
 
 class DeactivateViewController: UIViewController {
+    @IBOutlet weak var backButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func backButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "backToActionView", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
