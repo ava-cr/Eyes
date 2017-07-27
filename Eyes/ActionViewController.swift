@@ -7,19 +7,34 @@
 //
 
 import UIKit
+import ContactsUI
+import Contacts
+import MessageUI
 
-class ActionViewController: UIViewController {
-    @IBOutlet weak var alertButton: UIButton!
+class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBOutlet weak var deactivateButton: UIButton!
+    @IBOutlet weak var alertButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func alertButtonTapped(_ sender: UIButton) {
+    
+    @IBAction func alertButtonTapped(_ sender: Any) {
         print("alertButtonTapped")
+        let messageViewController = MFMessageComposeViewController()
+        messageViewController.body = "\(person.name)" + " has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with " + "\(person.name)" + " immediately. This alert has been sent to every one of " + "\(person.name)" + "'s predetermined contacts."
+        let numbers = Array(person.namesNumbers.values)
+        print(numbers)
+        messageViewController.recipients = numbers
+        
+        messageViewController.messageComposeDelegate = self
+        messageViewController.view.tintColor = darkRed
+        
+        self.present(messageViewController, animated: true, completion: nil)
     }
+  
     @IBAction func deactivateButtonTapped(_ sender: UIButton) {
         print("deactivateButtonTapped")
     }
@@ -29,6 +44,11 @@ class ActionViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        //can put code depending on which result of the message - successful, cancel, failure ...
+        controller.dismiss(animated: true, completion: nil)
     }
     
 

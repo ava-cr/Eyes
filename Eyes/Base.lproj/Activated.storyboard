@@ -31,6 +31,9 @@
                                         <state key="normal" title="ALERT">
                                             <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="alertButtonTapped:" destination="iBc-AD-YXH" eventType="touchUpInside" id="LhE-LI-jFg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-UA-PzI">
                                         <rect key="frame" x="0.0" y="258.5" width="343" height="258"/>
@@ -86,6 +89,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="alertButton" destination="g41-8n-agr" id="9tw-ZA-0A5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGE-mE-6f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
