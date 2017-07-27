@@ -12,6 +12,7 @@ import Contacts
 
 var person = Person()
 
+
 class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, CNContactPickerDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contactInfoLabel: UILabel!
@@ -39,6 +40,7 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         let contactPickerViewController = CNContactPickerViewController()
         
         contactPickerViewController.delegate = self
+        contactPickerViewController.view.tintColor = mintGreen
         
         present(contactPickerViewController, animated: true, completion: nil)
         

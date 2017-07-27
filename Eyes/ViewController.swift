@@ -8,6 +8,12 @@
 
 import UIKit
 
+/** COLORS **/
+var darkRed = UIColor(red: 139.0/255.0, green: 38.0/255.0, blue: 53.0/255.0, alpha: 1.0)
+var darkBlue = UIColor(red: 0.0, green: 0.0, blue: 100.0/255.0, alpha: 1.0)
+var darkGrey = UIColor(red: 94.0/255.0, green: 87.0/255.0, blue: 104.0/255.0, alpha: 1.0)
+var mintGreen = UIColor(red: 167.0/255.0, green: 196.0/255.0, blue: 194.0/255.0, alpha: 1.0)
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
