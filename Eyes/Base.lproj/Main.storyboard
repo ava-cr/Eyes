@@ -479,6 +479,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messageTextView" destination="3dz-gO-Wjs" id="dVw-vL-xAr"/>
                         <outlet property="sendButton" destination="c8s-QD-ilJ" id="b1G-5l-yDl"/>
                     </connections>
                 </viewController>
