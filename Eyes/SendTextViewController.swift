@@ -11,29 +11,43 @@ import Contacts
 import ContactsUI
 import MessageUI
 
-class SendTextViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+class SendTextViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var textPickerView: UIPickerView!
     
+    var textSelected = ""
     var contact: CNContact?
+    let textPickerData = ["Alert Message", "I'm safe.", "I'm okay.", "I feel unsafe.", "I'm going home now.", "Come get me please"]
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        textPickerView.delegate = self
+        textPickerView.dataSource = self
     }
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
         let messageViewController = MFMessageComposeViewController()
-        messageViewController.body = messageTextView.text!
+        if messageTextView.text == "" {
+            if textSelected == "Alert Message" {
+                messageViewController.body = "\(person.name)" + " has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with " + "\(person.name)" + " immediately. This alert has been sent to every one of " + "\(person.name)" + "'s predetermined contacts."
+            }
+            else {
+                messageViewController.body = textSelected
+            }
+        }
+        else {
+            messageViewController.body = messageTextView.text!
+        }
         messageViewController.recipients = [person.namesNumbers[contact!.givenName]!]
         messageViewController.messageComposeDelegate = self
         messageViewController.view.tintColor = darkRed
         
         self.present(messageViewController, animated: true, completion: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,15 +65,46 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         controller.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //pickerView functions:
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
+    // row height
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat
+    {
+        return 40
+    }
+    
+    // the number of rows
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return textPickerData.count
+    }
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return textPickerData[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+            pickerLabel?.adjustsFontSizeToFitWidth = true
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = textPickerData[row]
+        pickerLabel?.textColor = greyBlue
+        
+        return pickerLabel!
+        
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        print("text selected: " + "\(textPickerData[row])")
+        textSelected = textPickerData[row]
+    }
+    
 }

@@ -13,7 +13,7 @@ class PasscodeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
-            if identifier == "passcode inputted" {
+            if identifier == "passcodeInputted" {
                 person.passcode = passcodeTextField.text ?? ""
             }
         }

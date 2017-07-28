@@ -307,6 +307,7 @@
                     <connections>
                         <outlet property="messageTextView" destination="3dz-gO-Wjs" id="dVw-vL-xAr"/>
                         <outlet property="sendButton" destination="c8s-QD-ilJ" id="b1G-5l-yDl"/>
+                        <outlet property="textPickerView" destination="nNg-H5-vzf" id="ftW-sI-qPU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtC-nO-l4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,6 +349,9 @@
                                 <state key="normal" title="Deactivate">
                                     <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deactivateButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="OCm-us-PsC"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2a-dq-WvT">
                                 <rect key="frame" x="16" y="265.5" width="343" height="100"/>
@@ -385,13 +389,16 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="egv-wD-2La" id="0kl-3V-u6b"/>
+                        <outlet property="deactivateButton" destination="doZ-Tz-wSg" id="n9A-o6-VsF"/>
+                        <outlet property="passcodeTextField" destination="A2a-dq-WvT" id="LYj-Lm-2Dj"/>
                         <segue destination="RwC-an-evq" kind="unwind" identifier="backToActionView" unwindAction="unwindToActionViewWithSegue:" id="cWX-k2-1yB"/>
+                        <segue destination="RwC-an-evq" kind="unwind" identifier="backToHome" unwindAction="unwindToHomeWithSegue:" id="1cI-hF-P6c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUn-DW-5xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RwC-an-evq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2223" y="1547"/>
+            <point key="canvasLocation" x="2990" y="1565"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGq-8G-DsF">
