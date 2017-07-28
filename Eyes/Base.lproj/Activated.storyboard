@@ -10,6 +10,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="Hjg-Ac-MXx">
+            <objects>
+                <viewController id="Mim-jf-tu4" customClass="MapViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NQb-Gm-CuZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rXn-nM-onE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="60v-V3-62L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ztN-De-pQG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ztN-De-pQG" id="Evg-DK-5gu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gey-vs-QIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2989.5999999999999" y="98.50074962518741"/>
+        </scene>
         <!--Action View Controller-->
         <scene sceneID="wlq-Ls-KWn">
             <objects>
@@ -26,7 +53,7 @@
                                 <rect key="frame" x="16" y="65.5" width="343" height="516.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g41-8n-agr">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="258.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="172.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
                                         <state key="normal" title="ALERT">
                                             <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,8 +62,18 @@
                                             <action selector="alertButtonTapped:" destination="iBc-AD-YXH" eventType="touchUpInside" id="LhE-LI-jFg"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFC-d9-wbQ">
+                                        <rect key="frame" x="0.0" y="172.5" width="343" height="172"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                        <state key="normal" title="LOCATION">
+                                            <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Mim-jf-tu4" kind="show" id="Ct3-V1-5cH"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-UA-PzI">
-                                        <rect key="frame" x="0.0" y="258.5" width="343" height="258"/>
+                                        <rect key="frame" x="0.0" y="344.5" width="343" height="172"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
                                         <state key="normal" title="CONTACT">
                                             <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,7 +84,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="GFC-d9-wbQ" firstAttribute="leading" secondItem="OAw-Cj-dHC" secondAttribute="leading" id="49A-BK-sIe"/>
                                     <constraint firstItem="z4a-UA-PzI" firstAttribute="height" secondItem="g41-8n-agr" secondAttribute="height" id="Ajp-ji-NLp"/>
+                                    <constraint firstAttribute="trailing" secondItem="GFC-d9-wbQ" secondAttribute="trailing" id="Bb6-57-P5E"/>
+                                    <constraint firstItem="GFC-d9-wbQ" firstAttribute="height" secondItem="g41-8n-agr" secondAttribute="height" id="SVT-d8-970"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVATED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouP-qh-g4s">

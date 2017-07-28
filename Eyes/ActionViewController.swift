@@ -11,14 +11,14 @@ import ContactsUI
 import Contacts
 import MessageUI
 
+
 class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBOutlet weak var deactivateButton: UIButton!
     @IBOutlet weak var alertButton: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func alertButtonTapped(_ sender: Any) {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37B0B5881F2B92110078233F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5871F2B92110078233F /* MapKit.framework */; };
+		37B0B58A1F2B92200078233F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5891F2B92200078233F /* CoreLocation.framework */; };
+		37B0B58C1F2B92880078233F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B0B58B1F2B92880078233F /* MapViewController.swift */; };
 		37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */; };
 		37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */; };
 		37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */; };
@@ -34,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37B0B5871F2B92110078233F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		37B0B5891F2B92200078233F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		37B0B58B1F2B92880078233F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContactsTableViewCell.swift; sourceTree = "<group>"; };
 		37B5E0B91F292283006C384F /* TextContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContactsTableViewController.swift; sourceTree = "<group>"; };
 		37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTextViewController.swift; sourceTree = "<group>"; };
@@ -67,12 +73,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B0B58A1F2B92200078233F /* CoreLocation.framework in Frameworks */,
+				37B0B5881F2B92110078233F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37B0B5861F2B92100078233F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37B0B5891F2B92200078233F /* CoreLocation.framework */,
+				37B0B5871F2B92110078233F /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		37D47E101F27B8F400BE29E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +105,7 @@
 			children = (
 				37EBC1071F264401000015DD /* Eyes */,
 				37EBC1061F264401000015DD /* Products */,
+				37B0B5861F2B92100078233F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +151,7 @@
 				37B5E0BB1F292FFE006C384F /* SendTextViewController.swift */,
 				37CB7CF41F2A631500036AA9 /* CallContactsTableViewController.swift */,
 				37CB7CF61F2A66D900036AA9 /* CallViewController.swift */,
+				37B0B58B1F2B92880078233F /* MapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +234,7 @@
 				37CB7CF51F2A631500036AA9 /* CallContactsTableViewController.swift in Sources */,
 				37EBC1211F267B13000015DD /* Person.swift in Sources */,
 				37CB7CF71F2A66D900036AA9 /* CallViewController.swift in Sources */,
+				37B0B58C1F2B92880078233F /* MapViewController.swift in Sources */,
 				37D47E0B1F27AFC000BE29E4 /* HomeView.swift in Sources */,
 				37D47E141F27CBE800BE29E4 /* PasscodeViewController.swift in Sources */,
 				37F248241F28F0C300076789 /* CallTextViewController.swift in Sources */,
