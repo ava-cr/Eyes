@@ -561,7 +561,23 @@
                     <view key="view" contentMode="scaleToFill" id="pPt-8a-MDU" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wXe-xL-x6f">
+                                <rect key="frame" x="16" y="84" width="343" height="563"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                                <state key="normal" title="Share Location with the Contact Selected to Call                    "/>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="TaR-k2-bwd" eventType="touchUpInside" id="HOd-o0-VAL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wXe-xL-x6f" firstAttribute="top" secondItem="4EX-AM-Adv" secondAttribute="bottom" constant="20" id="8nq-Qb-lnt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wXe-xL-x6f" secondAttribute="trailing" id="Etb-J6-t8Y"/>
+                            <constraint firstItem="wXe-xL-x6f" firstAttribute="leading" secondItem="pPt-8a-MDU" secondAttribute="leadingMargin" id="pXm-f3-ard"/>
+                            <constraint firstItem="ArO-on-fbs" firstAttribute="top" secondItem="wXe-xL-x6f" secondAttribute="bottom" constant="20" id="sfp-hU-LUa"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                 <color key="value" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -571,10 +587,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="shareLocationButton" destination="wXe-xL-x6f" id="BcF-Ow-KEc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKF-EA-DUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5095" y="1547"/>
+            <point key="canvasLocation" x="5093.6000000000004" y="1546.776611694153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="drw-mr-KFf">

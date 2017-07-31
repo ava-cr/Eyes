@@ -37,9 +37,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-   
-    
-    
     @IBAction func backButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToAction", sender: self)
     }
@@ -57,10 +54,44 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return topController
     }
     
+    func shareLocation(coordinate:CLLocationCoordinate2D) -> Void {
+        
+        guard let cachesPathString = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else {
+            print("Error: couldn't find the caches directory.")
+            return
+        }
+        
+        let vCardString = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "N:;\(person.name)'s Location;;;",
+            "FN:\(person.name)'s Location",
+            "item1.URL;type=pref:http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)",
+            "item1.X-ABLabel:map url",
+            "END:VCARD"
+            ].joined(separator: "\n")
+        
+        let vCardFilePath = (cachesPathString as NSString).appendingPathComponent("vCard.loc.vcf")
+        
+        do {
+            try vCardString.write(toFile: vCardFilePath, atomically: true, encoding: String.Encoding.utf8)
+            let activityViewController = UIActivityViewController(activityItems: [NSURL(fileURLWithPath: vCardFilePath)], applicationActivities: nil)
+            activityViewController.excludedActivityTypes = [UIActivityType.print,
+                                                            UIActivityType.copyToPasteboard,
+                                                            UIActivityType.assignToContact,
+                                                            UIActivityType.saveToCameraRoll,
+                                                            UIActivityType.postToVimeo,
+                                                            UIActivityType.postToTencentWeibo,
+                                                            UIActivityType.postToWeibo]
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        } catch let error {
+            print("Error, \(error), saving vCard: \(vCardString) to file path: \(vCardFilePath).")
+        }
+    }
+    
     @IBAction func shareButtonTapped(_ sender: Any) {
-        let activityViewController = UIActivityViewController(activityItems: ["yo"], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        shareLocation(coordinate: userLocation)
     }
 }
 

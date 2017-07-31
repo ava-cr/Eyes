@@ -11,6 +11,8 @@ import ContactsUI
 import Contacts
 
 class CallViewController: UIViewController {
+    @IBOutlet weak var shareLocationButton: UIButton!
+    
     
     var contact: CNContact?
 
@@ -19,7 +21,13 @@ class CallViewController: UIViewController {
         // Do any additional setup after loading the view.
         guard let phoneURL = URL(string: "tel://" + person.namesNumbers[contact!.givenName]!) else { return }
         UIApplication.shared.open(phoneURL , options: [:], completionHandler: nil)
-
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        shareLocationButton.titleLabel!.text = "Share Location with \(contact!.givenName)"
     }
 
     override func didReceiveMemoryWarning() {
