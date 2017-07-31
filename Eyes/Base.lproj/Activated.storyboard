@@ -250,26 +250,29 @@
             </objects>
             <point key="canvasLocation" x="3697" y="788"/>
         </scene>
-        <!--Choose a Contact to Text-->
+        <!--Choose a Contact-->
         <scene sceneID="RIK-gR-4Oq">
             <objects>
                 <tableViewController id="bF7-S0-6CC" customClass="TextContactsTableViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="umP-G9-Wlz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" id="umP-G9-Wlz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.79452054794520544" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textContactsTableViewCell" rowHeight="100" id="Vgr-XG-ANr" customClass="TextContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="textContactsTableViewCell" rowHeight="125" id="Vgr-XG-ANr" customClass="TextContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vgr-XG-ANr" id="LOx-Rt-enU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-SW-Oyg">
-                                            <rect key="frame" x="8" y="35.5" width="359" height="29.5"/>
+                                            <rect key="frame" x="8" y="47.5" width="359" height="29.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
-                                            <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -291,7 +294,7 @@
                             <outlet property="delegate" destination="bF7-S0-6CC" id="ECj-1q-yEr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose a Contact to Text" id="ms7-Ca-igW">
+                    <navigationItem key="navigationItem" title="Choose a Contact" id="ms7-Ca-igW">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Wb8-eh-Wef">
                             <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -325,21 +328,21 @@
                                 <rect key="frame" x="5" y="69" width="365" height="593"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one of the following or create a custom text:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-EC-u2Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="73"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="utM-03-4b7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
                                         <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNg-H5-vzf">
-                                        <rect key="frame" x="0.0" y="73" width="365" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="2Ur-Cr-Nsc"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="64" width="365" height="204"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-QD-ilJ">
-                                        <rect key="frame" x="0.0" y="273" width="365" height="45"/>
+                                        <rect key="frame" x="0.0" y="268" width="365" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="3kC-Kg-TfL"/>
+                                            <constraint firstAttribute="height" constant="50" id="lvB-me-L6M"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="SEND">
@@ -350,15 +353,29 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dz-gO-Wjs">
-                                        <rect key="frame" x="0.0" y="318" width="365" height="275"/>
-                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="318" width="365" height="175"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.61799015410958902" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="275" id="gua-lk-rjs"/>
+                                            <constraint firstAttribute="height" constant="175" id="bNx-8C-mwV"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="IPQ-xz-N7U">
+                                        <rect key="frame" x="0.0" y="493" width="365" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="etK-Io-dqU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Send Location to Contact Selected to Text">
+                                            <color key="titleShadowColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.53026005990000002" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareButtonTapped:" destination="Yzt-FD-fNT" eventType="touchUpInside" id="AkY-79-a5F"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -381,6 +398,7 @@
                     <connections>
                         <outlet property="messageTextView" destination="3dz-gO-Wjs" id="dVw-vL-xAr"/>
                         <outlet property="sendButton" destination="c8s-QD-ilJ" id="b1G-5l-yDl"/>
+                        <outlet property="shareLocationButton" destination="IPQ-xz-N7U" id="QXg-cP-9Ze"/>
                         <outlet property="textPickerView" destination="nNg-H5-vzf" id="ftW-sI-qPU"/>
                     </connections>
                 </viewController>
