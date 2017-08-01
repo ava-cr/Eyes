@@ -11,6 +11,9 @@ import UIKit
 class CallContactsTableViewController: UITableViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
+    var navigationBarAppearace = UINavigationBar.appearance()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +22,10 @@ class CallContactsTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
+        navigationBarAppearace.barTintColor = mintGreen
+        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "backToCallText", sender: self)
@@ -44,6 +51,10 @@ class CallContactsTableViewController: UITableViewController {
         let contact = person.contacts[row]
         
         cell.contactNameLabel.text = contact.givenName + " " + contact.familyName
+        cell.backgroundColor = .clear
+        let view = UIView()
+        view.backgroundColor = mintGreen
+        cell.selectedBackgroundView = view
         
         return cell
     }

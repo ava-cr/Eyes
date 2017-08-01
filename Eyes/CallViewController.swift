@@ -41,7 +41,7 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("hi")
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         shareLocationButton.setTitle("Share Location with \(contact!.givenName)", for: UIControlState.normal)
     }
     
@@ -84,11 +84,7 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
         shareLocation(coordinate: userLocation)
     }
     
-    
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        shareLocationButton.titleLabel!.text = "Share Location with \(contact!.givenName)"
-//    }
+
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         //can put code depending on which result of the message - successful, cancel, failure ...
@@ -99,16 +95,6 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -34,10 +34,12 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.hideKeyboardWhenTappedAround()
+        applyKeyboardDismisser()
         
         //customization
         chooseContactsButton.layer.cornerRadius = 8
+        chooseContactsButton.layer.borderColor = mintGreen.cgColor
+        chooseContactsButton.layer.borderWidth = 1.0
         nameTextField.layer.cornerRadius = 8
         nameTextField.layer.borderColor = mintGreen.cgColor
         nameTextField.layer.borderWidth = 1.0

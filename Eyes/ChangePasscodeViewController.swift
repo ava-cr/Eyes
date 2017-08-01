@@ -13,6 +13,7 @@ class ChangePasscodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyKeyboardDismisser()
 
         // Do any additional setup after loading the view.
     }

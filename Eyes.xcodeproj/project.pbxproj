@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */; };
+		376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */; };
 		37B0B5881F2B92110078233F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5871F2B92110078233F /* MapKit.framework */; };
 		37B0B58A1F2B92200078233F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5891F2B92200078233F /* CoreLocation.framework */; };
 		37B0B58C1F2B92880078233F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B0B58B1F2B92880078233F /* MapViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
+		376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
 		37B0B5871F2B92110078233F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		37B0B5891F2B92200078233F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37B0B58B1F2B92880078233F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		376DA5251F31199300EE1795 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		37B0B5861F2B92100078233F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +108,7 @@
 				37D47E0A1F27AFC000BE29E4 /* HomeView.swift */,
 				37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */,
 				37CB7CF21F2A62EE00036AA9 /* CallContactsTableViewCell.swift */,
+				376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -120,6 +133,7 @@
 		37EBC1071F264401000015DD /* Eyes */ = {
 			isa = PBXGroup;
 			children = (
+				376DA5251F31199300EE1795 /* Extensions */,
 				37EBC1081F264401000015DD /* AppDelegate.swift */,
 				37EBC1201F267B13000015DD /* Person.swift */,
 				37D47E101F27B8F400BE29E4 /* Views */,
@@ -231,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */,
 				37CB7CF51F2A631500036AA9 /* CallContactsTableViewController.swift in Sources */,
 				37EBC1211F267B13000015DD /* Person.swift in Sources */,
 				37CB7CF71F2A66D900036AA9 /* CallViewController.swift in Sources */,
@@ -241,6 +256,7 @@
 				37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */,
 				37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */,
 				37EBC1111F264401000015DD /* Eyes.xcdatamodeld in Sources */,
+				376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */,
 				37EBC10B1F264401000015DD /* ViewController.swift in Sources */,
 				37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */,
 				37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */,

@@ -24,7 +24,7 @@ class PasscodeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.hideKeyboardWhenTappedAround()
+        applyKeyboardDismisser()
         passcodeTextField.layer.cornerRadius = 8
         passcodeTextField.layer.borderColor = mintGreen.cgColor
         passcodeTextField.layer.borderWidth = 1.0

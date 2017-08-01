@@ -15,6 +15,12 @@ class DeactivateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyKeyboardDismisser()
+        
+        deactivateButton.layer.cornerRadius = 8
+        passcodeTextField.layer.cornerRadius = 8
+        deactivateButton.layer.borderWidth = 1.0
+        deactivateButton.layer.borderColor = darkGrey.cgColor
 
         // Do any additional setup after loading the view.
     }

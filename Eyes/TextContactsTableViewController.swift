@@ -24,13 +24,12 @@ class TextContactsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
-        navigationBarAppearace.tintColor = darkRed
         navigationBarAppearace.barTintColor = mintGreen
+        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        
     }
     
-    private func setup() {
-        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "sunset"))
-    }
+
 
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "backToCallText", sender: self)
@@ -57,6 +56,9 @@ class TextContactsTableViewController: UITableViewController {
         
         cell.contactNameLabel.text = contact.givenName + " " + contact.familyName
         cell.backgroundColor = .clear
+        let view = UIView()
+        view.backgroundColor = mintGreen
+        cell.selectedBackgroundView = view
         
         return cell
     }

@@ -16,9 +16,9 @@ import CoreLocation
 class SendTextViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var shareLocationButton: UIButton!
-    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var textPickerView: UIPickerView!
+    @IBOutlet weak var sendButton: UIButton!
     
     let locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
@@ -36,6 +36,10 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        applyKeyboardDismisser()
+        applyKeyboardPush()
+
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -47,7 +51,22 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         //customized button
         shareLocationButton.layer.cornerRadius = 8
         messageTextView.layer.cornerRadius = 8
+        
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        sendButton.layer.cornerRadius = 8
+        sendButton.layer.borderColor = mintGreen.cgColor
+        sendButton.layer.borderWidth = 1.0
+        shareLocationButton.layer.cornerRadius = 8
+        shareLocationButton.layer.borderColor = mintGreen.cgColor
+        shareLocationButton.layer.borderWidth = 1.0
+        
+        messageTextView.layer.cornerRadius = 8
+        messageTextView.layer.borderColor = mintGreen.cgColor
+        messageTextView.layer.borderWidth = 1.0
+        
     }
+    
+    
     
     func shareLocation(coordinate:CLLocationCoordinate2D) -> Void {
         
@@ -91,7 +110,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         
         let messageViewController = MFMessageComposeViewController()
         if messageTextView.text == "" {
-            if textSelected == "Alert Message" {
+            if textSelected == "Alert Message" || textSelected == "" {
                 messageViewController.body = "\(person.name)" + " has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with " + "\(person.name)" + " immediately. This alert has been sent to every one of " + "\(person.name)" + "'s predetermined contacts."
             }
             else {
@@ -115,6 +134,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         shareLocationButton.setTitle("Share Location with \(contact!.givenName)", for: UIControlState.normal)
     }
     
@@ -153,7 +173,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = textPickerData[row]
-        pickerLabel?.textColor = greyBlue
+        pickerLabel?.textColor = mintGreen
         
         return pickerLabel!
         
@@ -164,5 +184,4 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         print("text selected: " + "\(textPickerData[row])")
         textSelected = textPickerData[row]
     }
-    
 }

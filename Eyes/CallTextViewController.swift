@@ -10,9 +10,17 @@ import UIKit
 
 class CallTextViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var textButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        callButton.layer.cornerRadius = 8
+        callButton.layer.borderWidth = 3.0
+        callButton.layer.borderColor = greyBlue.cgColor
+        textButton.layer.cornerRadius = 8
+        textButton.layer.borderWidth = 3.0
+        textButton.layer.borderColor = greyBlue.cgColor
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +30,10 @@ class CallTextViewController: UIViewController {
     
     @IBAction func backToCallText(segue:UIStoryboardSegue) { }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+ 
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

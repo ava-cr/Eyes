@@ -27,10 +27,10 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         alertButton.layer.borderColor = darkRed.cgColor
         alertButton.layer.borderWidth = 5.0
         contactButton.layer.cornerRadius = 8
-        contactButton.layer.borderColor = darkBlue.cgColor
+        contactButton.layer.borderColor = greyBlue.cgColor
         contactButton.layer.borderWidth = 2.0
         locationButton.layer.cornerRadius = 8
-        locationButton.layer.borderColor = darkBlue.cgColor
+        locationButton.layer.borderColor = greyBlue.cgColor
         locationButton.layer.borderWidth = 2.0
     }
     override func viewDidAppear(_ animated: Bool) {
