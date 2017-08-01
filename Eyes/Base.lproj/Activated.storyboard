@@ -83,11 +83,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-Cj-dHC">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-Cj-dHC">
                                 <rect key="frame" x="16" y="65.5" width="343" height="516.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g41-8n-agr">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="172.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="162"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
                                         <state key="normal" title="ALERT">
                                             <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -96,24 +96,24 @@
                                             <action selector="alertButtonTapped:" destination="iBc-AD-YXH" eventType="touchUpInside" id="LhE-LI-jFg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFC-d9-wbQ">
-                                        <rect key="frame" x="0.0" y="172.5" width="343" height="172"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
-                                        <state key="normal" title="LOCATION">
-                                            <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Mim-jf-tu4" kind="show" id="Ct3-V1-5cH"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-UA-PzI">
-                                        <rect key="frame" x="0.0" y="344.5" width="343" height="172"/>
+                                        <rect key="frame" x="0.0" y="177" width="343" height="163"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
                                         <state key="normal" title="CONTACT">
                                             <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="GT2-9E-Q8M" kind="presentation" modalTransitionStyle="crossDissolve" id="CUt-QT-l68"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFC-d9-wbQ">
+                                        <rect key="frame" x="0.0" y="355" width="343" height="161.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                        <state key="normal" title="LOCATION">
+                                            <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Mim-jf-tu4" kind="show" id="Ct3-V1-5cH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -165,6 +165,8 @@
                     </view>
                     <connections>
                         <outlet property="alertButton" destination="g41-8n-agr" id="9tw-ZA-0A5"/>
+                        <outlet property="contactButton" destination="z4a-UA-PzI" id="9Hf-l1-0bB"/>
+                        <outlet property="locationButton" destination="GFC-d9-wbQ" id="h3Y-31-ZKf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGE-mE-6f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,7 +326,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YRm-Ik-IHD">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YRm-Ik-IHD">
                                 <rect key="frame" x="5" y="69" width="365" height="593"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose one of the following or create a custom text:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-EC-u2Y">
@@ -337,10 +339,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNg-H5-vzf">
-                                        <rect key="frame" x="0.0" y="64" width="365" height="204"/>
+                                        <rect key="frame" x="0.0" y="69" width="365" height="184"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-QD-ilJ">
-                                        <rect key="frame" x="0.0" y="268" width="365" height="50"/>
+                                        <rect key="frame" x="0.0" y="258" width="365" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="lvB-me-L6M"/>
                                         </constraints>
@@ -353,7 +355,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dz-gO-Wjs">
-                                        <rect key="frame" x="0.0" y="318" width="365" height="175"/>
+                                        <rect key="frame" x="0.0" y="313" width="365" height="175"/>
                                         <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.61799015410958902" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="bNx-8C-mwV"/>
@@ -364,10 +366,12 @@
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="IPQ-xz-N7U">
                                         <rect key="frame" x="0.0" y="493" width="365" height="100"/>
+                                        <color key="backgroundColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="etK-Io-dqU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="tintColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="Send Location to Contact Selected to Text">
                                             <color key="titleShadowColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.53026005990000002" colorSpace="calibratedRGB"/>
@@ -497,6 +501,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SlF-3C-5s9" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FOt-g3-rbT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -618,6 +624,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QUs-JZ-NnD" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0cU-hN-gyb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

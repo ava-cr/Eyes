@@ -15,10 +15,27 @@ import MessageUI
 class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBOutlet weak var deactivateButton: UIButton!
     @IBOutlet weak var alertButton: UIButton!
+    @IBOutlet weak var contactButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //customization
+        alertButton.layer.cornerRadius = 8
+        alertButton.layer.borderColor = darkRed.cgColor
+        alertButton.layer.borderWidth = 5.0
+        contactButton.layer.cornerRadius = 8
+        contactButton.layer.borderColor = darkBlue.cgColor
+        contactButton.layer.borderWidth = 2.0
+        locationButton.layer.cornerRadius = 8
+        locationButton.layer.borderColor = darkBlue.cgColor
+        locationButton.layer.borderWidth = 2.0
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        alertButton.flash()
     }
     
     @IBAction func alertButtonTapped(_ sender: Any) {

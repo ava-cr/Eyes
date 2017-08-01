@@ -14,6 +14,7 @@ var person = Person()
 
 
 class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, CNContactPickerDelegate {
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contactInfoLabel: UILabel!
     @IBOutlet weak var okButton: UIButton!
@@ -34,8 +35,29 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
+        
+        //customization
+        chooseContactsButton.layer.cornerRadius = 8
+        nameTextField.layer.cornerRadius = 8
+        nameTextField.layer.borderColor = mintGreen.cgColor
+        nameTextField.layer.borderWidth = 1.0
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //animations
+        if person.contacts.count == 0 {
+            chooseContactsButton.pulsate()
+        }
+        else {
+            okButton.pulsate()
+        }  
+    }
+    
     @IBAction func chooseContactsButtonTapped(_ sender: UIButton) {
+        
+        chooseContactsButton.layer.removeAllAnimations()
         
         let contactPickerViewController = CNContactPickerViewController()
         
@@ -59,6 +81,14 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                         break
                     }
                 }
+                if phoneNumber == "" {
+                    for number in contact.phoneNumbers {
+                        if number.label == "_$!<Other>!$_" || number.label == "_$!<Work>!$_" {
+                            phoneNumber = (number.value).value(forKey: "digits")! as! String
+                            break
+                        }
+                    }
+                }
             }
             if contact.phoneNumbers.count == 1 {
                 phoneNumber = (contact.phoneNumbers[0].value).value(forKey: "digits")! as! String
@@ -73,6 +103,9 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         contactInfoLabel.text = "If a contact has multiple numbers, Eyes will select the \"mobile\" or \"iPhone\" number. This can be modified in Settings."
 //        okButton.titleLabel?.textColor = UIColor(red: 167, green: 196, blue: 194, alpha: 1)
         okButton.setTitle("Ok, thanks.", for: UIControlState.normal)
+        okButton.layer.cornerRadius = 8
+        okButton.layer.borderWidth = 1.0
+        okButton.layer.borderColor = mintGreen.cgColor
         
     }
     

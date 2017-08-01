@@ -43,7 +43,12 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         
         textPickerView.delegate = self
         textPickerView.dataSource = self
+        
+        //customized button
+        shareLocationButton.layer.cornerRadius = 8
+        messageTextView.layer.cornerRadius = 8
     }
+    
     func shareLocation(coordinate:CLLocationCoordinate2D) -> Void {
         
         guard let cachesPathString = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else {

@@ -10,6 +10,7 @@ import UIKit
 
 class PasscodeViewController: UIViewController {
     @IBOutlet weak var passcodeTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -24,6 +25,13 @@ class PasscodeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
+        passcodeTextField.layer.cornerRadius = 8
+        passcodeTextField.layer.borderColor = mintGreen.cgColor
+        passcodeTextField.layer.borderWidth = 1.0
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        doneButton.pulsate()
     }
     
     override func didReceiveMemoryWarning() {

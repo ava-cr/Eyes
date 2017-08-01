@@ -25,7 +25,11 @@ class TextContactsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
         navigationBarAppearace.tintColor = darkRed
-        navigationBarAppearace.barTintColor = darkBlue
+        navigationBarAppearace.barTintColor = mintGreen
+    }
+    
+    private func setup() {
+        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "sunset"))
     }
 
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -52,6 +56,7 @@ class TextContactsTableViewController: UITableViewController {
         let contact = person.contacts[row]
         
         cell.contactNameLabel.text = contact.givenName + " " + contact.familyName
+        cell.backgroundColor = .clear
         
         return cell
     }
