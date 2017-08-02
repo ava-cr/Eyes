@@ -13,7 +13,7 @@ import MessageUI
 import MapKit
 import CoreLocation
 
-class SendTextViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
+class SendTextViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var shareLocationButton: UIButton!
     @IBOutlet weak var messageTextView: UITextView!
@@ -36,6 +36,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         applyKeyboardDismisser()
         applyKeyboardPush()
 
@@ -47,6 +48,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         
         textPickerView.delegate = self
         textPickerView.dataSource = self
+        messageTextView.delegate = self
         
         //customized button
         shareLocationButton.layer.cornerRadius = 8
@@ -138,6 +140,11 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         shareLocationButton.setTitle("Share Location with \(contact!.givenName)", for: UIControlState.normal)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+    }
+    
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         //can put code depending on which result of the message - successful, cancel, failure ...
         controller.dismiss(animated: true, completion: nil)
@@ -183,5 +190,16 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         // The parameter named row and component represents what was selected.
         print("text selected: " + "\(textPickerData[row])")
         textSelected = textPickerData[row]
+    }
+    
+    //to dismiss keyboard on return
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+            return false
+        }
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        return true
     }
 }
