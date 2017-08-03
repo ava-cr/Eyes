@@ -426,12 +426,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input your passcode to assure us you're in a safe place and want to deactivate Eyes." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-rf-pv0">
-                                <rect key="frame" x="26" y="90" width="323" height="165.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                <color key="textColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egv-wD-2La">
                                 <rect key="frame" x="26" y="20" width="51" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
@@ -443,40 +437,71 @@
                                     <action selector="backButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="X4d-vQ-E4l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doZ-Tz-wSg">
-                                <rect key="frame" x="16" y="375.5" width="343" height="66"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
-                                <state key="normal" title="Deactivate">
-                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="deactivateButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="OCm-us-PsC"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2a-dq-WvT">
-                                <rect key="frame" x="16" y="265.5" width="343" height="100"/>
-                                <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="dcQ-u5-AzM"/>
-                                </constraints>
-                                <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assure us you're in a safe place and want to deactivate Eyes:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-rf-pv0">
+                                <rect key="frame" x="10" y="86.5" width="355" height="54.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
+                                <color key="textColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deactivate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-Jp-y2o">
+                                <rect key="frame" x="112" y="20" width="152" height="41.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="V5q-MB-lQK">
+                                <rect key="frame" x="23.5" y="191" width="328" height="362"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doZ-Tz-wSg">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="71"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                        <state key="normal" title="Fingerprint">
+                                            <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fingerprintButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="3Fu-nw-0gO"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-iU-ZwZ">
+                                        <rect key="frame" x="0.0" y="171" width="328" height="191"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2a-dq-WvT">
+                                                <rect key="frame" x="0.0" y="0.0" width="328" height="100"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="dcQ-u5-AzM"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-Ei-y6y">
+                                                <rect key="frame" x="0.0" y="120" width="328" height="71"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                                <state key="normal" title="Enter Passcode">
+                                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="passcodeButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="GOq-Ec-Clg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="egv-wD-2La" firstAttribute="top" secondItem="axk-rk-I5T" secondAttribute="topMargin" constant="20" id="7SY-HW-HFe"/>
-                            <constraint firstItem="EEN-rf-pv0" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="10" id="9HI-Yw-9nF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="doZ-Tz-wSg" secondAttribute="trailing" id="KY5-3h-8Aj"/>
-                            <constraint firstItem="doZ-Tz-wSg" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" id="Wt1-MI-zVL"/>
-                            <constraint firstItem="EEN-rf-pv0" firstAttribute="top" secondItem="egv-wD-2La" secondAttribute="bottom" constant="30" id="ZXQ-u1-cs8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EEN-rf-pv0" secondAttribute="trailing" constant="10" id="eAB-gu-xXN"/>
-                            <constraint firstItem="A2a-dq-WvT" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" id="lLN-v3-ahO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="A2a-dq-WvT" secondAttribute="trailing" id="oZu-6e-dCm"/>
-                            <constraint firstItem="doZ-Tz-wSg" firstAttribute="top" secondItem="A2a-dq-WvT" secondAttribute="bottom" constant="10" id="tga-8p-fkt"/>
-                            <constraint firstItem="A2a-dq-WvT" firstAttribute="top" secondItem="EEN-rf-pv0" secondAttribute="bottom" constant="10" id="xX3-5l-YCf"/>
-                            <constraint firstItem="egv-wD-2La" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="10" id="xuf-3s-jk3"/>
+                            <constraint firstAttribute="trailing" secondItem="EEN-rf-pv0" secondAttribute="trailing" constant="10" id="9x1-py-Gdc"/>
+                            <constraint firstItem="EEN-rf-pv0" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leading" constant="10" id="Kpo-S3-ekf"/>
+                            <constraint firstItem="EEN-rf-pv0" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="Ozp-qc-X5m"/>
+                            <constraint firstItem="egv-wD-2La" firstAttribute="top" secondItem="eVp-MX-Txb" secondAttribute="bottom" id="TPE-gf-XTV"/>
+                            <constraint firstItem="V5q-MB-lQK" firstAttribute="top" secondItem="EEN-rf-pv0" secondAttribute="bottom" constant="50" id="VKW-jt-UKy"/>
+                            <constraint firstItem="fgP-Jp-y2o" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="ZGJ-fH-yDK"/>
+                            <constraint firstItem="V5q-MB-lQK" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="iJZ-X0-NOj"/>
+                            <constraint firstItem="fgP-Jp-y2o" firstAttribute="top" secondItem="eVp-MX-Txb" secondAttribute="bottom" id="lqF-FL-pXf"/>
+                            <constraint firstItem="EEN-rf-pv0" firstAttribute="top" secondItem="fgP-Jp-y2o" secondAttribute="bottom" constant="25" id="moT-RE-ZfM"/>
+                            <constraint firstItem="egv-wD-2La" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="10" id="tRA-P1-6aP"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -489,7 +514,8 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="egv-wD-2La" id="0kl-3V-u6b"/>
-                        <outlet property="deactivateButton" destination="doZ-Tz-wSg" id="n9A-o6-VsF"/>
+                        <outlet property="fingerprintButton" destination="doZ-Tz-wSg" id="gBg-35-Orj"/>
+                        <outlet property="passcodeButton" destination="zOk-Ei-y6y" id="8gc-HB-Tp2"/>
                         <outlet property="passcodeTextField" destination="A2a-dq-WvT" id="LYj-Lm-2Dj"/>
                         <segue destination="RwC-an-evq" kind="unwind" identifier="backToActionView" unwindAction="unwindToActionViewWithSegue:" id="cWX-k2-1yB"/>
                         <segue destination="RwC-an-evq" kind="unwind" identifier="backToHome" unwindAction="unwindToHomeWithSegue:" id="1cI-hF-P6c"/>
@@ -498,7 +524,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUn-DW-5xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RwC-an-evq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2990" y="1565"/>
+            <point key="canvasLocation" x="2989.5999999999999" y="1564.7676161919042"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGq-8G-DsF">
