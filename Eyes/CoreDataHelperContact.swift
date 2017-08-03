@@ -25,6 +25,11 @@ class CoreDataHelperContact {
         }
     }
     
+    static func delete(contact: Contact) {
+        managedContext.delete(contact)
+        saveContact()
+    }
+    
     static func retrieveContacts() -> [Contact] {
         
         let fetchRequest = NSFetchRequest<Contact>(entityName: "Contact")

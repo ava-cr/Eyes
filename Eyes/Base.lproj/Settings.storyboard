@@ -108,11 +108,12 @@
         <!--Edit Contacts-->
         <scene sceneID="D9v-Ik-Jms">
             <objects>
-                <tableViewController id="63A-aA-sTi" sceneMemberID="viewController">
+                <tableViewController id="63A-aA-sTi" customClass="EditContactsTableViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="zD9-JN-tq0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactsTableViewCell" rowHeight="100" id="5uL-fW-WjE" customClass="EditContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
@@ -122,11 +123,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-k5-5hi">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-k5-5hi" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
                                             <rect key="frame" x="106" y="35" width="163.5" height="31"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                    <real key="value" value="1.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -149,20 +158,30 @@
                     <navigationItem key="navigationItem" title="Edit Contacts" id="v9z-el-tlE">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="mu4-oM-L3n">
                             <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="63A-aA-sTi" id="pFb-o2-49O"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Brr-PC-ER0">
                             <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="uN0-Zs-yLf" kind="show" id="vTM-HN-Mnz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gd4-8b-Z5y" kind="unwind" identifier="backToSettings" unwindAction="unwindToSettingsWithSegue:" id="AVL-7g-C1n"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnQ-DP-KjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gd4-8b-Z5y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3633" y="793"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Contact View Controller-->
         <scene sceneID="3pg-Qt-7vi">
             <objects>
-                <viewController id="uN0-Zs-yLf" sceneMemberID="viewController">
+                <viewController id="uN0-Zs-yLf" customClass="EditContactViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d5O-kL-cBq"/>
                         <viewControllerLayoutGuide type="bottom" id="sUE-Kz-dSF"/>
@@ -170,12 +189,125 @@
                     <view key="view" contentMode="scaleToFill" id="I32-Y7-hPM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M8T-On-FLd">
+                                <rect key="frame" x="36" y="114" width="303" height="459"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-mB-T15" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-ww-Pp7">
+                                        <rect key="frame" x="0.0" y="76.5" width="303" height="76.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twH-gt-cT5" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="153" width="303" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-Ny-Dd4">
+                                        <rect key="frame" x="0.0" y="229.5" width="303" height="76.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lb-Ub-POO" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="306" width="303" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XD6-eB-Qvv">
+                                        <rect key="frame" x="0.0" y="382.5" width="303" height="76.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ctN-Ny-Dd4" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="1bl-84-zrt"/>
+                                    <constraint firstItem="twH-gt-cT5" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="KGq-Lc-8G1"/>
+                                    <constraint firstAttribute="trailing" secondItem="j3U-ww-Pp7" secondAttribute="trailing" id="P42-bA-mq6"/>
+                                    <constraint firstItem="7Lb-Ub-POO" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="X9d-aB-Z0U"/>
+                                    <constraint firstItem="hMh-mB-T15" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="Y9W-dS-s1K"/>
+                                    <constraint firstItem="XD6-eB-Qvv" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="aJ9-N7-rr1"/>
+                                    <constraint firstItem="7Lb-Ub-POO" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="gyV-gj-4id"/>
+                                    <constraint firstItem="ctN-Ny-Dd4" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="i68-X5-c0c"/>
+                                    <constraint firstItem="twH-gt-cT5" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="lBU-H8-vTo"/>
+                                    <constraint firstItem="j3U-ww-Pp7" firstAttribute="leading" secondItem="M8T-On-FLd" secondAttribute="leading" id="mfA-Sc-TDM"/>
+                                    <constraint firstItem="j3U-ww-Pp7" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="ric-6l-fr9"/>
+                                    <constraint firstItem="XD6-eB-Qvv" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="wfk-Pa-fP8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M8T-On-FLd" firstAttribute="top" secondItem="d5O-kL-cBq" secondAttribute="bottom" constant="50" id="QMa-LL-FXE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M8T-On-FLd" secondAttribute="trailing" constant="20" id="Zta-L5-qnU"/>
+                            <constraint firstItem="sUE-Kz-dSF" firstAttribute="top" secondItem="M8T-On-FLd" secondAttribute="bottom" constant="50" id="gxR-bl-MDn"/>
+                            <constraint firstItem="M8T-On-FLd" firstAttribute="leading" secondItem="I32-Y7-hPM" secondAttribute="leadingMargin" constant="20" id="qcn-mT-UP3"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="pDC-rQ-g33">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dRd-EA-076">
+                            <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="uN0-Zs-yLf" id="jYG-jb-kpG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qof-dv-Wbs">
+                            <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="uN0-Zs-yLf" id="oiY-Bh-paz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="firstNameTextField" destination="j3U-ww-Pp7" id="n9c-5y-e1b"/>
+                        <outlet property="lastNameTextField" destination="ctN-Ny-Dd4" id="RLZ-XC-xDj"/>
+                        <outlet property="phoneNumberTextField" destination="XD6-eB-Qvv" id="lqG-ac-mDO"/>
+                        <segue destination="iWu-4h-gHO" kind="unwind" identifier="backToEditContacts" unwindAction="backToEditContactsWithSegue:" id="smk-BK-bXe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pus-25-jYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iWu-4h-gHO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4332" y="793"/>
+            <point key="canvasLocation" x="4332" y="792.95352323838085"/>
         </scene>
         <!--Change Passcode View Controller-->
         <scene sceneID="Q72-w3-6kR">
@@ -301,5 +433,8 @@
             <point key="canvasLocation" x="2917.5999999999999" y="792.95352323838085"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vTM-HN-Mnz"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

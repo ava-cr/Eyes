@@ -47,7 +47,7 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-        shareLocationButton.setTitle("Share Location with \(String(describing: contact!.givenName))", for: UIControlState.normal)
+        shareLocationButton.setTitle("Share Location with \((contact?.givenName)!)", for: UIControlState.normal)
     }
     
     func shareLocation(coordinate:CLLocationCoordinate2D) -> Void {

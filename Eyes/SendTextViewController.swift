@@ -142,7 +142,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-        shareLocationButton.setTitle("Share Location with \(person.name!)", for: UIControlState.normal)
+        shareLocationButton.setTitle("Share Location with \((contact?.givenName)!)", for: UIControlState.normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
