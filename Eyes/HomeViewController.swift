@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     
     var person = Person()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +38,6 @@ class HomeViewController: UIViewController {
         activateButton.pulsate()
     }
     
-    
     @IBAction func activateButtonTapped(_ sender: UIButton) {
         print("activateButtonTapped")
         activateButton.layer.removeAllAnimations()
@@ -47,7 +45,6 @@ class HomeViewController: UIViewController {
         CoreDataHelperPerson.savePerson()
         
     }
-    
     @IBAction func unwindToHome(segue:UIStoryboardSegue) { }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +83,7 @@ extension UIButton {
         
         layer.add(flash, forKey: nil)
     }
-    
-    
+
     func shake() {
         
         let shake = CABasicAnimation(keyPath: "position")

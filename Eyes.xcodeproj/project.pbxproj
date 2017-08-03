@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */; };
 		376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */; };
+		379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */; };
+		379AF6271F337B6500CCEDF3 /* EditContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */; };
+		379AF6291F337EEA00CCEDF3 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */; };
 		37AC4C791F32603F0075AFE1 /* CoreDataHelperPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */; };
 		37AC4C7B1F32605F0075AFE1 /* CoreDataHelperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */; };
 		37B0B5881F2B92110078233F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5871F2B92110078233F /* MapKit.framework */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
+		379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewController.swift; sourceTree = "<group>"; };
+		379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewCell.swift; sourceTree = "<group>"; };
+		379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperPerson.swift; sourceTree = "<group>"; };
 		37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperContact.swift; sourceTree = "<group>"; };
 		37B0B5871F2B92110078233F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -142,6 +148,7 @@
 				37B5E0B71F292000006C384F /* TextContactsTableViewCell.swift */,
 				37CB7CF21F2A62EE00036AA9 /* CallContactsTableViewCell.swift */,
 				376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */,
+				379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -193,6 +200,8 @@
 				37CB7CF41F2A631500036AA9 /* CallContactsTableViewController.swift */,
 				37CB7CF61F2A66D900036AA9 /* CallViewController.swift */,
 				37B0B58B1F2B92880078233F /* MapViewController.swift */,
+				379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */,
+				379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -284,6 +293,7 @@
 				37EBC1111F264401000015DD /* Eyes.xcdatamodeld in Sources */,
 				376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */,
 				37EBC10B1F264401000015DD /* ViewController.swift in Sources */,
+				379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */,
 				37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */,
 				37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */,
 				37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */,
@@ -293,8 +303,10 @@
 				37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */,
 				37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */,
 				37AC4C7B1F32605F0075AFE1 /* CoreDataHelperContact.swift in Sources */,
+				379AF6271F337B6500CCEDF3 /* EditContactsTableViewCell.swift in Sources */,
 				37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */,
 				37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */,
+				379AF6291F337EEA00CCEDF3 /* EditContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

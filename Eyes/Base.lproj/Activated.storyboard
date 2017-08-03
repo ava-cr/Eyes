@@ -546,7 +546,7 @@
             </objects>
             <point key="canvasLocation" x="4372" y="788"/>
         </scene>
-        <!--Choose a Contact to Call-->
+        <!--Choose a Contact-->
         <scene sceneID="o26-2Z-Tep">
             <objects>
                 <tableViewController id="ECg-Z0-8cf" customClass="CallContactsTableViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
@@ -595,7 +595,7 @@
                             <outlet property="delegate" destination="ECg-Z0-8cf" id="n0M-45-LjI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose a Contact to Call" id="XsA-o5-BcM">
+                    <navigationItem key="navigationItem" title="Choose a Contact" id="XsA-o5-BcM">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Orr-Xu-Hdk">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="ECg-Z0-8cf" id="V53-09-lua"/>
