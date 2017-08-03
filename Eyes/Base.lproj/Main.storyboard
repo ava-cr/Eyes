@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -162,7 +162,7 @@
         <!--Home View Controller-->
         <scene sceneID="8GP-gQ-4cL">
             <objects>
-                <viewController id="Er2-No-gsP" customClass="HomeViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="Er2-No-gsP" customClass="HomeViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="she-7e-oTP"/>
                         <viewControllerLayoutGuide type="bottom" id="Sb4-K0-dqg"/>

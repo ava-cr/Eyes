@@ -66,6 +66,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController: UIViewController
+        
+        if CoreDataHelperPerson.retrievePerson() == [] {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        } else {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        }
+        
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

@@ -12,10 +12,15 @@ class CallContactsTableViewController: UITableViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     var navigationBarAppearace = UINavigationBar.appearance()
+    var person = Person()
+    var contacts = [Contact]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        person = CoreDataHelperPerson.retrievePerson()[0]
+        contacts = CoreDataHelperContact.retrieveContacts()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,7 +45,7 @@ class CallContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return person.contacts.count
+        return contacts.count
     }
     
     
@@ -48,9 +53,9 @@ class CallContactsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "callContactsTableViewCell", for: indexPath) as! CallContactsTableViewCell
         
         let row = indexPath.row
-        let contact = person.contacts[row]
+        let contact = contacts[row]
         
-        cell.contactNameLabel.text = contact.givenName + " " + contact.familyName
+        cell.contactNameLabel.text = "\(contact.givenName ?? "") \(contact.familyName ?? "")"
         cell.backgroundColor = .clear
         let view = UIView()
         view.backgroundColor = mintGreen
@@ -105,7 +110,7 @@ class CallContactsTableViewController: UITableViewController {
                 
                 let indexPath = tableView.indexPathForSelectedRow!
                 // 2
-                let contact = person.contacts[indexPath.row]
+                let contact = contacts[indexPath.row]
                 // 3
                 let callViewController = segue.destination as! CallViewController
                 // 4

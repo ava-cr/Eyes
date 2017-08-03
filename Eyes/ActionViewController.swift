@@ -17,10 +17,16 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
+    
+    var person = Person()
+    var contacts = [Contact]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        person = CoreDataHelperPerson.retrievePerson()[0]
+        contacts = CoreDataHelperContact.retrieveContacts()
         
         //customization
         alertButton.layer.cornerRadius = 8
@@ -41,8 +47,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBAction func alertButtonTapped(_ sender: Any) {
         print("alertButtonTapped")
         let messageViewController = MFMessageComposeViewController()
-        messageViewController.body = "\(person.name)" + " has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with " + "\(person.name)" + " immediately. This alert has been sent to every one of " + "\(person.name)" + "'s predetermined contacts."
-        let numbers = Array(person.namesNumbers.values)
+        messageViewController.body = "\(String(describing: person.name)) has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with \(String(describing: person.name)) immediately. This alert has been sent to every one of \(String(describing: person.name))'s predetermined contacts."
+
+        var numbers = [String]()
+        for contact in contacts {
+            numbers.append(contact.phoneNumber ?? "")
+        }
         print(numbers)
         messageViewController.recipients = numbers
         
@@ -67,16 +77,4 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         //can put code depending on which result of the message - successful, cancel, failure ...
         controller.dismiss(animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

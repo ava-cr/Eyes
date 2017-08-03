@@ -12,6 +12,8 @@ class PasscodeViewController: UIViewController {
     @IBOutlet weak var passcodeTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
+    var person = Person()
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "passcodeInputted" {
@@ -22,6 +24,8 @@ class PasscodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        person = CoreDataHelperPerson.retrievePerson()[0]
 
         // Do any additional setup after loading the view.
         applyKeyboardDismisser()
@@ -38,16 +42,4 @@ class PasscodeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

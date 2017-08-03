@@ -12,10 +12,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var activateButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    var person = Person()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        person = CoreDataHelperPerson.retrievePerson()[0]
         
         activateButton.isUserInteractionEnabled = true
         activateButton.isEnabled = true
@@ -28,15 +31,8 @@ class HomeViewController: UIViewController {
         settingsButton.layer.cornerRadius = 8
         settingsButton.layer.borderWidth = 3.0
         settingsButton.layer.borderColor = lightGrey.cgColor
-        
-        //animation
-        
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        activateButton.pulsate()
-//    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -48,6 +44,7 @@ class HomeViewController: UIViewController {
         print("activateButtonTapped")
         activateButton.layer.removeAllAnimations()
         person.activated = true
+        CoreDataHelperPerson.savePerson()
         
     }
     
@@ -57,19 +54,6 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 //animations

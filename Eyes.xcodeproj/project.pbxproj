@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */; };
 		376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */; };
+		37AC4C791F32603F0075AFE1 /* CoreDataHelperPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */; };
+		37AC4C7B1F32605F0075AFE1 /* CoreDataHelperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */; };
 		37B0B5881F2B92110078233F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5871F2B92110078233F /* MapKit.framework */; };
 		37B0B58A1F2B92200078233F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5891F2B92200078233F /* CoreLocation.framework */; };
 		37B0B58C1F2B92880078233F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B0B58B1F2B92880078233F /* MapViewController.swift */; };
@@ -32,7 +34,6 @@
 		37EBC1131F264401000015DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37EBC1121F264401000015DD /* Assets.xcassets */; };
 		37EBC1161F264401000015DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EBC1141F264401000015DD /* LaunchScreen.storyboard */; };
 		37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC11E1F26637A000015DD /* InfoViewController.swift */; };
-		37EBC1211F267B13000015DD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC1201F267B13000015DD /* Person.swift */; };
 		37F248201F28D35C00076789 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F2481E1F28D35C00076789 /* Settings.storyboard */; };
 		37F248241F28F0C300076789 /* CallTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F248231F28F0C300076789 /* CallTextViewController.swift */; };
 		37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F248251F290BAF00076789 /* DeactivateViewController.swift */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
+		37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperPerson.swift; sourceTree = "<group>"; };
+		37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperContact.swift; sourceTree = "<group>"; };
 		37B0B5871F2B92110078233F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		37B0B5891F2B92200078233F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		37B0B58B1F2B92880078233F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		37EBC1151F264401000015DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37EBC1171F264401000015DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37EBC11E1F26637A000015DD /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		37EBC1201F267B13000015DD /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		37F2481F1F28D35C00076789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		37F248231F28F0C300076789 /* CallTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallTextViewController.swift; sourceTree = "<group>"; };
 		37F248251F290BAF00076789 /* DeactivateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeactivateViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,37 @@
 				376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		37AC4C6D1F320F130075AFE1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				37EBC10C1F264401000015DD /* Main.storyboard */,
+				37CB7CEF1F2A614500036AA9 /* Activated.storyboard */,
+				37F2481E1F28D35C00076789 /* Settings.storyboard */,
+				37EBC1141F264401000015DD /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		37AC4C6E1F320FA60075AFE1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */,
+				37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		37AC4C711F3210010075AFE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37AC4C6D1F320F130075AFE1 /* Storyboards */,
+				37EBC1121F264401000015DD /* Assets.xcassets */,
+				37EBC1171F264401000015DD /* Info.plist */,
+				37EBC10F1F264401000015DD /* Eyes.xcdatamodeld */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		37B0B5861F2B92100078233F /* Frameworks */ = {
@@ -133,18 +166,12 @@
 		37EBC1071F264401000015DD /* Eyes */ = {
 			isa = PBXGroup;
 			children = (
-				376DA5251F31199300EE1795 /* Extensions */,
 				37EBC1081F264401000015DD /* AppDelegate.swift */,
-				37EBC1201F267B13000015DD /* Person.swift */,
-				37D47E101F27B8F400BE29E4 /* Views */,
+				37AC4C6E1F320FA60075AFE1 /* Helpers */,
+				376DA5251F31199300EE1795 /* Extensions */,
 				37EBC11D1F266347000015DD /* Controllers */,
-				37EBC10C1F264401000015DD /* Main.storyboard */,
-				37CB7CEF1F2A614500036AA9 /* Activated.storyboard */,
-				37F2481E1F28D35C00076789 /* Settings.storyboard */,
-				37EBC1121F264401000015DD /* Assets.xcassets */,
-				37EBC1141F264401000015DD /* LaunchScreen.storyboard */,
-				37EBC1171F264401000015DD /* Info.plist */,
-				37EBC10F1F264401000015DD /* Eyes.xcdatamodeld */,
+				37D47E101F27B8F400BE29E4 /* Views */,
+				37AC4C711F3210010075AFE1 /* Models */,
 			);
 			path = Eyes;
 			sourceTree = "<group>";
@@ -247,7 +274,6 @@
 			files = (
 				376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */,
 				37CB7CF51F2A631500036AA9 /* CallContactsTableViewController.swift in Sources */,
-				37EBC1211F267B13000015DD /* Person.swift in Sources */,
 				37CB7CF71F2A66D900036AA9 /* CallViewController.swift in Sources */,
 				37B0B58C1F2B92880078233F /* MapViewController.swift in Sources */,
 				37D47E0B1F27AFC000BE29E4 /* HomeView.swift in Sources */,
@@ -261,10 +287,12 @@
 				37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */,
 				37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */,
 				37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */,
+				37AC4C791F32603F0075AFE1 /* CoreDataHelperPerson.swift in Sources */,
 				37CB7CF31F2A62EE00036AA9 /* CallContactsTableViewCell.swift in Sources */,
 				37EBC1091F264401000015DD /* AppDelegate.swift in Sources */,
 				37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */,
 				37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */,
+				37AC4C7B1F32605F0075AFE1 /* CoreDataHelperContact.swift in Sources */,
 				37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */,
 				37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */,
 			);

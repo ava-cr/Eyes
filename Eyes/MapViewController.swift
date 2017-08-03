@@ -17,6 +17,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
     
+    var person = Person()
+    var contacts = [Contact]()
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
@@ -30,6 +33,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        person = CoreDataHelperPerson.retrievePerson()[0]
+        contacts = CoreDataHelperContact.retrieveContacts()
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -64,8 +70,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let vCardString = [
             "BEGIN:VCARD",
             "VERSION:3.0",
-            "N:;\(person.name)'s Location;;;",
-            "FN:\(person.name)'s Location",
+            "N:;\(person.name!)'s Location;;;",
+            "FN:\(person.name!)'s Location",
             "item1.URL;type=pref:http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)",
             "item1.X-ABLabel:map url",
             "END:VCARD"

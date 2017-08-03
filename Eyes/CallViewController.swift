@@ -19,30 +19,35 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
     let locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
     
+    var person = Person()
+    var contact: Contact?
+
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         userLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
     }
     
     
-    var contact: CNContact?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        person = CoreDataHelperPerson.retrievePerson()[0]
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         // Do any additional setup after loading the view.
-        guard let phoneURL = URL(string: "tel://" + person.namesNumbers[contact!.givenName]!) else { return }
+        guard let phoneURL = URL(string: "tel://" + (contact?.phoneNumber)!) else { return }
         UIApplication.shared.open(phoneURL , options: [:], completionHandler: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-        shareLocationButton.setTitle("Share Location with \(contact!.givenName)", for: UIControlState.normal)
+        shareLocationButton.setTitle("Share Location with \(String(describing: contact!.givenName))", for: UIControlState.normal)
     }
     
     func shareLocation(coordinate:CLLocationCoordinate2D) -> Void {
@@ -55,8 +60,8 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
         let vCardString = [
             "BEGIN:VCARD",
             "VERSION:3.0",
-            "N:;\(person.name)'s Location;;;",
-            "FN:\(person.name)'s Location",
+            "N:;\(person.name!)'s Location;;;",
+            "FN:\(person.name!)'s Location",
             "item1.URL;type=pref:http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)",
             "item1.X-ABLabel:map url",
             "END:VCARD"
@@ -69,7 +74,7 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
             let messageViewController = MFMessageComposeViewController()
             let url = URL(fileURLWithPath: vCardFilePath)
             messageViewController.addAttachmentURL(url, withAlternateFilename: nil)
-            messageViewController.recipients = [person.namesNumbers[contact!.givenName]!]
+            messageViewController.recipients = [(contact?.phoneNumber)!]
             messageViewController.messageComposeDelegate = self
             messageViewController.view.tintColor = darkRed
             

@@ -10,31 +10,28 @@ import UIKit
 import ContactsUI
 import Contacts
 
-var person = Person()
 
 
 class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, CNContactPickerDelegate {
+    
+    var contacts = [Contact]()
+    var person = Person()
+
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contactInfoLabel: UILabel!
     @IBOutlet weak var okButton: UIButton!
     
     @IBOutlet weak var chooseContactsButton: UIButton!
-    var displayedKeys: [String] = ["givenName", "phoneNumbers"]
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "infoFinished" {
-                person.name = nameTextField.text ?? ""
-            }
-        }
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         applyKeyboardDismisser()
+        
+        
+        person = CoreDataHelperPerson.newPerson()
+        
+        
         
         //customization
         chooseContactsButton.layer.cornerRadius = 8
@@ -46,10 +43,20 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "infoFinished" {
+                person.name = nameTextField.text ?? ""
+                person.activated = false
+                CoreDataHelperPerson.savePerson()
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //animations
-        if person.contacts.count == 0 {
+        if CoreDataHelperContact.retrieveContacts().count == 0 {
             chooseContactsButton.pulsate()
         }
         else {
@@ -73,6 +80,7 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     }
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+        
         var phoneNumber = ""
 
         for contact in contacts {
@@ -95,11 +103,16 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             if contact.phoneNumbers.count == 1 {
                 phoneNumber = (contact.phoneNumbers[0].value).value(forKey: "digits")! as! String
             }
-            person.namesNumbers[contact.givenName] = phoneNumber
-            person.contacts.append(contact)
+            let currentContact = CoreDataHelperContact.newContact()
+            currentContact.givenName = contact.givenName
+            currentContact.phoneNumber = phoneNumber
+            currentContact.familyName = contact.familyName
+            CoreDataHelperContact.saveContact()
+            self.contacts.append(currentContact)
+            print(currentContact.givenName!)
+            print(currentContact.phoneNumber!)
         }
-        print(person.contacts.count)
-        print(person.namesNumbers)
+        print(contacts.count)
         
         // after contacts have been chosen
         contactInfoLabel.text = "If a contact has multiple numbers, Eyes will select the \"mobile\" or \"iPhone\" number. This can be modified in Settings."
