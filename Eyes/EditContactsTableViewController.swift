@@ -34,7 +34,7 @@ class EditContactsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
         navigationBarAppearace.barTintColor = mintGreen
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
     }

@@ -10,18 +10,41 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var contactsButton: UIButton!
+    @IBOutlet weak var passcodeButton: UIButton!
+    @IBOutlet weak var timeIntervalButton: UIButton!
+    
+    var navigationBarAppearace = UINavigationBar.appearance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.contactsButton.layer.cornerRadius = 8
+        self.passcodeButton.layer.cornerRadius = 8
+        self.timeIntervalButton.layer.cornerRadius = 8
+        self.contactsButton.layer.borderColor = mintGreen.cgColor
+        self.passcodeButton.layer.borderColor = mintGreen.cgColor
+        self.timeIntervalButton.layer.borderColor = mintGreen.cgColor
+        self.contactsButton.layer.borderWidth = 1.0
+        self.passcodeButton.layer.borderWidth = 1.0
+        self.timeIntervalButton.layer.borderWidth = 1.0
+        
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
+        navigationBarAppearace.barTintColor = mintGreen
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        
 
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "settingsToHome", sender: self)
     }
     
     
-    @IBAction func unwindToSettings(segue:UIStoryboardSegue) { }
+    @IBAction func unwindToSettings(segue:UIStoryboardSegue) {
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

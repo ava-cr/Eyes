@@ -40,7 +40,7 @@ class EditContactViewController: UIViewController {
         
         //customization
         
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
         navigationBarAppearace.barTintColor = mintGreen
         view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
         

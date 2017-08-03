@@ -18,39 +18,33 @@
                         <viewControllerLayoutGuide type="top" id="jyd-Lt-WHs"/>
                         <viewControllerLayoutGuide type="bottom" id="7La-uT-fYN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Q3U-uV-6de" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="Q3U-uV-6de">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="thX-jR-e9P">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="thX-jR-e9P">
                                 <rect key="frame" x="26" y="94" width="323" height="543"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="181"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="164.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                        <state key="normal" title="Edit Contacts">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <state key="normal" title="Edit Contacts"/>
                                         <connections>
                                             <segue destination="gpB-g6-Ktj" kind="show" id="EnR-eI-ig9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
-                                        <rect key="frame" x="0.0" y="181" width="323" height="181"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
+                                        <rect key="frame" x="0.0" y="189.5" width="323" height="164"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                        <state key="normal" title="Edit Passcode">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <state key="normal" title="Edit Passcode"/>
                                         <connections>
                                             <segue destination="5qk-Yn-bE3" kind="presentation" id="MgG-w6-f6j"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-ew-UmL">
-                                        <rect key="frame" x="0.0" y="362" width="323" height="181"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-ew-UmL">
+                                        <rect key="frame" x="0.0" y="378.5" width="323" height="164.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                        <state key="normal" title="Change Time Interval">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <state key="normal" title="Change Time Interval"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -97,6 +91,9 @@
                     </simulatedNavigationBarMetrics>
                     <connections>
                         <outlet property="backButton" destination="3cQ-Wr-QZZ" id="k7i-e8-axd"/>
+                        <outlet property="contactsButton" destination="T8f-Wk-5VM" id="a6g-E9-ESB"/>
+                        <outlet property="passcodeButton" destination="ArA-fw-Qq2" id="A0h-ba-sJ2"/>
+                        <outlet property="timeIntervalButton" destination="vCp-ew-UmL" id="gkU-kA-Miz"/>
                         <segue destination="iXd-a3-vxP" kind="unwind" identifier="settingsToHome" unwindAction="unwindToHomeWithSegue:" id="hAZ-hb-Twz"/>
                     </connections>
                 </viewController>
@@ -157,13 +154,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit Contacts" id="v9z-el-tlE">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="mu4-oM-L3n">
-                            <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backButtonTapped:" destination="63A-aA-sTi" id="pFb-o2-49O"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Brr-PC-ER0">
-                            <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="uN0-Zs-yLf" kind="show" id="vTM-HN-Mnz"/>
                             </connections>
@@ -284,13 +281,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="pDC-rQ-g33">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dRd-EA-076">
-                            <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="uN0-Zs-yLf" id="jYG-jb-kpG"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="qof-dv-Wbs">
-                            <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveButtonTapped:" destination="uN0-Zs-yLf" id="oiY-Bh-paz"/>
                             </connections>
@@ -317,7 +314,7 @@
                         <viewControllerLayoutGuide type="top" id="VJp-gG-7QE"/>
                         <viewControllerLayoutGuide type="bottom" id="s6R-HS-Jxu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vpe-eD-KdU" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="Vpe-eD-KdU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -327,12 +324,12 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgn-71-I8d">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="35.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaK-lA-wrt">
                                         <rect key="frame" x="0.0" y="60.5" width="323" height="100"/>
-                                        <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="9tB-xj-JTx"/>
                                         </constraints>
@@ -343,12 +340,12 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebz-zl-WX1">
                                         <rect key="frame" x="0.0" y="185.5" width="323" height="35.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMm-fr-jeH">
                                         <rect key="frame" x="0.0" y="246" width="323" height="100"/>
-                                        <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="6Hi-9H-Nhk"/>
                                         </constraints>
@@ -384,17 +381,22 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vqf-VX-5iI">
                             <color key="tintColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="vSF-Ab-VDo" id="I47-7E-lgP"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="vjm-ps-qkq" id="UoR-6O-uP9"/>
+                        <outlet property="newPasscodeTextField" destination="oMm-fr-jeH" id="O02-FJ-dXJ"/>
+                        <outlet property="oldPasscodeTextField" destination="YaK-lA-wrt" id="oF9-vs-JrH"/>
                         <segue destination="qmt-wW-Spv" kind="unwind" identifier="unwindToSettings" unwindAction="unwindToSettingsWithSegue:" id="qyO-pk-qQo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10P-bE-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qmt-wW-Spv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4332" y="1486"/>
+            <point key="canvasLocation" x="4380" y="1486"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aNJ-dx-LcI">
