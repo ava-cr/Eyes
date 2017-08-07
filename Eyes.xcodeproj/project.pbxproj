@@ -66,6 +66,7 @@
 		37D47E0E1F27B8EF00BE29E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		37D47E131F27CBE800BE29E4 /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		37E3E8E91F27DFC900BE9721 /* ChangePasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasscodeViewController.swift; sourceTree = "<group>"; };
+		37E49B3D1F38B7CA0093597C /* Eyes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eyes.entitlements; sourceTree = "<group>"; };
 		37EBC1051F264401000015DD /* Eyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EBC1081F264401000015DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EBC10A1F264401000015DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		37EBC1071F264401000015DD /* Eyes */ = {
 			isa = PBXGroup;
 			children = (
+				37E49B3D1F38B7CA0093597C /* Eyes.entitlements */,
 				37EBC1081F264401000015DD /* AppDelegate.swift */,
 				37AC4C6E1F320FA60075AFE1 /* Helpers */,
 				376DA5251F31199300EE1795 /* Extensions */,
@@ -238,8 +240,13 @@
 				TargetAttributes = {
 					37EBC1041F264401000015DD = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = D4AZANYVSU;
+						DevelopmentTeam = 833EANH5C9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -445,10 +452,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D4AZANYVSU;
+				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
+				DEVELOPMENT_TEAM = 833EANH5C9;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ava-cr.Eyes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.avacr.eyes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -458,10 +466,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D4AZANYVSU;
+				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
+				DEVELOPMENT_TEAM = 833EANH5C9;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ava-cr.Eyes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.avacr.eyes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
