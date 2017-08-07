@@ -23,7 +23,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     var contacts = [Contact]()
     var isGrantedNotificationAccess:Bool = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +37,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         }
         )
         
+        
         //customization
         alertButton.layer.cornerRadius = 8
         alertButton.layer.borderColor = darkRed.cgColor
@@ -49,30 +49,36 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         locationButton.layer.borderColor = greyBlue.cgColor
         locationButton.layer.borderWidth = 2.0
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         alertButton.flash()
-    }
-    @IBAction func testNotificationTapped(_ sender: Any) {
-        if isGrantedNotificationAccess{
-            //add notification code here
-            let content = UNMutableNotificationContent()
-            content.title = "Check in with Eyes!"
-            //content.subtitle = "From Eyes"
-            content.body = "It's been half an hour, slide to assure us you're ok."
-            content.categoryIdentifier = "message"
-            let trigger = UNTimeIntervalNotificationTrigger(
-                timeInterval: 5.0,
-                repeats: false)
-            let request = UNNotificationRequest(
-                identifier: "10.second.message",
-                content: content,
-                trigger: trigger
-            )
-            UNUserNotificationCenter.current().add(
-                request, withCompletionHandler: nil)
+        if person.activated == true {
+            if isGrantedNotificationAccess {
+                //Set the content of the notification
+                let content = UNMutableNotificationContent()
+                content.title = "Check in with Eyes!"
+                //content.subtitle = "From MakeAppPie.com"
+                content.body = "It's been half an hour, slide to assure us you're ok."
+                
+                //Set the trigger of the notification -- here a timer.
+                let trigger = UNTimeIntervalNotificationTrigger(
+                    timeInterval: 60.0,
+                    repeats: true)
+                
+                //Set the request for the notification from the above
+                let request = UNNotificationRequest(
+                    identifier: "10.second.message",
+                    content: content,
+                    trigger: trigger
+                )
+                UNUserNotificationCenter.current().add(
+                    request, withCompletionHandler: nil)
+            }
         }
+        
     }
+    
     
     
     @IBAction func alertButtonTapped(_ sender: Any) {

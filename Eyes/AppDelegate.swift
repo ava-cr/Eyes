@@ -67,23 +67,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController: UIViewController
+        var storyboard = UIStoryboard()
+        var initialViewController = UIViewController()
         
-        if CoreDataHelperPerson.retrievePerson() == [] {
+        
+        if CoreDataHelperPerson.retrievePerson().count == 0 {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
             initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        } else {
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
         }
-        
-        
+        if CoreDataHelperPerson.retrievePerson().count == 1 {
+            let person = CoreDataHelperPerson.retrievePerson()[0]
+            if person.activated == true {
+                storyboard = UIStoryboard(name: "Activated", bundle: nil)
+                initialViewController = storyboard.instantiateViewController(withIdentifier: "ActivatedViewController")
+            }
+            else {
+                storyboard = UIStoryboard(name: "Main", bundle: nil)
+                initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+            }
+            
+        }
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
         return true
     }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -154,4 +167,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-

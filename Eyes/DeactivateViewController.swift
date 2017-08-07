@@ -59,9 +59,9 @@ class DeactivateViewController: UIViewController {
                     if success {
                         self.performSegue(withIdentifier: "backToHome", sender: self)
                     } else {
-//                        let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
-//                        ac.addAction(UIAlertAction(title: "OK", style: .default))
-//                        self.present(ac, animated: true)
+                        //let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
+                        //ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        //self.present(ac, animated: true)
                     }
                 }
             }
@@ -71,7 +71,6 @@ class DeactivateViewController: UIViewController {
             present(ac, animated: true)
         }
     }
-
     @IBAction func backButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToActionView", sender: self)
     }

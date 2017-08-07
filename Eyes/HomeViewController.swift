@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var activateButton: UIButton!
@@ -21,7 +22,11 @@ class HomeViewController: UIViewController {
         
         activateButton.isUserInteractionEnabled = true
         activateButton.isEnabled = true
-
+        
+        person.activated = false
+        CoreDataHelperPerson.savePerson()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 
         //customization
         activateButton.layer.cornerRadius = 8
@@ -41,11 +46,13 @@ class HomeViewController: UIViewController {
     @IBAction func activateButtonTapped(_ sender: UIButton) {
         print("activateButtonTapped")
         activateButton.layer.removeAllAnimations()
-        person.activated = true
+        self.person.activated = true
         CoreDataHelperPerson.savePerson()
-        
     }
-    @IBAction func unwindToHome(segue:UIStoryboardSegue) { }
+    @IBAction func unwindToHome(segue:UIStoryboardSegue) {
+        self.person.activated = false
+        CoreDataHelperPerson.savePerson()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
