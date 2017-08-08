@@ -50,8 +50,8 @@ class HomeViewController: UIViewController {
         CoreDataHelperPerson.savePerson()
     }
     @IBAction func unwindToHome(segue:UIStoryboardSegue) {
-        self.person.activated = false
-        CoreDataHelperPerson.savePerson()
+//        self.person.activated = false
+//        CoreDataHelperPerson.savePerson()
     }
 
     override func didReceiveMemoryWarning() {

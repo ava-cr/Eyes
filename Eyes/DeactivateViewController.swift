@@ -57,7 +57,12 @@ class DeactivateViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     if success {
-                        self.performSegue(withIdentifier: "backToHome", sender: self)
+                        //self.performSegue(withIdentifier: "backToHome", sender: self)
+                        self.person.activated = false
+                        CoreDataHelperPerson.savePerson()
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+                        self.present(viewController, animated: true, completion: nil)
                     } else {
                         //let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
                         //ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -82,7 +87,12 @@ class DeactivateViewController: UIViewController {
     @IBAction func passcodeButtonTapped(_ sender: Any) {
         if passcodeTextField.text == person.passcode {
             print("deactivated")
-            performSegue(withIdentifier: "backToHome", sender: self)
+            self.person.activated = false
+            CoreDataHelperPerson.savePerson()
+            //let window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+            present(viewController, animated: true, completion: nil)
         }
         else {
             passcodeButton.shake()

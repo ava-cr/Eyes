@@ -80,15 +80,4 @@ class EditContactViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        if(text == "\n") {
-//            textView.resignFirstResponder()
-//            self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
-//            return false
-//        }
-//        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
-//        return true
-//    }
-    
   }

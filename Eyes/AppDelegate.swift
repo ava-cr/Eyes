@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
+        
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         
         switch authorizationStatus {
@@ -64,9 +65,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
         
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -101,12 +109,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
+        //print("hi")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        if CoreDataHelperPerson.retrievePerson().count == 1 {
+            let person = CoreDataHelperPerson.retrievePerson()[0]
+            if person.activated == true {
+                //Set the content of the notification
+                let content = UNMutableNotificationContent()
+                content.title = "Don't Quit Eyes!"
+                //content.subtitle = "From MakeAppPie.com"
+                content.body = "Eyes will continue to check in on you unless you quit the app!"
+                
+                //Set the trigger of the notification -- here a timer.
+                let trigger = UNTimeIntervalNotificationTrigger(
+                    timeInterval: 1.5,
+                    repeats: false)
+                
+                //Set the request for the notification from the above
+                let request = UNNotificationRequest(
+                    identifier: "10.second.message",
+                    content: content,
+                    trigger: trigger
+                )
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+                    if let error = error {
+                        print("Error \(error)")
+                        // Something went wrong
+                    }
+                })
+            }
+        }
     }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("hi")
+    }
+    
+
+    
+    
+    //        if ( application.applicationState == UIApplicationState.active)
+    //        {
+    //            print("Active")
+    //            // App is foreground and notification is recieved,
+    //            // Show a alert.
+    //        }
+    //        else if( application.applicationState == UIApplicationState.background)
+    //        {
+    //            print("Background")
+    //            // App is in background and notification is received,
+    //            // You can fetch required data here don't do anything with UI.
+    //        }
+    //        else if( application.applicationState == UIApplicationState.inactive)
+    //        {
+    //            print("Inactive")
+    //            // App came in foreground by used clicking on notification,
+    //            // Use userinfo for redirecting to specific view controller.
+    //            self.redirectToPage(notification.userInfo)
+    //        }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
@@ -121,6 +186,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    //     func scheduleNotification(at date: Date) {
+    //        let calendar = Calendar(identifier: .gregorian)
+    //        let components = calendar.dateComponents(in: .current, from: date)
+    //        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+    //
+    //        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+    //
+    //        let content = UNMutableNotificationContent()
+    //        content.title = "Tutorial Reminder"
+    //        content.body = "Just a reminder to read your tutorial over at appcoda.com!"
+    //        content.sound = UNNotificationSound.default()
+    //        content.categoryIdentifier = "myCategory"
+    //
+    //        if let path = Bundle.main.path(forResource: "logo", ofType: "png") {
+    //            let url = URL(fileURLWithPath: path)
+    //
+    //            do {
+    //                let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
+    //                content.attachments = [attachment]
+    //            } catch {
+    //                print("The attachment was not loaded.")
+    //            }
+    //        }
+    //
+    //        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+    //
+    //        UNUserNotificationCenter.current().delegate = self
+    //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    //        UNUserNotificationCenter.current().add(request) {(error) in
+    //            if let error = error {
+    //                print("Uh oh! We had an error: \(error)")
+    //            }
+    //        }
+    //    }
+    
     
     // MARK: - Core Data stack
     
@@ -167,3 +268,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
+//extension AppDelegate: UNUserNotificationCenterDelegate {
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//        
+//        if response.actionIdentifier == "remindLater" {
+//            let newDate = Date(timeInterval: 900, since: Date())
+//            scheduleNotification(at: newDate)
+//        }
+//    }
+//}

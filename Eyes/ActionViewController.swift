@@ -13,11 +13,12 @@ import MessageUI
 import UserNotifications
 
 
-class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate, UNUserNotificationCenterDelegate {
     @IBOutlet weak var deactivateButton: UIButton!
     @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var checkInButton: UIButton!
     
     var person = Person()
     var contacts = [Contact]()
@@ -29,13 +30,36 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
         
-        // local notifications
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert,.sound,.badge],
-            completionHandler: { (granted,error) in
-                self.isGrantedNotificationAccess = granted
-        }
+        configureUserNotificationCenter()
+        
+        
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Check in with Eyes!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "It's been half an hour, tap to assure us you're ok."
+        content.categoryIdentifier = "myCategory"
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 60.0,
+            repeats: true)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "10.second.message",
+            content: content,
+            trigger: trigger
         )
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                print("Error \(error)")
+                // Something went wrong
+            }
+        })
+        
+        
         
         
         //customization
@@ -48,37 +72,87 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         locationButton.layer.cornerRadius = 8
         locationButton.layer.borderColor = greyBlue.cgColor
         locationButton.layer.borderWidth = 2.0
+        checkInButton.layer.cornerRadius = 8
+        checkInButton.layer.borderColor = greyBlue.cgColor
+        checkInButton.layer.borderWidth = 2.0
+        checkInButton.isHighlighted = true
+        checkInButton.layer.backgroundColor = UIColor(red: 139.0/255.0, green: 38.0/255.0, blue: 53.0/255.0, alpha: 0.2).cgColor
+        checkInButton.isEnabled = false
     }
+    
+    func configureUserNotificationCenter() {
+        let actionCheckIn = UNNotificationAction(identifier: "checkIn", title: "Check-in", options: [])
+        let actionShowDetails = UNNotificationAction(identifier: "showDetails", title: "Show Details", options: [.foreground])
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [actionCheckIn, actionShowDetails], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        UNUserNotificationCenter.current().delegate = self
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "checkIn":
+            print("Save Tutorial For Later")
+        case "showDetails":
+            print("Unsubscribe Reader")
+        default:
+            print("Other Action")
+        }
+        
+        completionHandler()
+    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         alertButton.flash()
-        if person.activated == true {
-            if isGrantedNotificationAccess {
-                //Set the content of the notification
-                let content = UNMutableNotificationContent()
-                content.title = "Check in with Eyes!"
-                //content.subtitle = "From MakeAppPie.com"
-                content.body = "It's been half an hour, slide to assure us you're ok."
-                
-                //Set the trigger of the notification -- here a timer.
-                let trigger = UNTimeIntervalNotificationTrigger(
-                    timeInterval: 60.0,
-                    repeats: true)
-                
-                //Set the request for the notification from the above
-                let request = UNNotificationRequest(
-                    identifier: "10.second.message",
-                    content: content,
-                    trigger: trigger
-                )
-                UNUserNotificationCenter.current().add(
-                    request, withCompletionHandler: nil)
-            }
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.person = CoreDataHelperPerson.retrievePerson()[0]
+        self.contacts = CoreDataHelperContact.retrieveContacts()
+        
+        let action = UNNotificationAction(identifier: "remindMeLater", title: "Check-in", options: [])
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [action], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Check in with Eyes!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "It's been half an hour, slide to assure us you're ok."
+        content.categoryIdentifier = "myCategory"
+
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 60.0,
+            repeats: true)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "checkin.message",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+        
         
     }
     
+    func listNotifications() -> Void {
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
+            print("\(requests.count) requests -------")
+            for request in requests{
+                print(request.identifier)
+            }
+        })
+    }
     
     
     @IBAction func alertButtonTapped(_ sender: Any) {
