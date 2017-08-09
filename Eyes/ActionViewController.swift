@@ -30,36 +30,33 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
         
-        configureUserNotificationCenter()
+        //configureUserNotificationCenter()
         
         
-        
-        //Set the content of the notification
-        let content = UNMutableNotificationContent()
-        content.title = "Check in with Eyes!"
-        //content.subtitle = "From MakeAppPie.com"
-        content.body = "It's been half an hour, tap to assure us you're ok."
-        content.categoryIdentifier = "myCategory"
-        
-        //Set the trigger of the notification -- here a timer.
-        let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 60.0,
-            repeats: true)
-        
-        //Set the request for the notification from the above
-        let request = UNNotificationRequest(
-            identifier: "10.second.message",
-            content: content,
-            trigger: trigger
-        )
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
-            if let error = error {
-                print("Error \(error)")
-                // Something went wrong
-            }
-        })
-        
-        
+//        //Set the content of the notification
+//        let content = UNMutableNotificationContent()
+//        content.title = "Check in with Eyes!"
+//        //content.subtitle = "From MakeAppPie.com"
+//        content.body = "It's been half an hour, check-in through the notification or slide to assure us you're ok."
+//        content.categoryIdentifier = "myCategory"
+//        
+//        //Set the trigger of the notification -- here a timer.
+//        let trigger = UNTimeIntervalNotificationTrigger(
+//            timeInterval: 60.0,
+//            repeats: true)
+//        
+//        //Set the request for the notification from the above
+//        let request = UNNotificationRequest(
+//            identifier: "10.second.message",
+//            content: content,
+//            trigger: trigger
+//        )
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+//            if let error = error {
+//                print("Error \(error)")
+//                // Something went wrong
+//            }
+//        })
         
         
         //customization
@@ -81,25 +78,32 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     }
     
     func configureUserNotificationCenter() {
-        let actionCheckIn = UNNotificationAction(identifier: "checkIn", title: "Check-in", options: [])
-        let actionShowDetails = UNNotificationAction(identifier: "showDetails", title: "Show Details", options: [.foreground])
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [actionCheckIn, actionShowDetails], intentIdentifiers: [], options: [])
+        let actionCheckIn = UNNotificationAction(identifier: "Check-in", title: "Check-in", options: [])
+        //let actionShowDetails = UNNotificationAction(identifier: "showDetails", title: "Show Details", options: [.foreground])
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [actionCheckIn], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
-        
         UNUserNotificationCenter.current().delegate = self
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("hi")
         switch response.actionIdentifier {
-        case "checkIn":
-            print("Save Tutorial For Later")
-        case "showDetails":
-            print("Unsubscribe Reader")
-        default:
-            print("Other Action")
+            case "Check-in":
+                print("Checked in from notification!")
+                timer.invalidate()
+                runTimer()
+            default:
+                print("You have checked in by opening the app!")
         }
         
         completionHandler()
+    }
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(ActionViewController.followUpNotification)), userInfo: nil, repeats: false)
+    }
+    
+    func followUpNotification() {
+        print("follow up notification!!")
     }
 
     
@@ -114,16 +118,15 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         self.person = CoreDataHelperPerson.retrievePerson()[0]
         self.contacts = CoreDataHelperContact.retrieveContacts()
         
-        let action = UNNotificationAction(identifier: "remindMeLater", title: "Check-in", options: [])
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [action], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+        configureUserNotificationCenter()
+        
         
         
         //Set the content of the notification
         let content = UNMutableNotificationContent()
         content.title = "Check in with Eyes!"
         //content.subtitle = "From MakeAppPie.com"
-        content.body = "It's been half an hour, slide to assure us you're ok."
+        content.body = "It's been half an hour, check-in or open through the notification to assure us you're ok."
         content.categoryIdentifier = "myCategory"
 
         
@@ -139,10 +142,9 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
             trigger: trigger
         )
         
+        
         UNUserNotificationCenter.current().add(
             request, withCompletionHandler: nil)
-        
-        
     }
     
     func listNotifications() -> Void {

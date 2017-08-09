@@ -11,10 +11,15 @@ import CoreData
 import Contacts
 import UserNotifications
 
+var timer = Timer()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    
     var contactStore = CNContactStore()
+    var seconds = 60
+    var isTimerRunning = false
     
     var window: UIWindow?
     
@@ -120,6 +125,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
+                
+                //
+                timer.invalidate()
+                startTimer()
+                
                 //Set the content of the notification
                 let content = UNMutableNotificationContent()
                 content.title = "Don't Quit Eyes!"
@@ -143,35 +153,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Something went wrong
                     }
                 })
+                
+                
             }
         }
     }
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("hi")
+    
+    func startTimer() {
+        print("timer started")
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(ActionViewController.followUpNotification)), userInfo: nil, repeats: false)
     }
-    
 
-    
-    
-    //        if ( application.applicationState == UIApplicationState.active)
-    //        {
-    //            print("Active")
-    //            // App is foreground and notification is recieved,
-    //            // Show a alert.
-    //        }
-    //        else if( application.applicationState == UIApplicationState.background)
-    //        {
-    //            print("Background")
-    //            // App is in background and notification is received,
-    //            // You can fetch required data here don't do anything with UI.
-    //        }
-    //        else if( application.applicationState == UIApplicationState.inactive)
-    //        {
-    //            print("Inactive")
-    //            // App came in foreground by used clicking on notification,
-    //            // Use userinfo for redirecting to specific view controller.
-    //            self.redirectToPage(notification.userInfo)
-    //        }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
@@ -270,7 +262,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 //extension AppDelegate: UNUserNotificationCenterDelegate {
 //    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//        
+//
 //        if response.actionIdentifier == "remindLater" {
 //            let newDate = Date(timeInterval: 900, since: Date())
 //            scheduleNotification(at: newDate)
