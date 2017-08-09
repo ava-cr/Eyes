@@ -12,6 +12,9 @@ import Contacts
 import MessageUI
 import UserNotifications
 
+var timer = Timer()
+var followUpTimer = Timer()
+var secondFollowUpTimer = Timer()
 
 class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate, UNUserNotificationCenterDelegate {
     @IBOutlet weak var deactivateButton: UIButton!
@@ -19,6 +22,8 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var checkInButton: UIButton!
+    
+    
     
     var person = Person()
     var contacts = [Contact]()
@@ -29,34 +34,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
-        
-        //configureUserNotificationCenter()
-        
-        
-//        //Set the content of the notification
-//        let content = UNMutableNotificationContent()
-//        content.title = "Check in with Eyes!"
-//        //content.subtitle = "From MakeAppPie.com"
-//        content.body = "It's been half an hour, check-in through the notification or slide to assure us you're ok."
-//        content.categoryIdentifier = "myCategory"
-//        
-//        //Set the trigger of the notification -- here a timer.
-//        let trigger = UNTimeIntervalNotificationTrigger(
-//            timeInterval: 60.0,
-//            repeats: true)
-//        
-//        //Set the request for the notification from the above
-//        let request = UNNotificationRequest(
-//            identifier: "10.second.message",
-//            content: content,
-//            trigger: trigger
-//        )
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
-//            if let error = error {
-//                print("Error \(error)")
-//                // Something went wrong
-//            }
-//        })
         
         
         //customization
@@ -86,26 +63,133 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("hi")
         switch response.actionIdentifier {
-            case "Check-in":
-                print("Checked in from notification!")
-                timer.invalidate()
-                runTimer()
-            default:
-                print("You have checked in by opening the app!")
+        case "Check-in":
+            print("Checked in from notification!")
+            timer.invalidate()
+            followUpTimer.invalidate()
+            secondFollowUpTimer.invalidate()
+            runTimer()
+        default:
+            print("You have checked in by opening the app!")
+            timer.invalidate()
+            followUpTimer.invalidate()
+            secondFollowUpTimer.invalidate()
+            runTimer()
         }
         
         completionHandler()
     }
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(ActionViewController.followUpNotification)), userInfo: nil, repeats: false)
-    }
     
     func followUpNotification() {
         print("follow up notification!!")
+        timer.invalidate()
+        runFollowUpTimer()
+        configureUserNotificationCenter()
+        
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Warning: You Haven't Checked In!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "This is the first follow-up notification, if you don't respond to the second, your contacts will be notified."
+        content.categoryIdentifier = "myCategory"
+        
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10.0,
+            repeats: false)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "followup.message",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+        
     }
-
+    
+    func secondFollowUp() {
+        
+        print("second follow up notification!!")
+        //timer.invalidate()
+        followUpTimer.invalidate()
+        runSecondFollowUpTimer()
+        configureUserNotificationCenter()
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Warning: You Haven't Checked In!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "If you don't respond to this notification, your contacts will be notified!"
+        content.categoryIdentifier = "myCategory"
+        
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10.0,
+            repeats: false)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "second.followup",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+    }
+    
+    func noResponseToFollowUps() {
+        secondFollowUpTimer.invalidate()
+        print("User did not respond to follow up notifications!!!")
+        
+        configureUserNotificationCenter()
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Your Contacts Are Being Notified!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "You have been unresponsive and your stuation could be potentially dangerous."
+        content.categoryIdentifier = "myCategory"
+        
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10.0,
+            repeats: false)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "contacts.message",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+    }
+    
+    func runTimer() {
+        print("run timer started")
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(self.followUpNotification)), userInfo: nil, repeats: true)
+    }
+    func runFollowUpTimer() {
+        print("follow up timer started")
+        followUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.secondFollowUp)), userInfo: nil, repeats: true)
+    }
+    
+    func runSecondFollowUpTimer() {
+        print("second follow up timer started")
+        secondFollowUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.noResponseToFollowUps)), userInfo: nil, repeats: true)
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -114,6 +198,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        timer.invalidate()
+        followUpTimer.invalidate()
+        secondFollowUpTimer.invalidate()
+        
+        runTimer()
+        
         
         self.person = CoreDataHelperPerson.retrievePerson()[0]
         self.contacts = CoreDataHelperContact.retrieveContacts()
@@ -128,7 +218,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         //content.subtitle = "From MakeAppPie.com"
         content.body = "It's been half an hour, check-in or open through the notification to assure us you're ok."
         content.categoryIdentifier = "myCategory"
-
+        
         
         //Set the trigger of the notification -- here a timer.
         let trigger = UNTimeIntervalNotificationTrigger(
@@ -142,18 +232,8 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
             trigger: trigger
         )
         
-        
         UNUserNotificationCenter.current().add(
             request, withCompletionHandler: nil)
-    }
-    
-    func listNotifications() -> Void {
-        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
-            print("\(requests.count) requests -------")
-            for request in requests{
-                print(request.identifier)
-            }
-        })
     }
     
     

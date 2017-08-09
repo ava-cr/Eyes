@@ -28,6 +28,11 @@
 	<string>Needs access to location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Needs access to location when in usage</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

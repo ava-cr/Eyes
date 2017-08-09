@@ -11,7 +11,7 @@ import CoreData
 import Contacts
 import UserNotifications
 
-var timer = Timer()
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -110,6 +110,111 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func followUpNotification() {
+        print("follow up notification!!")
+        timer.invalidate()
+        runFollowUpTimer()
+        
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Warning: You Haven't Checked In!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "This is the first follow-up notification, if you don't respond to the second, your contacts will be notified."
+        content.categoryIdentifier = "myCategory"
+        
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10.0,
+            repeats: false)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "followup.message",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+        
+    }
+    
+    func secondFollowUp() {
+        
+        print("second follow up notification!!")
+        //timer.invalidate()
+        followUpTimer.invalidate()
+        runSecondFollowUpTimer()
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Warning: You Haven't Checked In!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "If you don't respond to this notification, your contacts will be notified!"
+        content.categoryIdentifier = "myCategory"
+        
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10.0,
+            repeats: false)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "second.followup",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+    }
+    
+    func noResponseToFollowUps() {
+        secondFollowUpTimer.invalidate()
+        print("User did not respond to follow up notifications!!!")
+        
+        
+        //Set the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "Your Contacts Are Being Notified!"
+        //content.subtitle = "From MakeAppPie.com"
+        content.body = "You have been unresponsive and your stuation could be potentially dangerous."
+        content.categoryIdentifier = "myCategory"
+        
+        
+        //Set the trigger of the notification -- here a timer.
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10.0,
+            repeats: false)
+        
+        //Set the request for the notification from the above
+        let request = UNNotificationRequest(
+            identifier: "contacts.message",
+            content: content,
+            trigger: trigger
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+    }
+    
+    func runTimer() {
+        print("run timer started")
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(self.followUpNotification)), userInfo: nil, repeats: true)
+    }
+    func runFollowUpTimer() {
+        print("follow up timer started")
+        followUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.secondFollowUp)), userInfo: nil, repeats: true)
+    }
+    
+    func runSecondFollowUpTimer() {
+        print("second follow up timer started")
+        secondFollowUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.noResponseToFollowUps)), userInfo: nil, repeats: true)
+    }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -122,14 +227,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
+        
+        
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
                 
-                //
-                timer.invalidate()
-                startTimer()
-                
+                runTimer()
+                                
                 //Set the content of the notification
                 let content = UNMutableNotificationContent()
                 content.title = "Don't Quit Eyes!"
@@ -152,18 +257,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print("Error \(error)")
                         // Something went wrong
                     }
-                })
-                
-                
+                }) 
             }
         }
     }
-    
-    func startTimer() {
-        print("timer started")
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(ActionViewController.followUpNotification)), userInfo: nil, repeats: false)
-    }
-
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
