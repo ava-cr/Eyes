@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var person = Person()
     
-    
     var contactStore = CNContactStore()
     var seconds = 60
     var isTimerRunning = false
@@ -74,15 +73,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-        
+
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
             if !accepted {
                 print("Notification access denied.")
             }
         }
-        
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -111,8 +107,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    
     
     
     func noResponseToFollowUps() {
@@ -144,21 +138,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request, withCompletionHandler: nil)
     }
     
-    //    func runTimer() {
-    //        print("run timer started")
-    //        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(self.followUpNotification)), userInfo: nil, repeats: true)
-    //    }
-    //    func runFollowUpTimer() {
-    //        print("follow up timer started")
-    //        followUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.secondFollowUp)), userInfo: nil, repeats: true)
-    //    }
-    //
-    //    func runSecondFollowUpTimer() {
-    //        print("second follow up timer started")
-    //        secondFollowUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.noResponseToFollowUps)), userInfo: nil, repeats: true)
-    //    }
-    
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -170,6 +149,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         if CoreDataHelperPerson.retrievePerson().count == 1 {
+            
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+            
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
                 
@@ -221,13 +203,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         print("background fetch complete!!")
-        if CoreDataHelperPerson.retrievePerson().count == 1 {
-            if person.activated == true {
-                CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
-                CoreDataHelperPerson.savePerson()
-                sendFollowUpNotification()
-            }
+        person = CoreDataHelperPerson.retrievePerson()[0]
+        if person.activated == true {
+            CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
+            CoreDataHelperPerson.savePerson()
+            sendFollowUpNotification()
         }
+        
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -255,9 +237,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             UNUserNotificationCenter.current().add(
                 request, withCompletionHandler: nil)
+            
+            sleep(60)
         }
         // second follow up
         if followUpNumber == 2 {
+            
+            print("haven't responded to 2 notifications")
             
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"

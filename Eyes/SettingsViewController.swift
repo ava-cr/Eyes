@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var contactsButton: UIButton!
     @IBOutlet weak var passcodeButton: UIButton!
-    @IBOutlet weak var timeIntervalButton: UIButton!
     
     var navigationBarAppearace = UINavigationBar.appearance()
 
@@ -21,13 +20,10 @@ class SettingsViewController: UIViewController {
         
         self.contactsButton.layer.cornerRadius = 8
         self.passcodeButton.layer.cornerRadius = 8
-        self.timeIntervalButton.layer.cornerRadius = 8
         self.contactsButton.layer.borderColor = mintGreen.cgColor
         self.passcodeButton.layer.borderColor = mintGreen.cgColor
-        self.timeIntervalButton.layer.borderColor = mintGreen.cgColor
         self.contactsButton.layer.borderWidth = 1.0
         self.passcodeButton.layer.borderWidth = 1.0
-        self.timeIntervalButton.layer.borderWidth = 1.0
         
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
         navigationBarAppearace.barTintColor = mintGreen

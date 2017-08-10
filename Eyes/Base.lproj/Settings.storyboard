@@ -26,7 +26,7 @@
                                 <rect key="frame" x="26" y="94" width="323" height="543"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="164.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="259.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
                                         <state key="normal" title="Edit Contacts"/>
                                         <connections>
@@ -34,22 +34,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
-                                        <rect key="frame" x="0.0" y="189.5" width="323" height="164"/>
+                                        <rect key="frame" x="0.0" y="284.5" width="323" height="258.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
                                         <state key="normal" title="Edit Passcode"/>
                                         <connections>
                                             <segue destination="5qk-Yn-bE3" kind="presentation" id="MgG-w6-f6j"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-ew-UmL">
-                                        <rect key="frame" x="0.0" y="378.5" width="323" height="164.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                        <state key="normal" title="Change Time Interval"/>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ArA-fw-Qq2" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="Ytq-Q0-dHK"/>
-                                    <constraint firstItem="vCp-ew-UmL" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="qeK-jY-Ked"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -93,7 +87,6 @@
                         <outlet property="backButton" destination="3cQ-Wr-QZZ" id="k7i-e8-axd"/>
                         <outlet property="contactsButton" destination="T8f-Wk-5VM" id="a6g-E9-ESB"/>
                         <outlet property="passcodeButton" destination="ArA-fw-Qq2" id="A0h-ba-sJ2"/>
-                        <outlet property="timeIntervalButton" destination="vCp-ew-UmL" id="gkU-kA-Miz"/>
                         <segue destination="iXd-a3-vxP" kind="unwind" identifier="settingsToHome" unwindAction="unwindToHomeWithSegue:" id="hAZ-hb-Twz"/>
                     </connections>
                 </viewController>
