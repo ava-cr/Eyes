@@ -16,6 +16,8 @@ import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var person = Person()
+    
     
     var contactStore = CNContactStore()
     var seconds = 60
@@ -73,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
             if !accepted {
@@ -110,67 +112,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func followUpNotification() {
-        print("follow up notification!!")
-        timer.invalidate()
-        runFollowUpTimer()
-        
-        
-        //Set the content of the notification
-        let content = UNMutableNotificationContent()
-        content.title = "Warning: You Haven't Checked In!"
-        //content.subtitle = "From MakeAppPie.com"
-        content.body = "This is the first follow-up notification, if you don't respond to the second, your contacts will be notified."
-        content.categoryIdentifier = "myCategory"
-        
-        
-        //Set the trigger of the notification -- here a timer.
-        let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 10.0,
-            repeats: false)
-        
-        //Set the request for the notification from the above
-        let request = UNNotificationRequest(
-            identifier: "followup.message",
-            content: content,
-            trigger: trigger
-        )
-        
-        UNUserNotificationCenter.current().add(
-            request, withCompletionHandler: nil)
-        
-    }
     
-    func secondFollowUp() {
-        
-        print("second follow up notification!!")
-        //timer.invalidate()
-        followUpTimer.invalidate()
-        runSecondFollowUpTimer()
-        
-        //Set the content of the notification
-        let content = UNMutableNotificationContent()
-        content.title = "Warning: You Haven't Checked In!"
-        //content.subtitle = "From MakeAppPie.com"
-        content.body = "If you don't respond to this notification, your contacts will be notified!"
-        content.categoryIdentifier = "myCategory"
-        
-        
-        //Set the trigger of the notification -- here a timer.
-        let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 10.0,
-            repeats: false)
-        
-        //Set the request for the notification from the above
-        let request = UNNotificationRequest(
-            identifier: "second.followup",
-            content: content,
-            trigger: trigger
-        )
-        
-        UNUserNotificationCenter.current().add(
-            request, withCompletionHandler: nil)
-    }
+    
     
     func noResponseToFollowUps() {
         secondFollowUpTimer.invalidate()
@@ -201,40 +144,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             request, withCompletionHandler: nil)
     }
     
-    func runTimer() {
-        print("run timer started")
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(self.followUpNotification)), userInfo: nil, repeats: true)
-    }
-    func runFollowUpTimer() {
-        print("follow up timer started")
-        followUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.secondFollowUp)), userInfo: nil, repeats: true)
-    }
-    
-    func runSecondFollowUpTimer() {
-        print("second follow up timer started")
-        secondFollowUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.noResponseToFollowUps)), userInfo: nil, repeats: true)
-    }
+    //    func runTimer() {
+    //        print("run timer started")
+    //        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(self.followUpNotification)), userInfo: nil, repeats: true)
+    //    }
+    //    func runFollowUpTimer() {
+    //        print("follow up timer started")
+    //        followUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.secondFollowUp)), userInfo: nil, repeats: true)
+    //    }
+    //
+    //    func runSecondFollowUpTimer() {
+    //        print("second follow up timer started")
+    //        secondFollowUpTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: (#selector(self.noResponseToFollowUps)), userInfo: nil, repeats: true)
+    //    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
-        //print("hi")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        
-        
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
                 
-                runTimer()
-                                
+                //runTimer()
+                
                 //Set the content of the notification
                 let content = UNMutableNotificationContent()
                 content.title = "Don't Quit Eyes!"
@@ -257,7 +197,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print("Error \(error)")
                         // Something went wrong
                     }
-                }) 
+                })
             }
         }
     }
@@ -276,40 +216,89 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    //     func scheduleNotification(at date: Date) {
-    //        let calendar = Calendar(identifier: .gregorian)
-    //        let components = calendar.dateComponents(in: .current, from: date)
-    //        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
-    //
-    //        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
-    //
-    //        let content = UNMutableNotificationContent()
-    //        content.title = "Tutorial Reminder"
-    //        content.body = "Just a reminder to read your tutorial over at appcoda.com!"
-    //        content.sound = UNNotificationSound.default()
-    //        content.categoryIdentifier = "myCategory"
-    //
-    //        if let path = Bundle.main.path(forResource: "logo", ofType: "png") {
-    //            let url = URL(fileURLWithPath: path)
-    //
-    //            do {
-    //                let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
-    //                content.attachments = [attachment]
-    //            } catch {
-    //                print("The attachment was not loaded.")
-    //            }
-    //        }
-    //
-    //        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
-    //
-    //        UNUserNotificationCenter.current().delegate = self
-    //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    //        UNUserNotificationCenter.current().add(request) {(error) in
-    //            if let error = error {
-    //                print("Uh oh! We had an error: \(error)")
-    //            }
-    //        }
-    //    }
+    //try 2 - with background fetch
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        print("background fetch complete!!")
+        if CoreDataHelperPerson.retrievePerson().count == 1 {
+            if person.activated == true {
+                CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
+                CoreDataHelperPerson.savePerson()
+                sendFollowUpNotification()
+            }
+        }
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func sendFollowUpNotification() {
+        
+        let followUpNumber = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo
+        
+        // first follow up
+        if followUpNumber == 1 {
+            print("haven't responded to 1 notification")
+            let content = UNMutableNotificationContent()
+            content.title = "Warning: You Haven't Checked In!"
+            content.body = "This is the first follow-up notification, if you don't respond to the second, your contacts will be notified."
+            content.categoryIdentifier = "myCategory"
+            
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: 5.0,
+                repeats: false)
+            
+            let request = UNNotificationRequest(
+                identifier: "followup.message",
+                content: content,
+                trigger: trigger
+            )
+            UNUserNotificationCenter.current().add(
+                request, withCompletionHandler: nil)
+        }
+        // second follow up
+        if followUpNumber == 2 {
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Warning: You Haven't Checked In!"
+            content.body = "If you don't respond to this notification, your contacts will be notified!"
+            content.categoryIdentifier = "myCategory"
+            
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: 5.0,
+                repeats: false)
+            
+            let request = UNNotificationRequest(
+                identifier: "second.followup",
+                content: content,
+                trigger: trigger
+            )
+            UNUserNotificationCenter.current().add(
+                request, withCompletionHandler: nil)
+        }
+        // third follow up - notifying contacts
+        if followUpNumber == 3 {
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Your Contacts Are Being Notified!"
+            content.body = "You have been unresponsive and your stuation could be potentially dangerous."
+            content.categoryIdentifier = "myCategory"
+            
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: 5.0,
+                repeats: false)
+            
+            let request = UNNotificationRequest(
+                identifier: "contacts.message",
+                content: content,
+                trigger: trigger
+            )
+            UNUserNotificationCenter.current().add(
+                request, withCompletionHandler: nil)
+        }
+    }
+    
+    
     
     
     // MARK: - Core Data stack
@@ -357,12 +346,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-//extension AppDelegate: UNUserNotificationCenterDelegate {
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//
-//        if response.actionIdentifier == "remindLater" {
-//            let newDate = Date(timeInterval: 900, since: Date())
-//            scheduleNotification(at: newDate)
-//        }
-//    }
-//}

@@ -8,6 +8,7 @@
 
 import UIKit
 import LocalAuthentication
+import UserNotifications
 
 class DeactivateViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
@@ -60,6 +61,8 @@ class DeactivateViewController: UIViewController {
                         //self.performSegue(withIdentifier: "backToHome", sender: self)
                         self.person.activated = false
                         CoreDataHelperPerson.savePerson()
+                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
                         self.present(viewController, animated: true, completion: nil)
@@ -89,6 +92,8 @@ class DeactivateViewController: UIViewController {
             print("deactivated")
             self.person.activated = false
             CoreDataHelperPerson.savePerson()
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
             //let window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
