@@ -22,20 +22,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="thX-jR-e9P">
-                                <rect key="frame" x="26" y="94" width="323" height="543"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="thX-jR-e9P">
+                                <rect key="frame" x="26" y="104" width="323" height="523"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="259.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="246.5"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.25296982020547948" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
                                         <state key="normal" title="Edit Contacts"/>
                                         <connections>
                                             <segue destination="gpB-g6-Ktj" kind="show" id="EnR-eI-ig9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
-                                        <rect key="frame" x="0.0" y="284.5" width="323" height="258.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
+                                        <rect key="frame" x="0.0" y="276.5" width="323" height="246.5"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.25296982020547948" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
                                         <state key="normal" title="Edit Passcode"/>
                                         <connections>
                                             <segue destination="5qk-Yn-bE3" kind="presentation" id="MgG-w6-f6j"/>
@@ -49,8 +51,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="thX-jR-e9P" firstAttribute="top" secondItem="jyd-Lt-WHs" secondAttribute="bottom" constant="30" id="6jX-xD-ji9"/>
-                            <constraint firstItem="7La-uT-fYN" firstAttribute="top" secondItem="thX-jR-e9P" secondAttribute="bottom" constant="30" id="9qc-UW-WOL"/>
+                            <constraint firstItem="thX-jR-e9P" firstAttribute="top" secondItem="jyd-Lt-WHs" secondAttribute="bottom" constant="40" id="6jX-xD-ji9"/>
+                            <constraint firstItem="7La-uT-fYN" firstAttribute="top" secondItem="thX-jR-e9P" secondAttribute="bottom" constant="40" id="9qc-UW-WOL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="thX-jR-e9P" secondAttribute="trailing" constant="10" id="GT4-q0-Sx3"/>
                             <constraint firstItem="thX-jR-e9P" firstAttribute="leading" secondItem="Q3U-uV-6de" secondAttribute="leadingMargin" constant="10" id="Lgb-ZF-NvZ"/>
                         </constraints>

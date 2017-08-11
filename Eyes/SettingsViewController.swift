@@ -22,12 +22,12 @@ class SettingsViewController: UIViewController {
         self.passcodeButton.layer.cornerRadius = 8
         self.contactsButton.layer.borderColor = mintGreen.cgColor
         self.passcodeButton.layer.borderColor = mintGreen.cgColor
-        self.contactsButton.layer.borderWidth = 1.0
-        self.passcodeButton.layer.borderWidth = 1.0
+        self.contactsButton.layer.borderWidth = 2.0
+        self.passcodeButton.layer.borderWidth = 2.0
         
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
         navigationBarAppearace.barTintColor = mintGreen
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         
 
         // Do any additional setup after loading the view.
@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func unwindToSettings(segue:UIStoryboardSegue) {
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
 
     override func didReceiveMemoryWarning() {

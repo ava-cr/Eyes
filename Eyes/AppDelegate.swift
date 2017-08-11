@@ -224,7 +224,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"
             content.body = "This is the first follow-up notification, if you don't respond to the second, your contacts will be notified."
-            content.categoryIdentifier = "myCategory"
+            //content.categoryIdentifier = "myCategory"
             
             let trigger = UNTimeIntervalNotificationTrigger(
                 timeInterval: 5.0,
@@ -248,7 +248,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"
             content.body = "If you don't respond to this notification, your contacts will be notified!"
-            content.categoryIdentifier = "myCategory"
+            //content.categoryIdentifier = "myCategory"
             
             let trigger = UNTimeIntervalNotificationTrigger(
                 timeInterval: 5.0,

@@ -21,7 +21,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
-    @IBOutlet weak var checkInButton: UIButton!
     
     
     
@@ -40,18 +39,21 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         alertButton.layer.cornerRadius = 8
         alertButton.layer.borderColor = darkRed.cgColor
         alertButton.layer.borderWidth = 5.0
+        
+        alertButton.titleLabel?.layer.shadowColor = darkRed.cgColor
+        alertButton.titleLabel?.layer.shadowRadius = 4
+        alertButton.titleLabel?.layer.shadowOpacity = 0.5
+        alertButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        alertButton.titleLabel?.layer.masksToBounds = false
+        
+        
         contactButton.layer.cornerRadius = 8
         contactButton.layer.borderColor = greyBlue.cgColor
         contactButton.layer.borderWidth = 2.0
         locationButton.layer.cornerRadius = 8
         locationButton.layer.borderColor = greyBlue.cgColor
         locationButton.layer.borderWidth = 2.0
-        checkInButton.layer.cornerRadius = 8
-        checkInButton.layer.borderColor = greyBlue.cgColor
-        checkInButton.layer.borderWidth = 2.0
-        checkInButton.isHighlighted = true
-        checkInButton.layer.backgroundColor = UIColor(red: 139.0/255.0, green: 38.0/255.0, blue: 53.0/255.0, alpha: 0.2).cgColor
-        checkInButton.isEnabled = false
+
     }
     
     func configureUserNotificationCenter() {
@@ -114,12 +116,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         let content = UNMutableNotificationContent()
         content.title = "Check in with Eyes!"
-        content.body = "It's been half an hour, check-in or open through the notification to assure us you're ok."
-        content.categoryIdentifier = "myCategory"
+        content.body = "It's been half an hour, open the app to assure us you're ok."
+        //content.categoryIdentifier = "myCategory"
         
         
         let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 60.0,
+            timeInterval: 300.0,
             repeats: false)
         
         let request = UNNotificationRequest(

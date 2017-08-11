@@ -171,39 +171,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ozd-48-WJ5">
-                                <rect key="frame" x="36" y="200.5" width="303" height="266"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBY-tO-5hM">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="83"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="60"/>
-                                        <state key="normal" title="Activate">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="activateButtonTapped:" destination="Er2-No-gsP" eventType="touchUpInside" id="l7i-aG-zkN"/>
-                                            <segue destination="B4i-9P-D0e" kind="presentation" modalTransitionStyle="crossDissolve" id="oih-av-eQb"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9P6-QO-DCs">
-                                        <rect key="frame" x="0.0" y="183" width="303" height="83"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="60"/>
-                                        <state key="normal" title="Settings">
-                                            <color key="titleColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="iig-hb-AxU" kind="presentation" modalTransitionStyle="coverVertical" id="FOd-Jc-wTL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBY-tO-5hM">
+                                <rect key="frame" x="36" y="258.5" width="303" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="jIM-pA-Gwi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="60"/>
+                                <state key="normal" title="Activate">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="activateButtonTapped:" destination="Er2-No-gsP" eventType="touchUpInside" id="l7i-aG-zkN"/>
+                                    <segue destination="B4i-9P-D0e" kind="presentation" modalTransitionStyle="coverVertical" id="oih-av-eQb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9P6-QO-DCs">
+                                <rect key="frame" x="16" y="603" width="343" height="54"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.25165881849315069" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iig-hb-AxU" kind="presentation" modalTransitionStyle="coverVertical" id="FOd-Jc-wTL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ozd-48-WJ5" firstAttribute="leading" secondItem="GiE-bd-OXc" secondAttribute="leadingMargin" constant="20" id="BCj-10-A3e"/>
-                            <constraint firstItem="ozd-48-WJ5" firstAttribute="centerX" secondItem="GiE-bd-OXc" secondAttribute="centerX" id="dVd-HF-NVd"/>
-                            <constraint firstItem="ozd-48-WJ5" firstAttribute="centerY" secondItem="GiE-bd-OXc" secondAttribute="centerY" id="onv-Lv-dhW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ozd-48-WJ5" secondAttribute="trailing" constant="20" id="sYf-qV-ygw"/>
+                            <constraint firstItem="RBY-tO-5hM" firstAttribute="centerY" secondItem="GiE-bd-OXc" secondAttribute="centerY" id="BMB-Ba-Xpg"/>
+                            <constraint firstItem="RBY-tO-5hM" firstAttribute="leading" secondItem="GiE-bd-OXc" secondAttribute="leadingMargin" constant="20" id="KDf-SH-QEu"/>
+                            <constraint firstItem="Sb4-K0-dqg" firstAttribute="top" secondItem="9P6-QO-DCs" secondAttribute="bottom" constant="10" id="RBK-pO-toq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RBY-tO-5hM" secondAttribute="trailing" constant="20" id="Xol-d1-15i"/>
+                            <constraint firstItem="9P6-QO-DCs" firstAttribute="leading" secondItem="GiE-bd-OXc" secondAttribute="leadingMargin" id="aOt-ZN-F28"/>
+                            <constraint firstItem="RBY-tO-5hM" firstAttribute="centerX" secondItem="GiE-bd-OXc" secondAttribute="centerX" id="eLZ-JU-kbY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9P6-QO-DCs" secondAttribute="trailing" id="vGp-LG-lDx"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -267,7 +269,7 @@
                                     <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Er2-No-gsP" kind="show" identifier="passcodeInputted" id="L0J-O8-K0M"/>
+                                    <segue destination="Er2-No-gsP" kind="presentation" identifier="passcodeInputted" modalTransitionStyle="flipHorizontal" id="L0J-O8-K0M"/>
                                 </connections>
                             </button>
                         </subviews>

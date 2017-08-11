@@ -29,12 +29,19 @@ class HomeViewController: UIViewController {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 
         //customization
-        activateButton.layer.cornerRadius = 8
-        activateButton.layer.borderWidth = 3.0
-        activateButton.layer.borderColor = darkBlue.cgColor
+//        activateButton.layer.cornerRadius = 8
+//        activateButton.layer.borderWidth = 3.0
+//        activateButton.layer.borderColor = darkBlue.cgColor
         settingsButton.layer.cornerRadius = 8
-        settingsButton.layer.borderWidth = 3.0
+        settingsButton.layer.borderWidth = 1.5
         settingsButton.layer.borderColor = lightGrey.cgColor
+        
+        
+        activateButton.titleLabel?.layer.shadowColor = darkBlue.cgColor
+        activateButton.titleLabel?.layer.shadowRadius = 4
+        activateButton.titleLabel?.layer.shadowOpacity = 0.5
+        activateButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        activateButton.titleLabel?.layer.masksToBounds = false
     }
 
     

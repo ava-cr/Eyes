@@ -87,7 +87,11 @@
                                 <rect key="frame" x="16" y="55.5" width="343" height="536.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g41-8n-agr">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="218"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="300"/>
+                                        <color key="backgroundColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.2459332191780822" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="bRT-wx-sXW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
                                         <state key="normal" title="ALERT">
                                             <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -96,52 +100,34 @@
                                             <action selector="alertButtonTapped:" destination="iBc-AD-YXH" eventType="touchUpInside" id="LhE-LI-jFg"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rCk-az-dsB">
-                                        <rect key="frame" x="0.0" y="243" width="343" height="51"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-UA-PzI">
-                                                <rect key="frame" x="0.0" y="0.0" width="164" height="51"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="33"/>
-                                                <state key="normal" title="CONTACT">
-                                                    <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="GT2-9E-Q8M" kind="presentation" modalTransitionStyle="crossDissolve" id="CUt-QT-l68"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFC-d9-wbQ">
-                                                <rect key="frame" x="179" y="0.0" width="164" height="51"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="33"/>
-                                                <state key="normal" title="LOCATION">
-                                                    <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="Mim-jf-tu4" kind="show" id="Ct3-V1-5cH"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="GFC-d9-wbQ" firstAttribute="width" secondItem="z4a-UA-PzI" secondAttribute="width" id="SJA-Fk-bJl"/>
-                                            <constraint firstItem="GFC-d9-wbQ" firstAttribute="height" secondItem="z4a-UA-PzI" secondAttribute="height" id="tey-Aw-6DB"/>
-                                        </constraints>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSN-ts-75c">
-                                        <rect key="frame" x="0.0" y="319" width="343" height="217.5"/>
-                                        <color key="backgroundColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-UA-PzI">
+                                        <rect key="frame" x="0.0" y="325" width="343" height="93.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
-                                        <state key="normal" title="Check-in">
+                                        <state key="normal" title="CONTACT">
                                             <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="GT2-9E-Q8M" kind="presentation" modalTransitionStyle="crossDissolve" id="CUt-QT-l68"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFC-d9-wbQ">
+                                        <rect key="frame" x="0.0" y="443.5" width="343" height="93"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                        <state key="normal" title="LOCATION">
+                                            <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Mim-jf-tu4" kind="show" id="Ct3-V1-5cH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="GFC-d9-wbQ" firstAttribute="width" secondItem="g41-8n-agr" secondAttribute="width" id="79D-Xj-ePn"/>
                                     <constraint firstItem="g41-8n-agr" firstAttribute="top" secondItem="p3B-Dx-aYY" secondAttribute="top" id="FVZ-J5-zBh"/>
-                                    <constraint firstItem="rCk-az-dsB" firstAttribute="leading" secondItem="p3B-Dx-aYY" secondAttribute="leading" id="WBK-03-Gp5"/>
-                                    <constraint firstAttribute="trailing" secondItem="rCk-az-dsB" secondAttribute="trailing" id="ctr-hf-cYe"/>
-                                    <constraint firstItem="BSN-ts-75c" firstAttribute="height" secondItem="g41-8n-agr" secondAttribute="height" id="t7y-pQ-K5Z"/>
-                                    <constraint firstItem="BSN-ts-75c" firstAttribute="width" secondItem="g41-8n-agr" secondAttribute="width" id="tgY-oS-jfJ"/>
-                                    <constraint firstItem="rCk-az-dsB" firstAttribute="width" secondItem="g41-8n-agr" secondAttribute="width" id="vDZ-l8-fkJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="BSN-ts-75c" secondAttribute="bottom" id="w7Z-YV-ftT"/>
+                                    <constraint firstAttribute="trailing" secondItem="g41-8n-agr" secondAttribute="trailing" id="J7A-Oz-ERt"/>
+                                    <constraint firstItem="GFC-d9-wbQ" firstAttribute="height" secondItem="z4a-UA-PzI" secondAttribute="height" id="Xpm-6r-brH"/>
+                                    <constraint firstItem="g41-8n-agr" firstAttribute="leading" secondItem="p3B-Dx-aYY" secondAttribute="leading" id="aIb-5j-mUP"/>
+                                    <constraint firstItem="z4a-UA-PzI" firstAttribute="width" secondItem="g41-8n-agr" secondAttribute="width" id="g8n-qd-Ilm"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVATED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouP-qh-g4s">
@@ -185,7 +171,6 @@
                     </view>
                     <connections>
                         <outlet property="alertButton" destination="g41-8n-agr" id="9tw-ZA-0A5"/>
-                        <outlet property="checkInButton" destination="BSN-ts-75c" id="fd6-OJ-vNr"/>
                         <outlet property="contactButton" destination="z4a-UA-PzI" id="9Hf-l1-0bB"/>
                         <outlet property="locationButton" destination="GFC-d9-wbQ" id="h3Y-31-ZKf"/>
                     </connections>
@@ -238,7 +223,7 @@
                                 <rect key="frame" x="20" y="20" width="51" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="GT2-9E-Q8M" eventType="touchUpInside" id="htX-2H-V6z"/>
@@ -297,7 +282,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-SW-Oyg" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
                                             <rect key="frame" x="8" y="47" width="359" height="31"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                            <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.5" height="-0.5"/>
                                             <userDefinedRuntimeAttributes>
@@ -317,6 +302,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="contactNameLabel" destination="jhp-SW-Oyg" id="UrN-Iz-ECz"/>
                                     <segue destination="Yzt-FD-fNT" kind="show" identifier="contactChosen" id="jFK-Pt-sGc"/>
@@ -367,7 +353,7 @@
                                             <constraint firstAttribute="height" constant="64" id="utM-03-4b7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNg-H5-vzf">
@@ -381,7 +367,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="SEND">
-                                            <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="sendButtonTapped:" destination="Yzt-FD-fNT" eventType="touchUpInside" id="JxK-K9-e5u"/>
@@ -407,7 +393,7 @@
                                         <color key="tintColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="Send Location to Contact Selected to Text">
-                                            <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shareButtonTapped:" destination="Yzt-FD-fNT" eventType="touchUpInside" id="AkY-79-a5F"/>
@@ -443,7 +429,7 @@
                         <viewControllerLayoutGuide type="top" id="eVp-MX-Txb"/>
                         <viewControllerLayoutGuide type="bottom" id="0CH-vI-Ahz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="axk-rk-I5T" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="axk-rk-I5T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -451,7 +437,7 @@
                                 <rect key="frame" x="26" y="20" width="51" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="GT2-9E-Q8M" eventType="touchUpInside" id="5nE-vP-gzd"/>
@@ -459,48 +445,42 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assure us you're in a safe place and want to deactivate Eyes:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-rf-pv0">
-                                <rect key="frame" x="10" y="86.5" width="355" height="54.5"/>
+                                <rect key="frame" x="10" y="75" width="355" height="54.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
-                                <color key="textColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deactivate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-Jp-y2o">
-                                <rect key="frame" x="111.5" y="20" width="152" height="41.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                <color key="textColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="V5q-MB-lQK">
-                                <rect key="frame" x="23.5" y="191" width="328" height="362"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="V5q-MB-lQK">
+                                <rect key="frame" x="21" y="240" width="333" height="327"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doZ-Tz-wSg">
-                                        <rect key="frame" x="0.0" y="0.0" width="328" height="71"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
-                                        <state key="normal" title="Fingerprint">
-                                            <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="66"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
+                                        <state key="normal" title="Enter Fingerprint">
+                                            <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="fingerprintButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="3Fu-nw-0gO"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-iU-ZwZ">
-                                        <rect key="frame" x="0.0" y="171" width="328" height="191"/>
+                                        <rect key="frame" x="0.0" y="141" width="333" height="186"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2a-dq-WvT">
-                                                <rect key="frame" x="0.0" y="0.0" width="328" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="333" height="100"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="dcQ-u5-AzM"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                                <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-Ei-y6y">
-                                                <rect key="frame" x="0.0" y="120" width="328" height="71"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                                <rect key="frame" x="0.0" y="120" width="333" height="66"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
                                                 <state key="normal" title="Enter Passcode">
-                                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="passcodeButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="GOq-Ec-Clg"/>
@@ -513,23 +493,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="V5q-MB-lQK" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="5" id="2tQ-lt-Lc5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V5q-MB-lQK" secondAttribute="trailing" constant="5" id="9fV-7w-3Xe"/>
                             <constraint firstAttribute="trailing" secondItem="EEN-rf-pv0" secondAttribute="trailing" constant="10" id="9x1-py-Gdc"/>
+                            <constraint firstItem="V5q-MB-lQK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EEN-rf-pv0" secondAttribute="bottom" constant="50" id="Cqc-Bl-LCI"/>
                             <constraint firstItem="EEN-rf-pv0" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leading" constant="10" id="Kpo-S3-ekf"/>
                             <constraint firstItem="EEN-rf-pv0" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="Ozp-qc-X5m"/>
+                            <constraint firstItem="0CH-vI-Ahz" firstAttribute="top" secondItem="V5q-MB-lQK" secondAttribute="bottom" constant="100" id="QIy-1k-9Bz"/>
                             <constraint firstItem="egv-wD-2La" firstAttribute="top" secondItem="eVp-MX-Txb" secondAttribute="bottom" id="TPE-gf-XTV"/>
-                            <constraint firstItem="V5q-MB-lQK" firstAttribute="top" secondItem="EEN-rf-pv0" secondAttribute="bottom" constant="50" id="VKW-jt-UKy"/>
-                            <constraint firstItem="fgP-Jp-y2o" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="ZGJ-fH-yDK"/>
+                            <constraint firstItem="EEN-rf-pv0" firstAttribute="top" secondItem="egv-wD-2La" secondAttribute="bottom" constant="15" id="fcM-zy-H01"/>
                             <constraint firstItem="V5q-MB-lQK" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="iJZ-X0-NOj"/>
-                            <constraint firstItem="fgP-Jp-y2o" firstAttribute="top" secondItem="eVp-MX-Txb" secondAttribute="bottom" id="lqF-FL-pXf"/>
-                            <constraint firstItem="EEN-rf-pv0" firstAttribute="top" secondItem="fgP-Jp-y2o" secondAttribute="bottom" constant="25" id="moT-RE-ZfM"/>
                             <constraint firstItem="egv-wD-2La" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="10" id="tRA-P1-6aP"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -575,6 +556,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="callContactsTableViewCell" rowHeight="100" id="3EC-yl-BTq" customClass="CallContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -586,7 +569,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBw-vl-Qsg" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
                                             <rect key="frame" x="8" y="34.5" width="359" height="31"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                            <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
@@ -649,7 +632,7 @@
                                 <rect key="frame" x="16" y="84" width="343" height="563"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
                                 <state key="normal" title="Share Location with the Contact Selected to Call                    ">
-                                    <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="TaR-k2-bwd" eventType="touchUpInside" id="HOd-o0-VAL"/>

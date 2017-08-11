@@ -36,7 +36,7 @@ class EditContactsTableViewController: UITableViewController {
         
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
         navigationBarAppearace.barTintColor = mintGreen
-        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
     @IBAction func backButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToSettings", sender: self)

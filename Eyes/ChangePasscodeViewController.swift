@@ -18,10 +18,11 @@ class ChangePasscodeViewController: UIViewController {
     var person = Person()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         
-        super.viewDidLoad()
         applyKeyboardDismisser()
         
         self.newPasscodeTextField.layer.cornerRadius = 8
@@ -31,19 +32,19 @@ class ChangePasscodeViewController: UIViewController {
         self.newPasscodeTextField.layer.borderColor = mintGreen.cgColor
         self.oldPasscodeTextField.layer.borderColor = mintGreen.cgColor
         
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "blurry2"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
     
     

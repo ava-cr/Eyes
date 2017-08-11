@@ -27,16 +27,16 @@ class DeactivateViewController: UIViewController {
         
         fingerprintButton.layer.cornerRadius = 8
         fingerprintButton.layer.borderWidth = 1.0
-        fingerprintButton.layer.borderColor = darkGrey.cgColor
+        fingerprintButton.layer.borderColor = mintGreen.cgColor
         
         passcodeButton.layer.cornerRadius = 8
         passcodeButton.layer.borderWidth = 1.0
-        passcodeButton.layer.borderColor = darkGrey.cgColor
+        passcodeButton.layer.borderColor = mintGreen.cgColor
         
         passcodeTextField.layer.cornerRadius = 8
         passcodeTextField.layer.borderWidth = 0.5
-        passcodeTextField.layer.borderColor = darkGrey.cgColor
-        passcodeTextField.attributedPlaceholder = NSAttributedString(string: "passcode here", attributes: [NSForegroundColorAttributeName: lightPink])
+        passcodeTextField.layer.borderColor = mintGreen.cgColor
+        passcodeTextField.attributedPlaceholder = NSAttributedString(string: "passcode here", attributes: [NSForegroundColorAttributeName: darkRed])
         
         
         person = CoreDataHelperPerson.retrievePerson()[0]
@@ -109,8 +109,24 @@ class DeactivateViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //to dismiss keyboard on return
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+            return false
+        }
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        return true
     }
 }
