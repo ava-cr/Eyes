@@ -47,7 +47,7 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-        shareLocationButton.setTitle("Share Location with \((contact?.givenName)!)", for: UIControlState.normal)
+        shareLocationButton.setTitle("Share Location with \(contact?.givenName ?? "this contact")", for: UIControlState.normal)
     }
     
     func shareLocation(coordinate:CLLocationCoordinate2D) -> Void {
@@ -60,8 +60,8 @@ class CallViewController: UIViewController, MFMessageComposeViewControllerDelega
         let vCardString = [
             "BEGIN:VCARD",
             "VERSION:3.0",
-            "N:;\(person.name!)'s Location;;;",
-            "FN:\(person.name!)'s Location",
+            "N:;\(self.person.name ?? "The User")'s Location;;;",
+            "FN:\(self.person.name ?? "The User")'s Location",
             "item1.URL;type=pref:http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)",
             "item1.X-ABLabel:map url",
             "END:VCARD"

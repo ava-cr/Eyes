@@ -76,6 +76,9 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         default:
             print("You have checked in by opening the app!")
 
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
             person.notRespondedTo = 0
             CoreDataHelperPerson.savePerson()
             sendNormalNotification()
@@ -116,7 +119,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         
         let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 10.0,
+            timeInterval: 60.0,
             repeats: false)
         
         let request = UNNotificationRequest(
@@ -133,7 +136,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBAction func alertButtonTapped(_ sender: Any) {
         print("alertButtonTapped")
         let messageViewController = MFMessageComposeViewController()
-        messageViewController.body = "\(String(describing: person.name)) has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with \(String(describing: person.name)) immediately. This alert has been sent to every one of \(String(describing: person.name))'s predetermined contacts."
+        messageViewController.body = "\(self.person.name ?? "The User") has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with \(self.person.name ?? "The User") immediately. This alert has been sent to every one of \(self.person.name ?? "The User")'s predetermined contacts."
         
         var numbers = [String]()
         for contact in contacts {

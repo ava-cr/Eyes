@@ -45,7 +45,7 @@ class CallContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return contacts.count + 1
+        return contacts.count
     }
     
     

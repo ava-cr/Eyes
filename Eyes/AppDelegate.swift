@@ -238,7 +238,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UNUserNotificationCenter.current().add(
                 request, withCompletionHandler: nil)
             
-            sleep(60)
+            sleep(30)
         }
         // second follow up
         if followUpNumber == 2 {
@@ -261,6 +261,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             UNUserNotificationCenter.current().add(
                 request, withCompletionHandler: nil)
+            
+            sleep(30)
         }
         // third follow up - notifying contacts
         if followUpNumber == 3 {

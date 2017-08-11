@@ -85,8 +85,8 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         let vCardString = [
             "BEGIN:VCARD",
             "VERSION:3.0",
-            "N:;\(person.name!)'s Location;;;",
-            "FN:\(person.name!)'s Location",
+            "N:;\(self.person.name ?? "The User")'s Location;;;",
+            "FN:\(self.person.name ?? "The User")'s Location",
             "item1.URL;type=pref:http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)",
             "item1.X-ABLabel:map url",
             "END:VCARD"
@@ -118,7 +118,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         let messageViewController = MFMessageComposeViewController()
         if messageTextView.text == "" {
             if textSelected == "Alert Message" || textSelected == "" {
-                messageViewController.body = "\(person.name!)" + " has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with " + "\(person.name!)" + " immediately. This alert has been sent to every one of " + "\(person.name!)" + "'s predetermined contacts."
+                messageViewController.body = "\(self.person.name ?? "The User")" + " has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with " + "\(self.person.name ?? "The User")" + " immediately. This alert has been sent to every one of " + "\(self.person.name ?? "The User")" + "'s predetermined contacts."
             }
             else {
                 messageViewController.body = textSelected
@@ -142,7 +142,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-        shareLocationButton.setTitle("Share Location with \((contact?.givenName)!)", for: UIControlState.normal)
+        shareLocationButton.setTitle("Share Location with \((contact?.givenName) ?? "this contact")", for: UIControlState.normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
