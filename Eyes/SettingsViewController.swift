@@ -12,22 +12,26 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var contactsButton: UIButton!
     @IBOutlet weak var passcodeButton: UIButton!
+    @IBOutlet weak var timeIntervalButton: UIButton!
     
     var navigationBarAppearace = UINavigationBar.appearance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.contactsButton.layer.cornerRadius = 8
-        self.passcodeButton.layer.cornerRadius = 8
-        self.contactsButton.layer.borderColor = mintGreen.cgColor
-        self.passcodeButton.layer.borderColor = mintGreen.cgColor
-        self.contactsButton.layer.borderWidth = 2.0
-        self.passcodeButton.layer.borderWidth = 2.0
+        contactsButton.layer.cornerRadius = 15
+        passcodeButton.layer.cornerRadius = 15
+        contactsButton.layer.borderColor = mintGreen.cgColor
+        passcodeButton.layer.borderColor = mintGreen.cgColor
+        contactsButton.layer.borderWidth = 1.0
+        passcodeButton.layer.borderWidth = 1.0
         
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
-        navigationBarAppearace.barTintColor = mintGreen
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        timeIntervalButton.layer.cornerRadius = 15
+        timeIntervalButton.layer.borderColor = mintGreen.cgColor
+        timeIntervalButton.layer.borderWidth = 1.0
+        
+
+        navigationBarAppearace.barTintColor = darkGrey
         
 
         // Do any additional setup after loading the view.
@@ -39,23 +43,11 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func unwindToSettings(segue:UIStoryboardSegue) {
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

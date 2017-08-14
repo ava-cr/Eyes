@@ -40,10 +40,7 @@ class EditContactViewController: UIViewController {
         
         //customization
         
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
-        navigationBarAppearace.barTintColor = mintGreen
-        navigationBarAppearace.isTranslucent = true
-        view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
+        navigationBarAppearace.barTintColor = darkGrey
         
         firstNameTextField.layer.cornerRadius = 8
         lastNameTextField.layer.cornerRadius = 8

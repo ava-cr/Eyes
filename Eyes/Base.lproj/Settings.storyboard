@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="jyd-Lt-WHs"/>
                         <viewControllerLayoutGuide type="bottom" id="7La-uT-fYN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Q3U-uV-6de">
+                    <view key="view" contentMode="scaleToFill" id="Q3U-uV-6de" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -26,26 +26,35 @@
                                 <rect key="frame" x="26" y="104" width="323" height="523"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8f-Wk-5VM">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="246.5"/>
-                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.25296982020547948" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="154.5"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
-                                        <state key="normal" title="Edit Contacts"/>
+                                        <state key="normal" title="Contacts"/>
                                         <connections>
                                             <segue destination="gpB-g6-Ktj" kind="show" id="EnR-eI-ig9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-fw-Qq2">
-                                        <rect key="frame" x="0.0" y="276.5" width="323" height="246.5"/>
-                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.25296982020547948" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="184.5" width="323" height="154"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
-                                        <state key="normal" title="Edit Passcode"/>
+                                        <state key="normal" title="Passcode"/>
                                         <connections>
                                             <segue destination="5qk-Yn-bE3" kind="presentation" id="MgG-w6-f6j"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njb-nM-Qe9">
+                                        <rect key="frame" x="0.0" y="368.5" width="323" height="154.5"/>
+                                        <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
+                                        <state key="normal" title="Time Interval"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ArA-fw-Qq2" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="Ytq-Q0-dHK"/>
+                                    <constraint firstItem="Njb-nM-Qe9" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="29L-f1-IYG"/>
+                                    <constraint firstItem="ArA-fw-Qq2" firstAttribute="width" secondItem="T8f-Wk-5VM" secondAttribute="width" id="SR4-C4-pHP"/>
+                                    <constraint firstItem="Njb-nM-Qe9" firstAttribute="width" secondItem="T8f-Wk-5VM" secondAttribute="width" id="UzH-IA-3cL"/>
+                                    <constraint firstItem="ArA-fw-Qq2" firstAttribute="height" secondItem="T8f-Wk-5VM" secondAttribute="height" id="qJD-HT-AQg"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -58,17 +67,17 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.36862745098039218" green="0.3411764705882353" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="vFF-iW-ma5">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="3cQ-Wr-QZZ">
-                            <color key="tintColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backButtonTapped:" destination="dBe-le-1gq" id="xGi-yF-VgO"/>
                             </connections>
@@ -78,7 +87,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
                             <state key="normal" title="Settings">
-                                <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                     </navigationItem>
@@ -89,6 +98,7 @@
                         <outlet property="backButton" destination="3cQ-Wr-QZZ" id="k7i-e8-axd"/>
                         <outlet property="contactsButton" destination="T8f-Wk-5VM" id="a6g-E9-ESB"/>
                         <outlet property="passcodeButton" destination="ArA-fw-Qq2" id="A0h-ba-sJ2"/>
+                        <outlet property="timeIntervalButton" destination="Njb-nM-Qe9" id="405-CJ-Rh0"/>
                         <segue destination="iXd-a3-vxP" kind="unwind" identifier="settingsToHome" unwindAction="unwindToHomeWithSegue:" id="hAZ-hb-Twz"/>
                     </connections>
                 </viewController>
@@ -104,9 +114,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="zD9-JN-tq0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <color key="sectionIndexBackgroundColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactsTableViewCell" rowHeight="100" id="5uL-fW-WjE" customClass="EditContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -178,7 +187,7 @@
                         <viewControllerLayoutGuide type="top" id="d5O-kL-cBq"/>
                         <viewControllerLayoutGuide type="bottom" id="sUE-Kz-dSF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="I32-Y7-hPM">
+                    <view key="view" contentMode="scaleToFill" id="I32-Y7-hPM" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -272,6 +281,14 @@
                             <constraint firstItem="sUE-Kz-dSF" firstAttribute="top" secondItem="M8T-On-FLd" secondAttribute="bottom" constant="50" id="gxR-bl-MDn"/>
                             <constraint firstItem="M8T-On-FLd" firstAttribute="leading" secondItem="I32-Y7-hPM" secondAttribute="leadingMargin" constant="20" id="qcn-mT-UP3"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="pDC-rQ-g33">
