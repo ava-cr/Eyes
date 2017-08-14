@@ -10,7 +10,11 @@ import UIKit
 import CoreData
 import Contacts
 import UserNotifications
+import LocalAuthentication
+import NotificationCenter
 
+//let center = NotificationCenter.default
+//let mainQueue = OperationQueue.main
 
 
 @UIApplicationMain
@@ -186,7 +190,83 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        
+        authenticateUser()
+        
+        
+        
+        
+//        if CoreDataHelperPerson.retrievePerson().count == 1 {
+//            let person = CoreDataHelperPerson.retrievePerson()[0]
+//            if person.activated == true {
+//                let x: TimeInterval = TimeInterval(100)
+//                if Date() > NSDate(timeInterval: x, since: self.person.lastCheckInTime! as Date) as Date {
+//                    print("more than 100 seconds since last check in")
+//                }
+//            }
+//        }
+        
     }
+    
+    func authenticateUser() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Check in!"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                [unowned self] success, authenticationError in
+                
+                DispatchQueue.main.async {
+                    if success {
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "myNotificationKey"), object: nil, userInfo: nil)
+                        CoreDataHelperPerson.savePerson()
+                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                    } else {
+                        let ac = UIAlertController(title: "Enter Passcode", message: "", preferredStyle: .alert)
+                        
+                        let ok = UIAlertAction(title: "OK",
+                                               style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                                                
+                                                if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
+                                                    if alertTextField.text! == self.person.passcode {
+                                                        NotificationCenter.default.post(name: Notification.Name(rawValue: "myNotificationKey"), object: nil, userInfo: nil)
+                                                    }
+                                                }
+                        }
+                        
+                        let cancel = UIAlertAction(title: "Cancel",
+                                                   style: UIAlertActionStyle.cancel,
+                                                   handler: nil)
+                        
+                        ac.addTextField { (textField: UITextField) in
+                            textField.keyboardType = UIKeyboardType.numberPad
+                            textField.placeholder = "Passcode here"
+                            
+                        }
+                        
+                        ac.addAction(ok)
+                        ac.addAction(cancel)
+                        
+                        //ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        UIApplication.shared.keyWindow?.rootViewController?.present(ac, animated: true, completion: nil)
+                    }
+                }
+            }
+        } else {
+            let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            UIApplication.shared.keyWindow?.rootViewController?.present(ac, animated: true)
+        }
+    }
+    
+    func post(name aName: NSNotification.Name){}
+
+
+    
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

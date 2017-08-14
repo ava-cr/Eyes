@@ -85,21 +85,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g41-8n-agr">
-                                <rect key="frame" x="37" y="65.5" width="300" height="300"/>
-                                <color key="backgroundColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.2459332191780822" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="G3U-vc-h5l"/>
-                                    <constraint firstAttribute="height" constant="300" id="bRT-wx-sXW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
-                                <state key="normal" title="ALERT">
-                                    <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="alertButtonTapped:" destination="iBc-AD-YXH" eventType="touchUpInside" id="LhE-LI-jFg"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="p3B-Dx-aYY">
                                 <rect key="frame" x="16" y="529" width="343" height="53"/>
                                 <subviews>
@@ -135,20 +120,55 @@
                                     <segue destination="KwE-JQ-AGp" kind="show" id="Crk-k0-GNz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g41-8n-agr">
+                                <rect key="frame" x="37" y="183" width="300" height="300"/>
+                                <color key="backgroundColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.2459332191780822" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="G3U-vc-h5l"/>
+                                    <constraint firstAttribute="height" constant="300" id="bRT-wx-sXW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
+                                <state key="normal" title="ALERT">
+                                    <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="alertButtonTapped:" destination="iBc-AD-YXH" eventType="touchUpInside" id="LhE-LI-jFg"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xVm-OM-M6H">
+                                <rect key="frame" x="109" y="65.5" width="156.5" height="79"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Check-in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAP-El-hNY">
+                                        <rect key="frame" x="0.0" y="0.0" width="156.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twY-38-TgL">
+                                        <rect key="frame" x="0.0" y="49.5" width="156.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="g41-8n-agr" firstAttribute="top" secondItem="ouP-qh-g4s" secondAttribute="bottom" constant="20" id="750-qN-guD"/>
+                            <constraint firstItem="g41-8n-agr" firstAttribute="centerY" secondItem="nuW-jo-hhi" secondAttribute="centerY" id="Bak-pg-pwF"/>
                             <constraint firstItem="F26-hx-BnB" firstAttribute="top" secondItem="p3B-Dx-aYY" secondAttribute="bottom" constant="20" id="DcU-vs-O7o"/>
+                            <constraint firstItem="g41-8n-agr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xVm-OM-M6H" secondAttribute="bottom" constant="20" id="KH3-WC-zTl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F26-hx-BnB" secondAttribute="trailing" id="PdH-J5-J4W"/>
                             <constraint firstItem="p3B-Dx-aYY" firstAttribute="trailing" secondItem="nuW-jo-hhi" secondAttribute="trailingMargin" id="QrQ-RV-eDF"/>
                             <constraint firstItem="ouP-qh-g4s" firstAttribute="top" secondItem="TXl-zg-l1v" secondAttribute="bottom" constant="5" id="bl3-D2-xkh"/>
+                            <constraint firstItem="xVm-OM-M6H" firstAttribute="top" secondItem="ouP-qh-g4s" secondAttribute="bottom" constant="20" id="cgY-Qo-NW7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="F26-hx-BnB" secondAttribute="bottom" constant="10" id="e04-sw-MIr"/>
                             <constraint firstItem="g41-8n-agr" firstAttribute="centerX" secondItem="nuW-jo-hhi" secondAttribute="centerX" id="hVS-nX-Lrp"/>
                             <constraint firstItem="p3B-Dx-aYY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="g41-8n-agr" secondAttribute="bottom" constant="25" id="jzU-TF-PYn"/>
                             <constraint firstItem="F26-hx-BnB" firstAttribute="leading" secondItem="nuW-jo-hhi" secondAttribute="leadingMargin" id="kFm-1e-m4Q"/>
                             <constraint firstItem="ouP-qh-g4s" firstAttribute="leading" secondItem="nuW-jo-hhi" secondAttribute="leadingMargin" id="lSj-3k-Bpc"/>
                             <constraint firstItem="p3B-Dx-aYY" firstAttribute="leading" secondItem="nuW-jo-hhi" secondAttribute="leadingMargin" id="ph9-zj-2gC"/>
+                            <constraint firstItem="xVm-OM-M6H" firstAttribute="centerX" secondItem="nuW-jo-hhi" secondAttribute="centerX" id="v7L-QF-CWM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ouP-qh-g4s" secondAttribute="trailing" id="xW1-jk-n0B"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -163,11 +183,12 @@
                     <connections>
                         <outlet property="alertButton" destination="g41-8n-agr" id="9tw-ZA-0A5"/>
                         <outlet property="contactButton" destination="z4a-UA-PzI" id="9Hf-l1-0bB"/>
+                        <outlet property="lastCheckInLabel" destination="twY-38-TgL" id="GBr-fX-OPv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGE-mE-6f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349.5999999999999" y="795.6521739130435"/>
+            <point key="canvasLocation" x="2487" y="796"/>
         </scene>
         <!--Call Text View Controller-->
         <scene sceneID="FLB-Gl-x6t">
@@ -280,7 +301,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-SW-Oyg" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-SW-Oyg" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
                                             <rect key="frame" x="8" y="47" width="359" height="31"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
                                             <color key="textColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -331,7 +352,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTo-Sa-xqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Jr-JX-GEe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5104.8000000000002" y="787.55622188905556"/>
+            <point key="canvasLocation" x="4104" y="796"/>
         </scene>
         <!--Send Text View Controller-->
         <scene sceneID="sf0-QE-0Xg">
@@ -421,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtC-nO-l4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5853.6000000000004" y="787.55622188905556"/>
+            <point key="canvasLocation" x="4627" y="796"/>
         </scene>
         <!--Deactivate View Controller-->
         <scene sceneID="3yw-dc-AX6">
@@ -528,7 +549,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUn-DW-5xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RwC-an-evq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="1547"/>
+            <point key="canvasLocation" x="2487" y="1547"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGq-8G-DsF">
@@ -548,7 +569,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVg-pL-96n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4372" y="788"/>
+            <point key="canvasLocation" x="3574" y="796"/>
         </scene>
         <!--Choose a Contact-->
         <scene sceneID="o26-2Z-Tep">
@@ -617,7 +638,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eau-ja-l6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zNX-dC-Qas" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3831" y="1547"/>
+            <point key="canvasLocation" x="3574" y="1547"/>
         </scene>
         <!--Call View Controller-->
         <scene sceneID="kaB-Vf-kqq">
@@ -656,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKF-EA-DUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4598" y="1547"/>
+            <point key="canvasLocation" x="4104" y="1547"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="drw-mr-KFf">

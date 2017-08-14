@@ -11,6 +11,9 @@ import ContactsUI
 import Contacts
 import MessageUI
 import UserNotifications
+import LocalAuthentication
+import NotificationCenter
+
 
 var timer = Timer()
 var followUpTimer = Timer()
@@ -21,8 +24,9 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var lastCheckInLabel: UILabel!
     
-    
+
     
     var person = Person()
     var contacts = [Contact]()
@@ -30,6 +34,9 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "myNotificationKey"), object: nil)
+        
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
@@ -53,9 +60,18 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
 
     }
     
+    func notificationReceived(_ notification: Notification) {
+        print("user authenticated")
+        self.resetCheckInLabel()
+    }
+    
+    func resetCheckInLabel() {
+        self.lastCheckInLabel.text = (Date() as NSDate).convertToString()
+        self.person.lastCheckInTime = Date() as NSDate
+    }
+    
     func configureUserNotificationCenter() {
         let actionCheckIn = UNNotificationAction(identifier: "Check-in", title: "Check-in", options: [])
-        //let actionShowDetails = UNNotificationAction(identifier: "showDetails", title: "Show Details", options: [.foreground])
         let category = UNNotificationCategory(identifier: "myCategory", actions: [actionCheckIn], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
         UNUserNotificationCenter.current().delegate = self
@@ -87,12 +103,18 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     }
     
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
+
         super.viewDidAppear(true)
         alertButton.flash()
+        authenticateUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
+        //authenticateUser()
         person.notRespondedTo = 0
         CoreDataHelperPerson.savePerson()
         super.viewWillAppear(true)
@@ -129,6 +151,61 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         UNUserNotificationCenter.current().add(
             request, withCompletionHandler: nil)
+    }
+    
+    func authenticateUser() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Check in!"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                [unowned self] success, authenticationError in
+                
+                DispatchQueue.main.async {
+                    if success {
+                        self.resetCheckInLabel()
+                        CoreDataHelperPerson.savePerson()
+                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                    } else {
+                        let ac = UIAlertController(title: "Enter Passcode", message: "", preferredStyle: .alert)
+                        
+                        let ok = UIAlertAction(title: "OK",
+                                               style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                                                
+                                                if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
+                                                    if alertTextField.text! == self.person.passcode {
+                                                        self.resetCheckInLabel()
+                                                        
+                                                    }
+                                                }
+                        }
+                        
+                        let cancel = UIAlertAction(title: "Cancel",
+                                                   style: UIAlertActionStyle.cancel,
+                                                   handler: nil)
+                        
+                        ac.addTextField { (textField: UITextField) in
+                            textField.keyboardType = UIKeyboardType.numberPad
+                            textField.placeholder = "Passcode here"
+                            
+                        }
+                        
+                        ac.addAction(ok)
+                        ac.addAction(cancel)
+                        
+                        //ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(ac, animated: true, completion: nil)
+                    }
+                }
+            }
+        } else {
+            let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
     }
     
     

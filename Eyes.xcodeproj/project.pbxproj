@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370E92D51F41F728009A3A97 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D41F41F728009A3A97 /* Date+convertToString.swift */; };
 		376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */; };
 		376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */; };
 		379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		370E92D41F41F728009A3A97 /* Date+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
 		376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
 		379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */,
+				370E92D41F41F728009A3A97 /* Date+convertToString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */,
 				37AC4C791F32603F0075AFE1 /* CoreDataHelperPerson.swift in Sources */,
 				37CB7CF31F2A62EE00036AA9 /* CallContactsTableViewCell.swift in Sources */,
+				370E92D51F41F728009A3A97 /* Date+convertToString.swift in Sources */,
 				37EBC1091F264401000015DD /* AppDelegate.swift in Sources */,
 				37D47E091F27A2D800BE29E4 /* HomeViewController.swift in Sources */,
 				37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */,
