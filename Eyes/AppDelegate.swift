@@ -13,8 +13,7 @@ import UserNotifications
 import LocalAuthentication
 import NotificationCenter
 
-//let center = NotificationCenter.default
-//let mainQueue = OperationQueue.main
+let timeInterval: TimeInterval = TimeInterval(10)
 
 
 @UIApplicationMain
@@ -77,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
             if !accepted {
                 print("Notification access denied.")
@@ -159,6 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
                 
+                
                 //runTimer()
                 
                 //Set the content of the notification
@@ -184,6 +184,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Something went wrong
                     }
                 })
+                
             }
         }
     }
@@ -191,21 +192,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
-        
-        authenticateUser()
-        
-        
-        
-        
-//        if CoreDataHelperPerson.retrievePerson().count == 1 {
-//            let person = CoreDataHelperPerson.retrievePerson()[0]
-//            if person.activated == true {
-//                let x: TimeInterval = TimeInterval(100)
-//                if Date() > NSDate(timeInterval: x, since: self.person.lastCheckInTime! as Date) as Date {
-//                    print("more than 100 seconds since last check in")
-//                }
-//            }
-//        }
+        if CoreDataHelperPerson.retrievePerson().count == 1 {
+            let person = CoreDataHelperPerson.retrievePerson()[0]
+            if person.activated == true {
+                if Date() > NSDate(timeInterval: timeInterval, since: person.lastCheckInTime! as Date) as Date {
+                    print("more than 10 seconds since last check in")
+                    authenticateUser()
+                }
+            }
+        }
         
     }
     
@@ -264,8 +259,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func post(name aName: NSNotification.Name){}
-
-
+    
+    
     
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -285,9 +280,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("background fetch complete!!")
         person = CoreDataHelperPerson.retrievePerson()[0]
         if person.activated == true {
-            CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
-            CoreDataHelperPerson.savePerson()
-            sendFollowUpNotification()
+            //only send follow up if it has been more than half an hour
+            if Date() > NSDate(timeInterval: timeInterval, since: person.lastCheckInTime! as Date) as Date {
+                CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
+                CoreDataHelperPerson.savePerson()
+                sendFollowUpNotification()
+            }
         }
         
         
@@ -349,7 +347,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let content = UNMutableNotificationContent()
             content.title = "Your Contacts Are Being Notified!"
-            content.body = "You have been unresponsive and your stuation could be potentially dangerous."
+            content.body = "You have been unresponsive and your stuation is potentially dangerous."
             content.categoryIdentifier = "myCategory"
             
             let trigger = UNTimeIntervalNotificationTrigger(

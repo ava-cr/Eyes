@@ -12,102 +12,125 @@ import UserNotifications
 
 class DeactivateViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var passcodeTextField: UITextField!
-    @IBOutlet weak var fingerprintButton: UIButton!
-    @IBOutlet weak var passcodeButton: UIButton!
-    
+    @IBOutlet weak var tryAgainButton: UIButton!
     
     var person = Person()
     var successAuthenticating = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyKeyboardDismisser()
-        applyKeyboardPush()
-        
-        fingerprintButton.layer.cornerRadius = 20
-        fingerprintButton.layer.borderWidth = 1.0
-        fingerprintButton.layer.borderColor = darkBlue.cgColor
-        
-        passcodeButton.layer.cornerRadius = 20
-        passcodeButton.layer.borderWidth = 1.0
-        passcodeButton.layer.borderColor = darkBlue.cgColor
-        
-        passcodeTextField.layer.cornerRadius = 8
-        passcodeTextField.layer.borderWidth = 0.5
-        passcodeTextField.layer.borderColor = darkBlue.cgColor
-        passcodeTextField.attributedPlaceholder = NSAttributedString(string: "passcode here", attributes: [NSForegroundColorAttributeName: lightGrey])
-        
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         
-        
-        // Do any additional setup after loading the view.
     }
     // touch ID
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        authenticateUser()
+    }
+    
+    @IBAction func tryAgainButtonTapped(_ sender: Any) {
+        authenticateUser()
+    }
     
     func authenticateUser() {
         let context = LAContext()
         var error: NSError?
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Authenticate Yourself to Deactivate!"
+            let reason = "Authenticate to Deactivate!"
             
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
                 [unowned self] success, authenticationError in
                 
                 DispatchQueue.main.async {
                     if success {
-                        //self.performSegue(withIdentifier: "backToHome", sender: self)
-                        self.person.activated = false
-                        CoreDataHelperPerson.savePerson()
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+                        self.person.activated = false
+                        CoreDataHelperPerson.savePerson()
                         self.present(viewController, animated: true, completion: nil)
+                        
                     } else {
-                        //let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
+
+                        let ac = UIAlertController(title: "Enter Passcode", message: "", preferredStyle: .alert)
+                        
+                        let ok = UIAlertAction(title: "OK",
+                                               style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                                                
+                                                if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
+                                                    if alertTextField.text! == self.person.passcode {
+                                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                                                        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                                                        self.person.activated = false
+                                                        CoreDataHelperPerson.savePerson()
+                                                        self.present(viewController, animated: true, completion: nil)
+                                                    }
+                                                    else { self.showLabel() }
+                                                }
+                                                
+                        }
+                        
+                        let cancel = UIAlertAction(title: "Cancel",
+                                                   style: UIAlertActionStyle.cancel,
+                                                   handler: { (action: UIAlertAction!) in self.showLabel()})
+                        
+                        ac.addTextField { (textField: UITextField) in
+                            textField.keyboardType = UIKeyboardType.numberPad
+                            textField.placeholder = "Passcode here"
+                            
+                        }
+                        ac.addAction(ok)
+                        ac.addAction(cancel)
+                        
                         //ac.addAction(UIAlertAction(title: "OK", style: .default))
-                        //self.present(ac, animated: true)
+                        self.present(ac, animated: true, completion: nil)
+
                     }
+
                 }
+
             }
+
         } else {
             let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
     }
+    
+    func showLabel() {
+        self.tryAgainButton.titleLabel?.textColor = darkBlue
+    }
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToActionView", sender: self)
     }
     
-    @IBAction func fingerprintButtonTapped(_ sender: Any) {
-        authenticateUser()
-    }
-    
-    @IBAction func passcodeButtonTapped(_ sender: Any) {
-        if passcodeTextField.text == person.passcode {
-            print("deactivated")
-            self.person.activated = false
-            CoreDataHelperPerson.savePerson()
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            //let window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-            present(viewController, animated: true, completion: nil)
-        }
-        else {
-            passcodeButton.shake()
-            dismissKeyboard()
-
-            passcodeTextField.text = ""
-            print("not the correct passcode")
-            print("correct passcode: " + "\(String(describing: person.passcode))")
-        }
-    }
+    //    @IBAction func passcodeButtonTapped(_ sender: Any) {
+    //        if passcodeTextField.text == person.passcode {
+    //            print("deactivated")
+    //            self.person.activated = false
+    //            CoreDataHelperPerson.savePerson()
+    //            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    //            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    //            //let window = UIWindow(frame: UIScreen.main.bounds)
+    //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //            let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+    //            present(viewController, animated: true, completion: nil)
+    //        }
+    //        else {
+    //            passcodeButton.shake()
+    //            dismissKeyboard()
+    //
+    //            passcodeTextField.text = ""
+    //            print("not the correct passcode")
+    //            print("correct passcode: " + "\(String(describing: person.passcode))")
+    //        }
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -119,11 +142,11 @@ class DeactivateViewController: UIViewController {
     }
     
     //to dismiss keyboard on return
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
+    //    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    //        if(text == "\n") {
+    //            textView.resignFirstResponder()
+    //            return false
+    //        }
+    //        return true
+    //    }
 }

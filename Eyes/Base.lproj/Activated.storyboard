@@ -71,7 +71,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gey-vs-QIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UEe-Q5-ty3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3038" y="104"/>
+            <point key="canvasLocation" x="3169" y="45"/>
         </scene>
         <!--Action View Controller-->
         <scene sceneID="wlq-Ls-KWn">
@@ -144,7 +144,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twY-38-TgL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twY-38-TgL">
                                         <rect key="frame" x="0.0" y="49.5" width="156.5" height="29.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -280,7 +280,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGo-gl-6CW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="F2J-Im-4w7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3039" y="796"/>
+            <point key="canvasLocation" x="3170" y="796"/>
         </scene>
         <!--Choose a Contact-->
         <scene sceneID="RIK-gR-4Oq">
@@ -352,7 +352,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTo-Sa-xqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Jr-JX-GEe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4104" y="796"/>
+            <point key="canvasLocation" x="4482" y="796"/>
         </scene>
         <!--Send Text View Controller-->
         <scene sceneID="sf0-QE-0Xg">
@@ -442,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtC-nO-l4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4627" y="796"/>
+            <point key="canvasLocation" x="5134" y="796"/>
         </scene>
         <!--Deactivate View Controller-->
         <scene sceneID="3yw-dc-AX6">
@@ -467,65 +467,31 @@
                                     <action selector="backButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="X4d-vQ-E4l"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assure us you're in a safe place and want to deactivate Eyes:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-rf-pv0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assure us you're in a safe place and want to deactivate Eyes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-rf-pv0">
                                 <rect key="frame" x="10" y="75" width="355" height="54.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="V5q-MB-lQK">
-                                <rect key="frame" x="21" y="240" width="333" height="327"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doZ-Tz-wSg">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="66"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
-                                        <state key="normal" title="Enter Fingerprint">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="fingerprintButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="3Fu-nw-0gO"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-iU-ZwZ">
-                                        <rect key="frame" x="0.0" y="141" width="333" height="186"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2a-dq-WvT">
-                                                <rect key="frame" x="0.0" y="0.0" width="333" height="100"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="dcQ-u5-AzM"/>
-                                                </constraints>
-                                                <color key="textColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-Ei-y6y">
-                                                <rect key="frame" x="0.0" y="120" width="333" height="66"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
-                                                <state key="normal" title="Enter Passcode">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="passcodeButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="GOq-Ec-Clg"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hs-Iq-Sw3">
+                                <rect key="frame" x="105" y="275" width="164" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Try Again.">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tryAgainButtonTapped:" destination="KwE-JQ-AGp" eventType="touchUpInside" id="2w8-f5-4ri"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V5q-MB-lQK" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="5" id="2tQ-lt-Lc5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="V5q-MB-lQK" secondAttribute="trailing" constant="5" id="9fV-7w-3Xe"/>
                             <constraint firstAttribute="trailing" secondItem="EEN-rf-pv0" secondAttribute="trailing" constant="10" id="9x1-py-Gdc"/>
-                            <constraint firstItem="V5q-MB-lQK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EEN-rf-pv0" secondAttribute="bottom" constant="50" id="Cqc-Bl-LCI"/>
                             <constraint firstItem="EEN-rf-pv0" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leading" constant="10" id="Kpo-S3-ekf"/>
                             <constraint firstItem="EEN-rf-pv0" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="Ozp-qc-X5m"/>
-                            <constraint firstItem="0CH-vI-Ahz" firstAttribute="top" secondItem="V5q-MB-lQK" secondAttribute="bottom" constant="100" id="QIy-1k-9Bz"/>
                             <constraint firstItem="egv-wD-2La" firstAttribute="top" secondItem="eVp-MX-Txb" secondAttribute="bottom" id="TPE-gf-XTV"/>
                             <constraint firstItem="EEN-rf-pv0" firstAttribute="top" secondItem="egv-wD-2La" secondAttribute="bottom" constant="15" id="fcM-zy-H01"/>
-                            <constraint firstItem="V5q-MB-lQK" firstAttribute="centerX" secondItem="axk-rk-I5T" secondAttribute="centerX" id="iJZ-X0-NOj"/>
                             <constraint firstItem="egv-wD-2La" firstAttribute="leading" secondItem="axk-rk-I5T" secondAttribute="leadingMargin" constant="10" id="tRA-P1-6aP"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -539,9 +505,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="egv-wD-2La" id="0kl-3V-u6b"/>
-                        <outlet property="fingerprintButton" destination="doZ-Tz-wSg" id="gBg-35-Orj"/>
-                        <outlet property="passcodeButton" destination="zOk-Ei-y6y" id="8gc-HB-Tp2"/>
-                        <outlet property="passcodeTextField" destination="A2a-dq-WvT" id="LYj-Lm-2Dj"/>
+                        <outlet property="tryAgainButton" destination="0hs-Iq-Sw3" id="50j-kF-KPA"/>
                         <segue destination="RwC-an-evq" kind="unwind" identifier="backToActionView" unwindAction="unwindToActionViewWithSegue:" id="cWX-k2-1yB"/>
                         <segue destination="RwC-an-evq" kind="unwind" identifier="backToHome" unwindAction="unwindToHomeWithSegue:" id="1cI-hF-P6c"/>
                     </connections>
@@ -549,7 +513,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUn-DW-5xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RwC-an-evq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2487" y="1547"/>
+            <point key="canvasLocation" x="2485.5999999999999" y="1546.776611694153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGq-8G-DsF">
@@ -569,7 +533,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVg-pL-96n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3574" y="796"/>
+            <point key="canvasLocation" x="3830" y="796"/>
         </scene>
         <!--Choose a Contact-->
         <scene sceneID="o26-2Z-Tep">
@@ -638,7 +602,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eau-ja-l6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zNX-dC-Qas" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3574" y="1547"/>
+            <point key="canvasLocation" x="3830" y="1547"/>
         </scene>
         <!--Call View Controller-->
         <scene sceneID="kaB-Vf-kqq">
@@ -677,7 +641,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKF-EA-DUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4104" y="1547"/>
+            <point key="canvasLocation" x="4481" y="1547"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="drw-mr-KFf">
@@ -697,7 +661,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlX-9b-PS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3038" y="1547"/>
+            <point key="canvasLocation" x="3169" y="1547"/>
         </scene>
     </scenes>
     <resources>
