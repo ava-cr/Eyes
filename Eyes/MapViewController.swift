@@ -46,7 +46,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "backToAction", sender: self)
+        performSegue(withIdentifier: "backToCallText", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

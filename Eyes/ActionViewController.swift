@@ -36,9 +36,9 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         
         //customization
-        alertButton.layer.cornerRadius = 8
+        alertButton.layer.cornerRadius = 150
         alertButton.layer.borderColor = darkRed.cgColor
-        alertButton.layer.borderWidth = 5.0
+        alertButton.layer.borderWidth = 7.0
         
         alertButton.titleLabel?.layer.shadowColor = darkRed.cgColor
         alertButton.titleLabel?.layer.shadowRadius = 4
@@ -50,9 +50,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         contactButton.layer.cornerRadius = 8
         contactButton.layer.borderColor = greyBlue.cgColor
         contactButton.layer.borderWidth = 2.0
-        locationButton.layer.cornerRadius = 8
-        locationButton.layer.borderColor = greyBlue.cgColor
-        locationButton.layer.borderWidth = 2.0
 
     }
     

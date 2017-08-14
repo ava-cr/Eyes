@@ -28,8 +28,8 @@ class TextContactsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkRed]
-        navigationBarAppearace.barTintColor = lightPink
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:lightGrey]
+        navigationBarAppearace.barTintColor = darkRed
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         
     }
@@ -62,7 +62,7 @@ class TextContactsTableViewController: UITableViewController {
         cell.contactNameLabel.text = "\(contact.givenName ?? "") \(contact.familyName ?? "")"
         cell.backgroundColor = .clear
         let view = UIView()
-        view.backgroundColor = lightPink
+        view.backgroundColor = darkRed
         cell.selectedBackgroundView = view
         
         return cell

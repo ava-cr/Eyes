@@ -16,12 +16,12 @@ class CallTextViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        callButton.layer.cornerRadius = 8
-        callButton.layer.borderWidth = 3.0
-        callButton.layer.borderColor = greyBlue.cgColor
-        textButton.layer.cornerRadius = 8
-        textButton.layer.borderWidth = 3.0
-        textButton.layer.borderColor = greyBlue.cgColor
+//        callButton.layer.cornerRadius = 125
+//        callButton.layer.borderWidth = 3.0
+//        callButton.layer.borderColor = greyBlue.cgColor
+//        textButton.layer.cornerRadius = 125
+//        textButton.layer.borderWidth = 3.0
+//        textButton.layer.borderColor = greyBlue.cgColor
 
         // Do any additional setup after loading the view.
     }

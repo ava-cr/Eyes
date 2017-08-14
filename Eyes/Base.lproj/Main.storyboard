@@ -171,13 +171,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBY-tO-5hM">
-                                <rect key="frame" x="36" y="258.5" width="303" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBY-tO-5hM">
+                                <rect key="frame" x="58" y="204" width="260" height="260"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="jIM-pA-Gwi"/>
+                                    <constraint firstAttribute="width" constant="260" id="KQj-sF-Mi6"/>
+                                    <constraint firstAttribute="height" constant="260" id="Xru-vV-LOc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="60"/>
-                                <state key="normal" title="Activate">
+                                <state key="normal" image="activate button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -186,11 +186,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9P6-QO-DCs">
-                                <rect key="frame" x="16" y="603" width="343" height="54"/>
+                                <rect key="frame" x="16" y="30" width="343" height="48"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.25165881849315069" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Settings">
-                                    <color key="titleColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="iig-hb-AxU" kind="presentation" modalTransitionStyle="coverVertical" id="FOd-Jc-wTL"/>
@@ -200,11 +200,9 @@
                         <color key="backgroundColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RBY-tO-5hM" firstAttribute="centerY" secondItem="GiE-bd-OXc" secondAttribute="centerY" id="BMB-Ba-Xpg"/>
-                            <constraint firstItem="RBY-tO-5hM" firstAttribute="leading" secondItem="GiE-bd-OXc" secondAttribute="leadingMargin" constant="20" id="KDf-SH-QEu"/>
-                            <constraint firstItem="Sb4-K0-dqg" firstAttribute="top" secondItem="9P6-QO-DCs" secondAttribute="bottom" constant="10" id="RBK-pO-toq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RBY-tO-5hM" secondAttribute="trailing" constant="20" id="Xol-d1-15i"/>
                             <constraint firstItem="9P6-QO-DCs" firstAttribute="leading" secondItem="GiE-bd-OXc" secondAttribute="leadingMargin" id="aOt-ZN-F28"/>
                             <constraint firstItem="RBY-tO-5hM" firstAttribute="centerX" secondItem="GiE-bd-OXc" secondAttribute="centerX" id="eLZ-JU-kbY"/>
+                            <constraint firstItem="9P6-QO-DCs" firstAttribute="top" secondItem="she-7e-oTP" secondAttribute="bottom" constant="10" id="gZu-PI-wXM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9P6-QO-DCs" secondAttribute="trailing" id="vGp-LG-lDx"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -212,7 +210,7 @@
                                 <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -224,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNH-bg-aZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="788"/>
+            <point key="canvasLocation" x="2264.8000000000002" y="787.55622188905556"/>
         </scene>
         <!--Passcode View Controller-->
         <scene sceneID="qG2-UO-3Jl">
@@ -338,5 +336,8 @@
             <point key="canvasLocation" x="2789" y="787"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="activate button" width="723" height="723"/>
+    </resources>
     <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

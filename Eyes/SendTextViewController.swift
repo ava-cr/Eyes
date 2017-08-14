@@ -61,14 +61,14 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         sendButton.layer.cornerRadius = 8
-        sendButton.layer.borderColor = lightPink.cgColor
+        sendButton.layer.borderColor = lightGrey.cgColor
         sendButton.layer.borderWidth = 1.0
         shareLocationButton.layer.cornerRadius = 8
-        shareLocationButton.layer.borderColor = lightPink.cgColor
+        shareLocationButton.layer.borderColor = lightGrey.cgColor
         shareLocationButton.layer.borderWidth = 1.0
         
         messageTextView.layer.cornerRadius = 8
-        messageTextView.layer.borderColor = lightPink.cgColor
+        messageTextView.layer.borderColor = lightGrey.cgColor
         messageTextView.layer.borderWidth = 1.0
         
     }
@@ -185,7 +185,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = textPickerData[row]
-        pickerLabel?.textColor = lightPink
+        pickerLabel?.textColor = lightGrey
         
         return pickerLabel!
         

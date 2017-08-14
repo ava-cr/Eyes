@@ -29,19 +29,12 @@ class HomeViewController: UIViewController {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 
         //customization
-//        activateButton.layer.cornerRadius = 8
-//        activateButton.layer.borderWidth = 3.0
-//        activateButton.layer.borderColor = darkBlue.cgColor
-        settingsButton.layer.cornerRadius = 8
+
+        settingsButton.layer.cornerRadius = 25
         settingsButton.layer.borderWidth = 1.5
         settingsButton.layer.borderColor = lightGrey.cgColor
         
-        
-        activateButton.titleLabel?.layer.shadowColor = darkBlue.cgColor
-        activateButton.titleLabel?.layer.shadowRadius = 4
-        activateButton.titleLabel?.layer.shadowOpacity = 0.5
-        activateButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
-        activateButton.titleLabel?.layer.masksToBounds = false
+
     }
 
     
@@ -75,11 +68,11 @@ extension UIButton {
         
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.6
-        pulse.fromValue = 0.97
+        pulse.fromValue = 0.98
         pulse.toValue = 1.0
         pulse.autoreverses = true
         pulse.repeatCount = .infinity
-        pulse.initialVelocity = 0.5
+        pulse.initialVelocity = 0.2
         pulse.damping = 0
         
         layer.add(pulse, forKey: "pulse")

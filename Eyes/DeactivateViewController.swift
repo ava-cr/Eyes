@@ -25,18 +25,18 @@ class DeactivateViewController: UIViewController {
         applyKeyboardDismisser()
         applyKeyboardPush()
         
-        fingerprintButton.layer.cornerRadius = 8
+        fingerprintButton.layer.cornerRadius = 20
         fingerprintButton.layer.borderWidth = 1.0
-        fingerprintButton.layer.borderColor = mintGreen.cgColor
+        fingerprintButton.layer.borderColor = darkBlue.cgColor
         
-        passcodeButton.layer.cornerRadius = 8
+        passcodeButton.layer.cornerRadius = 20
         passcodeButton.layer.borderWidth = 1.0
-        passcodeButton.layer.borderColor = mintGreen.cgColor
+        passcodeButton.layer.borderColor = darkBlue.cgColor
         
         passcodeTextField.layer.cornerRadius = 8
         passcodeTextField.layer.borderWidth = 0.5
-        passcodeTextField.layer.borderColor = mintGreen.cgColor
-        passcodeTextField.attributedPlaceholder = NSAttributedString(string: "passcode here", attributes: [NSForegroundColorAttributeName: darkRed])
+        passcodeTextField.layer.borderColor = darkBlue.cgColor
+        passcodeTextField.attributedPlaceholder = NSAttributedString(string: "passcode here", attributes: [NSForegroundColorAttributeName: lightGrey])
         
         
         person = CoreDataHelperPerson.retrievePerson()[0]
@@ -111,7 +111,6 @@ class DeactivateViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,10 +122,8 @@ class DeactivateViewController: UIViewController {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             textView.resignFirstResponder()
-            self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
             return false
         }
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
         return true
     }
 }
