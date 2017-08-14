@@ -13,7 +13,7 @@ import UserNotifications
 import LocalAuthentication
 import NotificationCenter
 
-let timeInterval: TimeInterval = TimeInterval(10)
+let timeInterval: TimeInterval = TimeInterval(300)
 
 
 @UIApplicationMain
@@ -22,9 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var person = Person()
     
     var contactStore = CNContactStore()
-    var seconds = 60
-    var isTimerRunning = false
-    
+        
     var window: UIWindow?
     
     class func getAppDelegate() -> AppDelegate {

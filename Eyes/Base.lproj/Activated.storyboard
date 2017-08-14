@@ -37,11 +37,14 @@
                                     <action selector="backButtonTapped:" destination="Mim-jf-tu4" eventType="touchUpInside" id="N7K-59-Z2w"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH2-mb-ecM">
-                                <rect key="frame" x="284" y="30" width="65" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH2-mb-ecM">
+                                <rect key="frame" x="318" y="30" width="31" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="gmG-Zv-1zY"/>
+                                    <constraint firstAttribute="width" constant="31" id="vuL-5d-KYj"/>
+                                </constraints>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Share">
+                                <state key="normal" image="share icon">
                                     <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.53026005990000002" colorSpace="calibratedRGB"/>
                                 </state>
@@ -49,29 +52,165 @@
                                     <action selector="shareButtonTapped:" destination="Mim-jf-tu4" eventType="touchUpInside" id="SUU-yV-1J5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzb-Iy-cgE">
+                                <rect key="frame" x="26" y="605" width="323" height="42"/>
+                                <color key="backgroundColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Share with Contacts">
+                                    <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.53000000000000003" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dEk-wK-J9w" kind="show" id="ok3-dY-1VM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vzb-Iy-cgE" secondAttribute="trailing" constant="10" id="4Qb-G4-ULb"/>
                             <constraint firstItem="4YJ-9f-eVG" firstAttribute="leading" secondItem="60v-V3-62L" secondAttribute="leadingMargin" constant="10" id="G0S-9G-h7a"/>
                             <constraint firstAttribute="trailing" secondItem="ztN-De-pQG" secondAttribute="trailing" id="LjT-GO-Jy3"/>
                             <constraint firstItem="aH2-mb-ecM" firstAttribute="top" secondItem="NQb-Gm-CuZ" secondAttribute="bottom" constant="10" id="TDS-qx-nN8"/>
                             <constraint firstItem="ztN-De-pQG" firstAttribute="leading" secondItem="60v-V3-62L" secondAttribute="leading" id="Yo8-YP-H0L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aH2-mb-ecM" secondAttribute="trailing" constant="10" id="aOm-De-h3H"/>
                             <constraint firstItem="ztN-De-pQG" firstAttribute="top" secondItem="60v-V3-62L" secondAttribute="top" id="g75-qT-UZM"/>
+                            <constraint firstItem="Vzb-Iy-cgE" firstAttribute="leading" secondItem="60v-V3-62L" secondAttribute="leadingMargin" constant="10" id="gnS-OH-q6V"/>
                             <constraint firstItem="rXn-nM-onE" firstAttribute="top" secondItem="ztN-De-pQG" secondAttribute="bottom" id="irX-U6-zYD"/>
                             <constraint firstItem="4YJ-9f-eVG" firstAttribute="top" secondItem="NQb-Gm-CuZ" secondAttribute="bottom" constant="10" id="jrj-rg-PHm"/>
+                            <constraint firstItem="rXn-nM-onE" firstAttribute="top" secondItem="Vzb-Iy-cgE" secondAttribute="bottom" constant="20" id="y9A-8b-zWO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="4YJ-9f-eVG" id="Vdm-iO-zWX"/>
                         <outlet property="mapView" destination="ztN-De-pQG" id="Evg-DK-5gu"/>
+                        <outlet property="shareWithContactsButton" destination="Vzb-Iy-cgE" id="yJz-1V-4vD"/>
                         <segue destination="UEe-Q5-ty3" kind="unwind" identifier="backToCallText" unwindAction="backToCallTextWithSegue:" id="GQP-JI-Vuj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gey-vs-QIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UEe-Q5-ty3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3169" y="45"/>
+            <point key="canvasLocation" x="3168.8000000000002" y="44.527736131934034"/>
+        </scene>
+        <!--Choose a Contact-->
+        <scene sceneID="5Ib-YG-Pi3">
+            <objects>
+                <tableViewController id="3Hm-G1-TRv" customClass="ShareLocationTableViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="pK0-h3-biO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shareLocationTableViewCell" rowHeight="100" id="qZf-Ed-QEo" customClass="ShareLocationTableViewCell" customModule="Eyes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qZf-Ed-QEo" id="9DF-zR-rtD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTy-se-dCT">
+                                            <rect key="frame" x="8" y="34" width="359" height="31"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
+                                            <color key="textColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MTy-se-dCT" firstAttribute="leading" secondItem="9DF-zR-rtD" secondAttribute="leadingMargin" id="0CA-wK-Gq7"/>
+                                        <constraint firstItem="MTy-se-dCT" firstAttribute="centerY" secondItem="9DF-zR-rtD" secondAttribute="centerY" id="73a-FI-pbZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MTy-se-dCT" secondAttribute="trailing" id="Om9-3x-eVC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="contactNameLabel" destination="MTy-se-dCT" id="tbC-sK-w7E"/>
+                                    <segue destination="aZe-wg-EH8" kind="show" identifier="contactChosen" id="IeK-KN-orA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3Hm-G1-TRv" id="JsU-IT-sMA"/>
+                            <outlet property="delegate" destination="3Hm-G1-TRv" id="5zN-NH-agm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose a Contact" id="aeZ-B1-fNb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eSZ-tc-XfR">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="3Hm-G1-TRv" id="e1L-i2-XCx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8Hm-8A-uq1" kind="unwind" identifier="unwindToMapView" unwindAction="backToMapViewWithSegue:" id="5wb-ct-86a"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvc-30-M7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Hm-8A-uq1" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4481" y="45"/>
+        </scene>
+        <!--Share Location View Controller-->
+        <scene sceneID="b9D-gl-I0P">
+            <objects>
+                <viewController id="aZe-wg-EH8" customClass="ShareLocationViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QRu-Vb-0IL"/>
+                        <viewControllerLayoutGuide type="bottom" id="LkQ-Yo-ZuX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GMs-1P-Vnj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NEV-5E-5cI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0Q-Ro-qY8">
+                                <rect key="frame" x="85" y="530.5" width="205" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="205" id="frN-aG-RS4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="SHARE">
+                                    <color key="titleColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="0.53000000000000003" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="aZe-wg-EH8" eventType="touchUpInside" id="ojr-0e-HWZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxN-XH-vgh">
+                                <rect key="frame" x="16" y="622.5" width="343" height="29.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="0.5450980392" green="0.14901960780000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NEV-5E-5cI" firstAttribute="leading" secondItem="GMs-1P-Vnj" secondAttribute="leading" id="2Jo-dL-2XF"/>
+                            <constraint firstItem="NEV-5E-5cI" firstAttribute="top" secondItem="QRu-Vb-0IL" secondAttribute="bottom" id="2rk-k6-9wP"/>
+                            <constraint firstItem="BxN-XH-vgh" firstAttribute="top" secondItem="x0Q-Ro-qY8" secondAttribute="bottom" constant="10" id="Byc-Nt-oyM"/>
+                            <constraint firstItem="x0Q-Ro-qY8" firstAttribute="centerX" secondItem="GMs-1P-Vnj" secondAttribute="centerX" id="Lye-y6-SuP"/>
+                            <constraint firstAttribute="trailing" secondItem="NEV-5E-5cI" secondAttribute="trailing" id="Sd9-7r-zzJ"/>
+                            <constraint firstItem="LkQ-Yo-ZuX" firstAttribute="top" secondItem="BxN-XH-vgh" secondAttribute="bottom" constant="15" id="eis-PU-qIq"/>
+                            <constraint firstItem="LkQ-Yo-ZuX" firstAttribute="top" secondItem="NEV-5E-5cI" secondAttribute="bottom" id="kZy-VV-DIN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BxN-XH-vgh" secondAttribute="trailing" id="q2H-21-hB4"/>
+                            <constraint firstItem="BxN-XH-vgh" firstAttribute="leading" secondItem="GMs-1P-Vnj" secondAttribute="leadingMargin" id="yHG-I3-3Rc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contactLabel" destination="BxN-XH-vgh" id="vOt-Sx-EKf"/>
+                        <outlet property="mapView" destination="NEV-5E-5cI" id="30h-cd-6Fq"/>
+                        <outlet property="shareButton" destination="x0Q-Ro-qY8" id="Zxz-kL-4i6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2h-vE-k7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5133.6000000000004" y="44.527736131934034"/>
         </scene>
         <!--Action View Controller-->
         <scene sceneID="wlq-Ls-KWn">
@@ -304,7 +443,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-SW-Oyg" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
                                             <rect key="frame" x="8" y="47" width="359" height="31"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                            <color key="textColor" red="0.85882352939999995" green="0.76078431369999999" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.5" height="-0.5"/>
                                             <userDefinedRuntimeAttributes>
@@ -323,7 +462,6 @@
                                         <constraint firstItem="jhp-SW-Oyg" firstAttribute="centerY" secondItem="LOx-Rt-enU" secondAttribute="centerY" id="RNV-92-HYG"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="contactNameLabel" destination="jhp-SW-Oyg" id="UrN-Iz-ECz"/>
@@ -574,7 +712,6 @@
                                         <constraint firstItem="eBw-vl-Qsg" firstAttribute="centerY" secondItem="DC6-kc-p6I" secondAttribute="centerY" id="ttQ-Cz-9pR"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="contactNameLabel" destination="eBw-vl-Qsg" id="AVe-bZ-tyr"/>
                                     <segue destination="TaR-k2-bwd" kind="show" identifier="contactChosen" id="bLJ-SF-Qnb"/>
@@ -663,10 +800,29 @@
             </objects>
             <point key="canvasLocation" x="3169" y="1547"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KDR-9v-LZt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dEk-wK-J9w" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zbg-op-nIV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Hm-G1-TRv" kind="relationship" relationship="rootViewController" id="VWA-co-7Zk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RS6-is-0hp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3829.5999999999999" y="44.527736131934034"/>
+        </scene>
     </scenes>
     <resources>
         <image name="call icon" width="624" height="675"/>
         <image name="location icon" width="657" height="768"/>
+        <image name="share icon" width="291" height="390"/>
         <image name="text icon" width="630" height="741"/>
     </resources>
     <color key="tintColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>

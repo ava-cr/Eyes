@@ -26,6 +26,7 @@ class DeactivateViewController: UIViewController {
     // touch ID
     
     override func viewDidAppear(_ animated: Bool) {
+        self.tryAgainButton.titleLabel?.textColor = UIColor.clear
         super.viewDidAppear(true)
         authenticateUser()
     }
@@ -90,9 +91,7 @@ class DeactivateViewController: UIViewController {
                         self.present(ac, animated: true, completion: nil)
 
                     }
-
                 }
-
             }
 
         } else {

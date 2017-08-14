@@ -13,6 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var shareWithContactsButton: UIButton!
     
     let locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
@@ -33,6 +34,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shareWithContactsButton.layer.borderWidth = 2.0
+        shareWithContactsButton.layer.borderColor = darkRed.cgColor
+        shareWithContactsButton.layer.cornerRadius = 15
         
         self.mapView.tintColor = darkRed
         
@@ -55,6 +60,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func backToMapView(segue:UIStoryboardSegue) { }
     
     func topMostController() -> UIViewController {
         var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		370E92D51F41F728009A3A97 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D41F41F728009A3A97 /* Date+convertToString.swift */; };
+		370E92D71F4231E6009A3A97 /* ShareLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D61F4231E6009A3A97 /* ShareLocationTableViewController.swift */; };
+		370E92D91F423204009A3A97 /* ShareLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D81F423204009A3A97 /* ShareLocationTableViewCell.swift */; };
+		370E92DB1F4238F3009A3A97 /* ShareLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92DA1F4238F3009A3A97 /* ShareLocationViewController.swift */; };
 		376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */; };
 		376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */; };
 		379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */; };
@@ -46,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		370E92D41F41F728009A3A97 /* Date+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
+		370E92D61F4231E6009A3A97 /* ShareLocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationTableViewController.swift; sourceTree = "<group>"; };
+		370E92D81F423204009A3A97 /* ShareLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationTableViewCell.swift; sourceTree = "<group>"; };
+		370E92DA1F4238F3009A3A97 /* ShareLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationViewController.swift; sourceTree = "<group>"; };
 		376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
 		379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				37CB7CF21F2A62EE00036AA9 /* CallContactsTableViewCell.swift */,
 				376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */,
 				379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */,
+				370E92D81F423204009A3A97 /* ShareLocationTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,6 +218,8 @@
 				37B0B58B1F2B92880078233F /* MapViewController.swift */,
 				379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */,
 				379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */,
+				370E92D61F4231E6009A3A97 /* ShareLocationTableViewController.swift */,
+				370E92DA1F4238F3009A3A97 /* ShareLocationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +312,7 @@
 				37CB7CF71F2A66D900036AA9 /* CallViewController.swift in Sources */,
 				37B0B58C1F2B92880078233F /* MapViewController.swift in Sources */,
 				37D47E0B1F27AFC000BE29E4 /* HomeView.swift in Sources */,
+				370E92DB1F4238F3009A3A97 /* ShareLocationViewController.swift in Sources */,
 				37D47E141F27CBE800BE29E4 /* PasscodeViewController.swift in Sources */,
 				37F248241F28F0C300076789 /* CallTextViewController.swift in Sources */,
 				37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */,
@@ -311,6 +321,7 @@
 				376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */,
 				37EBC10B1F264401000015DD /* ViewController.swift in Sources */,
 				379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */,
+				370E92D91F423204009A3A97 /* ShareLocationTableViewCell.swift in Sources */,
 				37F248261F290BAF00076789 /* DeactivateViewController.swift in Sources */,
 				37EBC11F1F26637A000015DD /* InfoViewController.swift in Sources */,
 				37E3E8EA1F27DFC900BE9721 /* ChangePasscodeViewController.swift in Sources */,
@@ -322,6 +333,7 @@
 				37D47E0F1F27B8EF00BE29E4 /* SettingsViewController.swift in Sources */,
 				37AC4C7B1F32605F0075AFE1 /* CoreDataHelperContact.swift in Sources */,
 				379AF6271F337B6500CCEDF3 /* EditContactsTableViewCell.swift in Sources */,
+				370E92D71F4231E6009A3A97 /* ShareLocationTableViewController.swift in Sources */,
 				37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */,
 				37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */,
 				379AF6291F337EEA00CCEDF3 /* EditContactViewController.swift in Sources */,
