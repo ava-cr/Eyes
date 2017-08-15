@@ -20,11 +20,10 @@ var followUpTimer = Timer()
 var secondFollowUpTimer = Timer()
 
 class ActionViewController: UIViewController, MFMessageComposeViewControllerDelegate, UNUserNotificationCenterDelegate {
-    @IBOutlet weak var deactivateButton: UIButton!
     @IBOutlet weak var alertButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
-    @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var lastCheckInLabel: UILabel!
+    @IBOutlet weak var deactivateButton: UIButton!
     
 
     
@@ -54,9 +53,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         alertButton.titleLabel?.layer.masksToBounds = false
         
         
-        contactButton.layer.cornerRadius = 8
+        contactButton.layer.cornerRadius = 15
         contactButton.layer.borderColor = greyBlue.cgColor
         contactButton.layer.borderWidth = 2.0
+        deactivateButton.layer.cornerRadius = 15
+        deactivateButton.layer.borderColor = greyBlue.cgColor
+        deactivateButton.layer.borderWidth = 2.0
         
         authenticateUser()
 
@@ -102,19 +104,21 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
             CoreDataHelperPerson.savePerson()
             sendNormalNotification()
         }
-        
         completionHandler()
     }
     
     
     
     override func viewDidAppear(_ animated: Bool) {
-
         super.viewDidAppear(true)
         alertButton.flash()
-        if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-            authenticateUser()
+
+        if person.lastCheckInTime != nil {
+            if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
+                    authenticateUser()
+            }
         }
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,6 +163,8 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     }
     
     func authenticateUser() {
+        
+        
         let context = LAContext()
         var error: NSError?
         
