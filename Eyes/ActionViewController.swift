@@ -57,6 +57,8 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         contactButton.layer.cornerRadius = 8
         contactButton.layer.borderColor = greyBlue.cgColor
         contactButton.layer.borderWidth = 2.0
+        
+        authenticateUser()
 
     }
     
@@ -110,7 +112,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
 
         super.viewDidAppear(true)
         alertButton.flash()
-        if Date() > NSDate(timeInterval: timeInterval, since: person.lastCheckInTime! as Date) as Date {
+        if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
             authenticateUser()
         }
     }

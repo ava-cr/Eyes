@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         person = CoreDataHelperPerson.retrievePerson()[0]
+        person.timeInterval = 1800
+        CoreDataHelperPerson.savePerson()
         
         activateButton.isUserInteractionEnabled = true
         activateButton.isEnabled = true

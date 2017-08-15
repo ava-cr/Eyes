@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditContactViewController: UIViewController {
+class EditContactViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -17,18 +17,27 @@ class EditContactViewController: UIViewController {
     var contact: Contact?
     var contacts = [Contact]()
     var navigationBarAppearace = UINavigationBar.appearance()
+    var activeField: UITextField?
 
+    @IBOutlet weak var scrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        applyKeyboardPush()
+        registerForKeyboardNotifications()
+        
         applyKeyboardDismisser()
+        
+        self.firstNameTextField.delegate = self
+        self.lastNameTextField.delegate = self
+        self.phoneNumberTextField.delegate = self
         
         if contact == nil {
             contact = CoreDataHelperContact.newContact()
             CoreDataHelperContact.saveContact()
         }
+        
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height+100)
         
         
         firstNameTextField.attributedPlaceholder = NSAttributedString(string: (contact?.givenName ?? "contact's first name"), attributes: [NSForegroundColorAttributeName: mintGreen])
@@ -51,8 +60,61 @@ class EditContactViewController: UIViewController {
         firstNameTextField.layer.borderWidth = 1.0
         lastNameTextField.layer.borderWidth = 1.0
         phoneNumberTextField.layer.borderWidth = 1.0
-
     }
+    
+    // keyboard push with different text fields
+    
+    func registerForKeyboardNotifications(){
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification){
+        //Need to calculate keyboard exact size due to Apple suggestions
+        self.scrollView.isScrollEnabled = true
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect : CGRect = self.view.frame
+        aRect.size.height -= keyboardSize!.height
+        if let activeField = self.activeField {
+            if (!aRect.contains(activeField.frame.origin)){
+                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification){
+        //Once keyboard disappears, restore original positions
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        self.view.endEditing(true)
+        self.scrollView.isScrollEnabled = false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        activeField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
+        activeField = nil
+    }
+    
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToEditContacts", sender: self)
     }

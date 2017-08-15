@@ -16,6 +16,7 @@
 		379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */; };
 		379AF6271F337B6500CCEDF3 /* EditContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */; };
 		379AF6291F337EEA00CCEDF3 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */; };
+		37A68F631F4341DA00F2D550 /* ChangeTimeIntervalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A68F621F4341DA00F2D550 /* ChangeTimeIntervalViewController.swift */; };
 		37AC4C791F32603F0075AFE1 /* CoreDataHelperPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */; };
 		37AC4C7B1F32605F0075AFE1 /* CoreDataHelperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */; };
 		37B0B5881F2B92110078233F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0B5871F2B92110078233F /* MapKit.framework */; };
@@ -57,6 +58,7 @@
 		379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewController.swift; sourceTree = "<group>"; };
 		379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewCell.swift; sourceTree = "<group>"; };
 		379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
+		37A68F621F4341DA00F2D550 /* ChangeTimeIntervalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTimeIntervalViewController.swift; sourceTree = "<group>"; };
 		37AC4C781F32603F0075AFE1 /* CoreDataHelperPerson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperPerson.swift; sourceTree = "<group>"; };
 		37AC4C7A1F32605F0075AFE1 /* CoreDataHelperContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperContact.swift; sourceTree = "<group>"; };
 		37B0B5871F2B92110078233F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -220,6 +222,7 @@
 				379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */,
 				370E92D61F4231E6009A3A97 /* ShareLocationTableViewController.swift */,
 				370E92DA1F4238F3009A3A97 /* ShareLocationViewController.swift */,
+				37A68F621F4341DA00F2D550 /* ChangeTimeIntervalViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				370E92DB1F4238F3009A3A97 /* ShareLocationViewController.swift in Sources */,
 				37D47E141F27CBE800BE29E4 /* PasscodeViewController.swift in Sources */,
 				37F248241F28F0C300076789 /* CallTextViewController.swift in Sources */,
+				37A68F631F4341DA00F2D550 /* ChangeTimeIntervalViewController.swift in Sources */,
 				37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */,
 				37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */,
 				37EBC1111F264401000015DD /* Eyes.xcdatamodeld in Sources */,

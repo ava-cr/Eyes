@@ -19,34 +19,17 @@ class ChangePasscodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         
-        applyKeyboardDismisser()
-        
-        self.newPasscodeTextField.layer.cornerRadius = 8
-        self.oldPasscodeTextField.layer.cornerRadius = 8
-        self.newPasscodeTextField.layer.borderWidth = 1.0
-        self.oldPasscodeTextField.layer.borderWidth = 1.0
-        self.newPasscodeTextField.layer.borderColor = mintGreen.cgColor
-        self.oldPasscodeTextField.layer.borderColor = mintGreen.cgColor
-        
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-        
-        // Do any additional setup after loading the view.
+        newPasscodeTextField.layer.cornerRadius = 8
+        oldPasscodeTextField.layer.cornerRadius = 8
+        newPasscodeTextField.layer.borderWidth = 1.0
+        oldPasscodeTextField.layer.borderWidth = 1.0
+        newPasscodeTextField.layer.borderColor = mintGreen.cgColor
+        oldPasscodeTextField.layer.borderColor = mintGreen.cgColor
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
-    }
-    
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "unwindToSettings", sender: self)
@@ -57,12 +40,10 @@ class ChangePasscodeViewController: UIViewController {
         if oldPasscodeTextField.text == person.passcode {
             if newPasscodeTextField.text != "" {
                 person.passcode = newPasscodeTextField.text
+                CoreDataHelperPerson.savePerson()
                 performSegue(withIdentifier: "unwindToSettings", sender: self)
             }
         }
-        else {
-        }
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

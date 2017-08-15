@@ -48,6 +48,9 @@
                                         <color key="backgroundColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
                                         <state key="normal" title="Time Interval"/>
+                                        <connections>
+                                            <segue destination="8TP-ga-qka" kind="show" id="EhP-ex-NEm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -106,6 +109,98 @@
                 <exit id="iXd-a3-vxP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2918" y="1486"/>
+        </scene>
+        <!--Change Time Interval View Controller-->
+        <scene sceneID="GQu-DH-3Mf">
+            <objects>
+                <viewController id="8TP-ga-qka" customClass="ChangeTimeIntervalViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGP-Wb-TVE"/>
+                        <viewControllerLayoutGuide type="bottom" id="OaR-km-ddL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mRY-mj-jNQ" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="EKP-YN-FQe">
+                                <rect key="frame" x="26" y="84" width="323" height="354"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Time Interval:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4d-Cd-6sx">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time interval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUF-cf-VXJ">
+                                        <rect key="frame" x="0.0" y="60.5" width="323" height="59"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Time Interval:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd9-0G-Mei">
+                                        <rect key="frame" x="0.0" y="144.5" width="323" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhg-FS-S3R">
+                                        <rect key="frame" x="0.0" y="205" width="323" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="fgh-2H-HDT"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(in minutes)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe8-Hw-zv2">
+                                        <rect key="frame" x="0.0" y="330" width="323" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="EKP-YN-FQe" secondAttribute="trailing" constant="10" id="LIG-bY-S3N"/>
+                            <constraint firstItem="EKP-YN-FQe" firstAttribute="leading" secondItem="mRY-mj-jNQ" secondAttribute="leadingMargin" constant="10" id="Llk-A2-dwH"/>
+                            <constraint firstItem="EKP-YN-FQe" firstAttribute="top" secondItem="hGP-Wb-TVE" secondAttribute="bottom" constant="20" id="wfk-xg-ABm"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qdj-a1-cPP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="t15-iq-ifY">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="8TP-ga-qka" id="JBd-wc-eXx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="v2e-XQ-53K">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="8TP-ga-qka" id="DXu-3U-LCN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newIntervalTextField" destination="dhg-FS-S3R" id="3RU-BS-ntB"/>
+                        <outlet property="timeIntervalLabel" destination="PUF-cf-VXJ" id="nJ3-a3-Ked"/>
+                        <segue destination="JRm-IV-ZQa" kind="unwind" identifier="backToSettings" unwindAction="unwindToSettingsWithSegue:" id="bvf-wz-XYk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMI-3G-w9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JRm-IV-ZQa" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2917.5999999999999" y="2188.1559220389809"/>
         </scene>
         <!--Edit Contacts-->
         <scene sceneID="D9v-Ik-Jms">
@@ -191,95 +286,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M8T-On-FLd">
-                                <rect key="frame" x="36" y="114" width="303" height="459"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beu-JC-UR1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-mB-T15" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="76.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
-                                                <real key="value" value="1.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-ww-Pp7">
-                                        <rect key="frame" x="0.0" y="76.5" width="303" height="76.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAd-fQ-gBd">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i6m-aS-l56">
+                                                <rect key="frame" x="10" y="10" width="355" height="647"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-mB-T15" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="91"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                                <real key="value" value="1.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-ww-Pp7">
+                                                        <rect key="frame" x="0.0" y="111" width="355" height="91.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twH-gt-cT5" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="222.5" width="355" height="91"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                                <real key="value" value="1.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-Ny-Dd4">
+                                                        <rect key="frame" x="0.0" y="333.5" width="355" height="91"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lb-Ub-POO" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="444.5" width="355" height="91.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
+                                                                <real key="value" value="1.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XD6-eB-Qvv">
+                                                        <rect key="frame" x="0.0" y="556" width="355" height="91"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="XD6-eB-Qvv" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="FVe-R3-Nv0"/>
+                                                    <constraint firstItem="j3U-ww-Pp7" firstAttribute="width" secondItem="hMh-mB-T15" secondAttribute="width" id="OjU-ib-iCn"/>
+                                                    <constraint firstItem="j3U-ww-Pp7" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="Q5s-WN-weB"/>
+                                                    <constraint firstItem="XD6-eB-Qvv" firstAttribute="width" secondItem="hMh-mB-T15" secondAttribute="width" id="W6H-X0-KFV"/>
+                                                    <constraint firstItem="7Lb-Ub-POO" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="WoD-FA-ERU"/>
+                                                    <constraint firstItem="7Lb-Ub-POO" firstAttribute="width" secondItem="hMh-mB-T15" secondAttribute="width" id="dPQ-dS-U5h"/>
+                                                    <constraint firstItem="twH-gt-cT5" firstAttribute="width" secondItem="hMh-mB-T15" secondAttribute="width" id="eQA-sm-z1n"/>
+                                                    <constraint firstItem="ctN-Ny-Dd4" firstAttribute="width" secondItem="hMh-mB-T15" secondAttribute="width" id="jij-qZ-qCn"/>
+                                                    <constraint firstItem="twH-gt-cT5" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="nKk-zd-YzG"/>
+                                                    <constraint firstItem="ctN-Ny-Dd4" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="zT8-6F-KIA"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twH-gt-cT5" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="153" width="303" height="76.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
-                                                <real key="value" value="1.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-Ny-Dd4">
-                                        <rect key="frame" x="0.0" y="229.5" width="303" height="76.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lb-Ub-POO" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="306" width="303" height="76.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="outlineWidth">
-                                                <real key="value" value="1.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contact's phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XD6-eB-Qvv">
-                                        <rect key="frame" x="0.0" y="382.5" width="303" height="76.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="i6m-aS-l56" secondAttribute="trailing" constant="10" id="ChH-eI-he1"/>
+                                            <constraint firstItem="i6m-aS-l56" firstAttribute="leading" secondItem="tAd-fQ-gBd" secondAttribute="leading" constant="10" id="oyA-RF-23v"/>
+                                            <constraint firstAttribute="bottom" secondItem="i6m-aS-l56" secondAttribute="bottom" constant="10" id="rKa-gU-8HG"/>
+                                            <constraint firstItem="i6m-aS-l56" firstAttribute="top" secondItem="tAd-fQ-gBd" secondAttribute="top" constant="10" id="vIT-zP-9nY"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ctN-Ny-Dd4" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="1bl-84-zrt"/>
-                                    <constraint firstItem="twH-gt-cT5" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="KGq-Lc-8G1"/>
-                                    <constraint firstAttribute="trailing" secondItem="j3U-ww-Pp7" secondAttribute="trailing" id="P42-bA-mq6"/>
-                                    <constraint firstItem="7Lb-Ub-POO" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="X9d-aB-Z0U"/>
-                                    <constraint firstItem="hMh-mB-T15" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="Y9W-dS-s1K"/>
-                                    <constraint firstItem="XD6-eB-Qvv" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="aJ9-N7-rr1"/>
-                                    <constraint firstItem="7Lb-Ub-POO" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="gyV-gj-4id"/>
-                                    <constraint firstItem="ctN-Ny-Dd4" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="i68-X5-c0c"/>
-                                    <constraint firstItem="twH-gt-cT5" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="lBU-H8-vTo"/>
-                                    <constraint firstItem="j3U-ww-Pp7" firstAttribute="leading" secondItem="M8T-On-FLd" secondAttribute="leading" id="mfA-Sc-TDM"/>
-                                    <constraint firstItem="j3U-ww-Pp7" firstAttribute="height" secondItem="hMh-mB-T15" secondAttribute="height" id="ric-6l-fr9"/>
-                                    <constraint firstItem="XD6-eB-Qvv" firstAttribute="width" secondItem="j3U-ww-Pp7" secondAttribute="width" id="wfk-Pa-fP8"/>
+                                    <constraint firstItem="tAd-fQ-gBd" firstAttribute="top" secondItem="beu-JC-UR1" secondAttribute="top" id="61B-Ir-f3g"/>
+                                    <constraint firstItem="tAd-fQ-gBd" firstAttribute="leading" secondItem="beu-JC-UR1" secondAttribute="leading" id="6vj-WN-b8S"/>
+                                    <constraint firstItem="tAd-fQ-gBd" firstAttribute="centerY" secondItem="beu-JC-UR1" secondAttribute="centerY" id="Ekt-AV-5hv"/>
+                                    <constraint firstItem="tAd-fQ-gBd" firstAttribute="centerX" secondItem="beu-JC-UR1" secondAttribute="centerX" id="SdF-go-Xzc"/>
+                                    <constraint firstAttribute="bottom" secondItem="tAd-fQ-gBd" secondAttribute="bottom" id="oTf-B7-8sX"/>
+                                    <constraint firstAttribute="trailing" secondItem="tAd-fQ-gBd" secondAttribute="trailing" id="rOw-zY-BKO"/>
                                 </constraints>
-                            </stackView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="M8T-On-FLd" firstAttribute="top" secondItem="d5O-kL-cBq" secondAttribute="bottom" constant="50" id="QMa-LL-FXE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M8T-On-FLd" secondAttribute="trailing" constant="20" id="Zta-L5-qnU"/>
-                            <constraint firstItem="sUE-Kz-dSF" firstAttribute="top" secondItem="M8T-On-FLd" secondAttribute="bottom" constant="50" id="gxR-bl-MDn"/>
-                            <constraint firstItem="M8T-On-FLd" firstAttribute="leading" secondItem="I32-Y7-hPM" secondAttribute="leadingMargin" constant="20" id="qcn-mT-UP3"/>
+                            <constraint firstAttribute="bottom" secondItem="beu-JC-UR1" secondAttribute="bottom" id="DKc-u4-8TJ"/>
+                            <constraint firstAttribute="trailing" secondItem="beu-JC-UR1" secondAttribute="trailing" id="KcY-or-a0k"/>
+                            <constraint firstItem="beu-JC-UR1" firstAttribute="leading" secondItem="I32-Y7-hPM" secondAttribute="leading" id="Woo-X6-luM"/>
+                            <constraint firstItem="beu-JC-UR1" firstAttribute="top" secondItem="I32-Y7-hPM" secondAttribute="top" id="vut-g2-j7H"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -310,6 +428,7 @@
                         <outlet property="firstNameTextField" destination="j3U-ww-Pp7" id="n9c-5y-e1b"/>
                         <outlet property="lastNameTextField" destination="ctN-Ny-Dd4" id="RLZ-XC-xDj"/>
                         <outlet property="phoneNumberTextField" destination="XD6-eB-Qvv" id="lqG-ac-mDO"/>
+                        <outlet property="scrollView" destination="beu-JC-UR1" id="1Dq-4E-Mgh"/>
                         <segue destination="iWu-4h-gHO" kind="unwind" identifier="backToEditContacts" unwindAction="backToEditContactsWithSegue:" id="smk-BK-bXe"/>
                     </connections>
                 </viewController>
@@ -326,12 +445,12 @@
                         <viewControllerLayoutGuide type="top" id="VJp-gG-7QE"/>
                         <viewControllerLayoutGuide type="bottom" id="s6R-HS-Jxu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vpe-eD-KdU">
+                    <view key="view" contentMode="scaleToFill" id="Vpe-eD-KdU" customClass="HomeView" customModule="Eyes" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tqt-xS-1cv">
-                                <rect key="frame" x="26" y="74" width="323" height="346"/>
+                                <rect key="frame" x="26" y="84" width="323" height="346"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Passcode:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgn-71-I8d">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="35.5"/>
@@ -345,7 +464,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="9tB-xj-JTx"/>
                                         </constraints>
-                                        <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -361,7 +480,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="6Hi-9H-Nhk"/>
                                         </constraints>
-                                        <color key="textColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -371,16 +490,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tqt-xS-1cv" firstAttribute="leading" secondItem="Vpe-eD-KdU" secondAttribute="leadingMargin" constant="10" id="TuS-eq-XAm"/>
-                            <constraint firstItem="tqt-xS-1cv" firstAttribute="top" secondItem="VJp-gG-7QE" secondAttribute="bottom" constant="10" id="pPK-0h-Eea"/>
+                            <constraint firstItem="tqt-xS-1cv" firstAttribute="top" secondItem="VJp-gG-7QE" secondAttribute="bottom" constant="20" id="Uat-Bs-TA4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tqt-xS-1cv" secondAttribute="trailing" constant="10" id="tou-Z1-9jg"/>
                             <constraint firstItem="tqt-xS-1cv" firstAttribute="centerX" secondItem="Vpe-eD-KdU" secondAttribute="centerX" id="w6Y-aj-mdD"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.0" green="0.0" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>

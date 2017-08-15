@@ -13,8 +13,6 @@ import UserNotifications
 import LocalAuthentication
 import NotificationCenter
 
-let timeInterval: TimeInterval = TimeInterval(300)
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -111,7 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func noResponseToFollowUps() {
-        secondFollowUpTimer.invalidate()
         print("User did not respond to follow up notifications!!!")
         
         
@@ -193,7 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
-                if Date() > NSDate(timeInterval: timeInterval, since: person.lastCheckInTime! as Date) as Date {
+                if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
                     print("more than 10 seconds since last check in")
                     authenticateUser()
                 }
@@ -259,8 +256,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func post(name aName: NSNotification.Name){}
     
     
-    
-    
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
@@ -279,7 +274,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         person = CoreDataHelperPerson.retrievePerson()[0]
         if person.activated == true {
             //only send follow up if it has been more than half an hour
-            if Date() > NSDate(timeInterval: timeInterval, since: person.lastCheckInTime! as Date) as Date {
+            if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
                 CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
                 CoreDataHelperPerson.savePerson()
                 sendFollowUpNotification()
