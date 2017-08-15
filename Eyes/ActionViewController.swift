@@ -45,6 +45,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         alertButton.layer.cornerRadius = 150
         alertButton.layer.borderColor = darkRed.cgColor
         alertButton.layer.borderWidth = 7.0
+        lastCheckInLabel.text = (person.lastCheckInTime)?.convertToString()
         
         alertButton.titleLabel?.layer.shadowColor = darkRed.cgColor
         alertButton.titleLabel?.layer.shadowRadius = 4
@@ -60,7 +61,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         deactivateButton.layer.borderColor = greyBlue.cgColor
         deactivateButton.layer.borderWidth = 2.0
         
-        authenticateUser()
+        //authenticateUser()
 
     }
     
@@ -115,7 +116,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
 
         if person.lastCheckInTime != nil {
             if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                    authenticateUser()
+                authenticateUser()
             }
         }
     
