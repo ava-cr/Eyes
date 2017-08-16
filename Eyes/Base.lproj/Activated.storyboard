@@ -234,7 +234,7 @@
                                             <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="GT2-9E-Q8M" kind="custom" customClass="CustomSegue" customModule="Eyes" customModuleProvider="target" id="CUt-QT-l68"/>
+                                            <segue destination="GT2-9E-Q8M" kind="custom" customClass="ScaleSegue" customModule="Eyes" customModuleProvider="target" id="CUt-QT-l68"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -249,7 +249,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F26-hx-BnB">
-                                <rect key="frame" x="16" y="602" width="343" height="55"/>
+                                <rect key="frame" x="16" y="597" width="343" height="55"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.1333333333" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
                                 <state key="normal" title="deactivate">
@@ -295,13 +295,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g41-8n-agr" firstAttribute="centerY" secondItem="nuW-jo-hhi" secondAttribute="centerY" id="Bak-pg-pwF"/>
-                            <constraint firstItem="F26-hx-BnB" firstAttribute="top" secondItem="p3B-Dx-aYY" secondAttribute="bottom" constant="20" id="DcU-vs-O7o"/>
+                            <constraint firstItem="F26-hx-BnB" firstAttribute="top" secondItem="p3B-Dx-aYY" secondAttribute="bottom" constant="15" id="DcU-vs-O7o"/>
                             <constraint firstItem="g41-8n-agr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xVm-OM-M6H" secondAttribute="bottom" constant="20" id="KH3-WC-zTl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F26-hx-BnB" secondAttribute="trailing" id="PdH-J5-J4W"/>
                             <constraint firstItem="p3B-Dx-aYY" firstAttribute="trailing" secondItem="nuW-jo-hhi" secondAttribute="trailingMargin" id="QrQ-RV-eDF"/>
                             <constraint firstItem="ouP-qh-g4s" firstAttribute="top" secondItem="TXl-zg-l1v" secondAttribute="bottom" constant="5" id="bl3-D2-xkh"/>
                             <constraint firstItem="xVm-OM-M6H" firstAttribute="top" secondItem="ouP-qh-g4s" secondAttribute="bottom" constant="20" id="cgY-Qo-NW7"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="F26-hx-BnB" secondAttribute="bottom" constant="10" id="e04-sw-MIr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="F26-hx-BnB" secondAttribute="bottom" constant="15" id="e04-sw-MIr"/>
                             <constraint firstItem="g41-8n-agr" firstAttribute="centerX" secondItem="nuW-jo-hhi" secondAttribute="centerX" id="hVS-nX-Lrp"/>
                             <constraint firstItem="p3B-Dx-aYY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="g41-8n-agr" secondAttribute="bottom" constant="25" id="jzU-TF-PYn"/>
                             <constraint firstItem="F26-hx-BnB" firstAttribute="leading" secondItem="nuW-jo-hhi" secondAttribute="leadingMargin" id="kFm-1e-m4Q"/>
@@ -386,7 +386,7 @@
                                 </constraints>
                                 <state key="normal" image="location icon"/>
                                 <connections>
-                                    <segue destination="Mim-jf-tu4" kind="custom" customClass="CustomSegue" customModule="Eyes" customModuleProvider="target" id="I4q-Qa-5LZ"/>
+                                    <segue destination="Mim-jf-tu4" kind="custom" customClass="ScaleSegue" customModule="Eyes" customModuleProvider="target" id="I4q-Qa-5LZ"/>
                                 </connections>
                             </button>
                         </subviews>

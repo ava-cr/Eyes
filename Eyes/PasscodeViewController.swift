@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class PasscodeViewController: UIViewController {
     @IBOutlet weak var passcodeTextField: UITextField!
@@ -25,6 +26,12 @@ class PasscodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
+        
         person = CoreDataHelperPerson.retrievePerson()[0]
 
         // Do any additional setup after loading the view.
@@ -32,6 +39,10 @@ class PasscodeViewController: UIViewController {
         passcodeTextField.layer.cornerRadius = 8
         passcodeTextField.layer.borderColor = mintGreen.cgColor
         passcodeTextField.layer.borderWidth = 1.0
+        
+        doneButton.layer.cornerRadius = 8
+        doneButton.layer.borderColor = mintGreen.cgColor
+        doneButton.layer.borderWidth = 1.0
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)

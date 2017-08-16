@@ -21,6 +21,7 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contactInfoLabel: UILabel!
     @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var logo: UIImageView!
     
     @IBOutlet weak var chooseContactsButton: UIButton!
     
@@ -40,6 +41,8 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         nameTextField.layer.cornerRadius = 8
         nameTextField.layer.borderColor = mintGreen.cgColor
         nameTextField.layer.borderWidth = 1.0
+        
+        logo.isHidden = false
         
     }
     
@@ -121,6 +124,7 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         okButton.layer.cornerRadius = 8
         okButton.layer.borderWidth = 1.0
         okButton.layer.borderColor = mintGreen.cgColor
+        logo.isHidden = true
         
     }
     

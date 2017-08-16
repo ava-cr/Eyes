@@ -34,17 +34,15 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
-            if !accepted {
-                print("Notification access denied.")
-            }
-        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "myNotificationKey"), object: nil)
         
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
+        
+        if person.lastCheckInTime != nil {
+            lastCheckInLabel.text = person.lastCheckInTime?.convertToString()
+        }
         
         
         //customization
@@ -68,6 +66,8 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         deactivateButton.layer.borderWidth = 2.0
         
         authenticateUser()
+
+        
     }
     
     func notificationReceived(_ notification: Notification) {
