@@ -34,6 +34,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "myNotificationKey"), object: nil)
         
         
@@ -61,8 +67,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         deactivateButton.layer.borderColor = greyBlue.cgColor
         deactivateButton.layer.borderWidth = 2.0
         
-        //authenticateUser()
-
+        authenticateUser()
     }
     
     func notificationReceived(_ notification: Notification) {
@@ -150,7 +155,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         
         let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 10.0,
+            timeInterval: 1800.0,
             repeats: false)
         
         let request = UNNotificationRequest(
@@ -164,7 +169,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     }
     
     func authenticateUser() {
-        
         
         let context = LAContext()
         var error: NSError?
@@ -207,7 +211,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                             textField.placeholder = "Passcode here"
                             
                         }
-                        
                         ac.addAction(ok)
                         ac.addAction(cancel)
                         
@@ -218,11 +221,40 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
             }
         } else {
             let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let enterPasscode = UIAlertAction(title: "Enter Passcode", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                //asking for passcode if touch id is not configured
+                let ac = UIAlertController(title: "Enter Passcode", message: "", preferredStyle: .alert)
+                
+                let ok = UIAlertAction(title: "OK",
+                                       style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                                        
+                                        if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
+                                            if alertTextField.text! == self.person.passcode {
+                                                self.resetCheckInLabel()
+                                                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                                                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                                                self.sendNormalNotification()
+                                            }
+                                        }
+                }
+                
+                let cancel = UIAlertAction(title: "Cancel",
+                                           style: UIAlertActionStyle.cancel,
+                                           handler: nil)
+                
+                ac.addTextField { (textField: UITextField) in
+                    textField.keyboardType = UIKeyboardType.numberPad
+                    textField.placeholder = "Passcode here"
+                    
+                }
+                ac.addAction(ok)
+                ac.addAction(cancel)
+                self.present(ac, animated: true, completion: nil)
+            }
+            ac.addAction(enterPasscode)
             present(ac, animated: true)
         }
     }
-    
     
     @IBAction func alertButtonTapped(_ sender: Any) {
         print("alertButtonTapped")

@@ -13,6 +13,7 @@
 		370E92DB1F4238F3009A3A97 /* ShareLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92DA1F4238F3009A3A97 /* ShareLocationViewController.swift */; };
 		376DA5241F31074E00EE1795 /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */; };
 		376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */; };
+		376E4F5D1F4495F80088BFB7 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376E4F5C1F4495F80088BFB7 /* CustomSegue.swift */; };
 		379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */; };
 		379AF6271F337B6500CCEDF3 /* EditContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */; };
 		379AF6291F337EEA00CCEDF3 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */; };
@@ -55,6 +56,7 @@
 		370E92DA1F4238F3009A3A97 /* ShareLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationViewController.swift; sourceTree = "<group>"; };
 		376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		376DA5261F3119CB00EE1795 /* ViewController+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Utility.swift"; sourceTree = "<group>"; };
+		376E4F5C1F4495F80088BFB7 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		379AF6241F337B4D00CCEDF3 /* EditContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewController.swift; sourceTree = "<group>"; };
 		379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactsTableViewCell.swift; sourceTree = "<group>"; };
 		379AF6281F337EEA00CCEDF3 /* EditContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				376DA5231F31074E00EE1795 /* UIOutlinedLabel.swift */,
 				379AF6261F337B6500CCEDF3 /* EditContactsTableViewCell.swift */,
 				370E92D81F423204009A3A97 /* ShareLocationTableViewCell.swift */,
+				376E4F5C1F4495F80088BFB7 /* CustomSegue.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				37D47E0D1F27B8E500BE29E4 /* ActionViewController.swift in Sources */,
 				37B5E0BC1F292FFE006C384F /* SendTextViewController.swift in Sources */,
 				37EBC1111F264401000015DD /* Eyes.xcdatamodeld in Sources */,
+				376E4F5D1F4495F80088BFB7 /* CustomSegue.swift in Sources */,
 				376DA5271F3119CB00EE1795 /* ViewController+Utility.swift in Sources */,
 				37EBC10B1F264401000015DD /* ViewController.swift in Sources */,
 				379AF6251F337B4D00CCEDF3 /* EditContactsTableViewController.swift in Sources */,

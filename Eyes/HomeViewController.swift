@@ -31,10 +31,6 @@ class HomeViewController: UIViewController {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 
         //customization
-
-        settingsButton.layer.cornerRadius = 25
-        settingsButton.layer.borderWidth = 1.5
-        settingsButton.layer.borderColor = lightGrey.cgColor
         
 
     }

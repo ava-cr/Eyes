@@ -29,13 +29,13 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svD-cX-Peu">
-                                <rect key="frame" x="4.5" y="287" width="366" height="93"/>
+                                <rect key="frame" x="0.0" y="287" width="375" height="93"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="d0P-w9-M48">
-                                        <rect key="frame" x="0.0" y="0.0" width="183" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="93"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-4v-xsE">
-                                        <rect key="frame" x="183" y="0.0" width="183" height="93"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="93"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -46,10 +46,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.12549019607843137" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="svD-cX-Peu" secondAttribute="trailing" id="BKW-uq-FBC"/>
                             <constraint firstItem="BB5-2N-cHm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="S21-r2-Ty3"/>
                             <constraint firstItem="svD-cX-Peu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ic0-O0-8XW"/>
                             <constraint firstItem="svD-cX-Peu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jYh-re-X5A"/>
                             <constraint firstItem="BB5-2N-cHm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ofK-Tx-1nf"/>
+                            <constraint firstItem="svD-cX-Peu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qWA-MJ-2vm"/>
                         </constraints>
                     </view>
                 </viewController>

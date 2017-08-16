@@ -206,21 +206,21 @@
         <scene sceneID="D9v-Ik-Jms">
             <objects>
                 <tableViewController id="63A-aA-sTi" customClass="EditContactsTableViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="zD9-JN-tq0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="zD9-JN-tq0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactsTableViewCell" rowHeight="100" id="5uL-fW-WjE" customClass="EditContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactsTableViewCell" rowHeight="120" id="5uL-fW-WjE" customClass="EditContactsTableViewCell" customModule="Eyes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5uL-fW-WjE" id="KHf-Rp-2dP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-k5-5hi" customClass="UIOutlinedLabel" customModule="Eyes" customModuleProvider="target">
-                                            <rect key="frame" x="106" y="35" width="163.5" height="31"/>
+                                            <rect key="frame" x="106" y="44.5" width="163.5" height="31"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
                                             <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -527,7 +527,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10P-bE-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qmt-wW-Spv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4380" y="1486"/>
+            <point key="canvasLocation" x="4332" y="1486"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aNJ-dx-LcI">

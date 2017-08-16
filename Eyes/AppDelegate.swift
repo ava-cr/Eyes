@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var person = Person()
     
     var contactStore = CNContactStore()
-        
+    
     var window: UIWindow?
     
     class func getAppDelegate() -> AppDelegate {
@@ -73,12 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
-            if !accepted {
-                print("Notification access denied.")
-            }
-        }
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         var storyboard = UIStoryboard()
@@ -107,35 +101,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    
-    func noResponseToFollowUps() {
-        print("User did not respond to follow up notifications!!!")
-        
-        
-        //Set the content of the notification
-        let content = UNMutableNotificationContent()
-        content.title = "Your Contacts Are Being Notified!"
-        //content.subtitle = "From MakeAppPie.com"
-        content.body = "You have been unresponsive and your stuation could be potentially dangerous."
-        content.categoryIdentifier = "myCategory"
-        
-        
-        //Set the trigger of the notification -- here a timer.
-        let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 10.0,
-            repeats: false)
-        
-        //Set the request for the notification from the above
-        let request = UNNotificationRequest(
-            identifier: "contacts.message",
-            content: content,
-            trigger: trigger
-        )
-        
-        UNUserNotificationCenter.current().add(
-            request, withCompletionHandler: nil)
-    }
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -152,9 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
-                
-                
-                //runTimer()
                 
                 //Set the content of the notification
                 let content = UNMutableNotificationContent()
@@ -190,13 +152,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == true {
-                if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                    print("more than 10 seconds since last check in")
-                    authenticateUser()
+                if person.lastCheckInTime != nil {
+                    
+                    if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
+                        print("more than 10 seconds since last check in")
+                        authenticateUser()
+                    }
                 }
             }
         }
-        
     }
     
     func authenticateUser() {
@@ -241,14 +205,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         ac.addAction(ok)
                         ac.addAction(cancel)
                         
-                        //ac.addAction(UIAlertAction(title: "OK", style: .default))
                         UIApplication.shared.keyWindow?.rootViewController?.present(ac, animated: true, completion: nil)
                     }
                 }
             }
         } else {
             let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            let enterPasscode = UIAlertAction(title: "Enter Passcode", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                //asking for passcode if touch id is not configured
+                let ac = UIAlertController(title: "Enter Passcode", message: "", preferredStyle: .alert)
+                
+                let ok = UIAlertAction(title: "OK",
+                                       style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+                                        
+                                        if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
+                                            if alertTextField.text! == self.person.passcode {
+                                                NotificationCenter.default.post(name: Notification.Name(rawValue: "myNotificationKey"), object: nil, userInfo: nil)
+                                            }
+                                        }
+                }
+                
+                let cancel = UIAlertAction(title: "Cancel",
+                                           style: UIAlertActionStyle.cancel,
+                                           handler: nil)
+                
+                ac.addTextField { (textField: UITextField) in
+                    textField.keyboardType = UIKeyboardType.numberPad
+                    textField.placeholder = "Passcode here"
+                    
+                }
+                ac.addAction(ok)
+                ac.addAction(cancel)
+                UIApplication.shared.keyWindow?.rootViewController?.present(ac, animated: true, completion: nil)
+            }
+            ac.addAction(enterPasscode)
             UIApplication.shared.keyWindow?.rootViewController?.present(ac, animated: true)
         }
     }
@@ -280,8 +270,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 sendFollowUpNotification()
             }
         }
-        
-        
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
@@ -294,7 +282,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("haven't responded to 1 notification")
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"
-            content.body = "This is the first follow-up notification, if you don't respond to the second, your contacts will be notified."
+            content.body = "This is the first follow-up, if you don't open the second and check in, your contacts will be notified."
             //content.categoryIdentifier = "myCategory"
             
             let trigger = UNTimeIntervalNotificationTrigger(
@@ -318,7 +306,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"
-            content.body = "If you don't respond to this notification, your contacts will be notified!"
+            content.body = "If you don't respond to this notification and check in, your contacts will be notified!"
             //content.categoryIdentifier = "myCategory"
             
             let trigger = UNTimeIntervalNotificationTrigger(
@@ -356,8 +344,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 request, withCompletionHandler: nil)
         }
     }
-    
-    
     
     
     // MARK: - Core Data stack

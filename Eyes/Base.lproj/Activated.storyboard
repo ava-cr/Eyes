@@ -127,7 +127,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="contactNameLabel" destination="MTy-se-dCT" id="tbC-sK-w7E"/>
-                                    <segue destination="aZe-wg-EH8" kind="show" identifier="contactChosen" id="IeK-KN-orA"/>
+                                    <segue destination="aZe-wg-EH8" kind="show" identifier="contactChosen" id="byr-YW-FWs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -150,7 +150,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvc-30-M7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8Hm-8A-uq1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4481" y="45"/>
+            <point key="canvasLocation" x="4577" y="45"/>
         </scene>
         <!--Share Location View Controller-->
         <scene sceneID="b9D-gl-I0P">
@@ -192,13 +192,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NEV-5E-5cI" firstAttribute="leading" secondItem="GMs-1P-Vnj" secondAttribute="leading" id="2Jo-dL-2XF"/>
-                            <constraint firstItem="NEV-5E-5cI" firstAttribute="top" secondItem="QRu-Vb-0IL" secondAttribute="bottom" id="2rk-k6-9wP"/>
                             <constraint firstItem="BxN-XH-vgh" firstAttribute="top" secondItem="x0Q-Ro-qY8" secondAttribute="bottom" constant="10" id="Byc-Nt-oyM"/>
                             <constraint firstItem="x0Q-Ro-qY8" firstAttribute="centerX" secondItem="GMs-1P-Vnj" secondAttribute="centerX" id="Lye-y6-SuP"/>
                             <constraint firstAttribute="trailing" secondItem="NEV-5E-5cI" secondAttribute="trailing" id="Sd9-7r-zzJ"/>
                             <constraint firstItem="LkQ-Yo-ZuX" firstAttribute="top" secondItem="BxN-XH-vgh" secondAttribute="bottom" constant="15" id="eis-PU-qIq"/>
                             <constraint firstItem="LkQ-Yo-ZuX" firstAttribute="top" secondItem="NEV-5E-5cI" secondAttribute="bottom" id="kZy-VV-DIN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BxN-XH-vgh" secondAttribute="trailing" id="q2H-21-hB4"/>
+                            <constraint firstItem="NEV-5E-5cI" firstAttribute="top" secondItem="QRu-Vb-0IL" secondAttribute="bottom" id="sGD-2r-lEk"/>
                             <constraint firstItem="BxN-XH-vgh" firstAttribute="leading" secondItem="GMs-1P-Vnj" secondAttribute="leadingMargin" id="yHG-I3-3Rc"/>
                         </constraints>
                     </view>
@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2h-vE-k7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5133.6000000000004" y="44.527736131934034"/>
+            <point key="canvasLocation" x="5281" y="45"/>
         </scene>
         <!--Action View Controller-->
         <scene sceneID="wlq-Ls-KWn">
@@ -234,7 +234,7 @@
                                             <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="GT2-9E-Q8M" kind="presentation" modalTransitionStyle="crossDissolve" id="CUt-QT-l68"/>
+                                            <segue destination="GT2-9E-Q8M" kind="custom" customClass="CustomSegue" customModule="Eyes" customModuleProvider="target" id="CUt-QT-l68"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -251,8 +251,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F26-hx-BnB">
                                 <rect key="frame" x="16" y="602" width="343" height="55"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.1333333333" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
-                                <state key="normal" title="Deactivate">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
+                                <state key="normal" title="deactivate">
                                     <color key="titleColor" red="0.14117647059999999" green="0.12549019610000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -328,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGE-mE-6f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2487" y="796"/>
+            <point key="canvasLocation" x="2409" y="796"/>
         </scene>
         <!--Call Text View Controller-->
         <scene sceneID="FLB-Gl-x6t">
@@ -386,7 +386,7 @@
                                 </constraints>
                                 <state key="normal" image="location icon"/>
                                 <connections>
-                                    <segue destination="Mim-jf-tu4" kind="show" id="I4q-Qa-5LZ"/>
+                                    <segue destination="Mim-jf-tu4" kind="custom" customClass="CustomSegue" customModule="Eyes" customModuleProvider="target" id="I4q-Qa-5LZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -414,7 +414,7 @@
                         <outlet property="backButton" destination="Tht-sN-wqX" id="faS-5M-p81"/>
                         <outlet property="callButton" destination="B9v-F4-yj1" id="Qe0-Lu-dMu"/>
                         <outlet property="textButton" destination="ESm-MN-CSs" id="aI7-nr-W0H"/>
-                        <segue destination="F2J-Im-4w7" kind="unwind" identifier="backToAction" unwindAction="unwindToActionViewWithSegue:" id="jAt-AV-hHG"/>
+                        <segue destination="F2J-Im-4w7" kind="unwind" identifier="backToAction" customClass="UnwindScaleSegue" customModule="Eyes" customModuleProvider="target" unwindAction="unwindToActionViewWithSegue:" id="jAt-AV-hHG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGo-gl-6CW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -491,7 +491,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTo-Sa-xqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Jr-JX-GEe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4482" y="796"/>
+            <point key="canvasLocation" x="4577" y="796"/>
         </scene>
         <!--Send Text View Controller-->
         <scene sceneID="sf0-QE-0Xg">
@@ -581,7 +581,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtC-nO-l4W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5134" y="796"/>
+            <point key="canvasLocation" x="5281" y="796"/>
         </scene>
         <!--Deactivate View Controller-->
         <scene sceneID="3yw-dc-AX6">
@@ -652,7 +652,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUn-DW-5xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RwC-an-evq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2485.5999999999999" y="1546.776611694153"/>
+            <point key="canvasLocation" x="2409" y="1547"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sGq-8G-DsF">
@@ -672,7 +672,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVg-pL-96n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3830" y="796"/>
+            <point key="canvasLocation" x="3868" y="796"/>
         </scene>
         <!--Choose a Contact-->
         <scene sceneID="o26-2Z-Tep">
@@ -740,7 +740,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eau-ja-l6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zNX-dC-Qas" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3830" y="1547"/>
+            <point key="canvasLocation" x="3868" y="1547"/>
         </scene>
         <!--Call View Controller-->
         <scene sceneID="kaB-Vf-kqq">
@@ -779,7 +779,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKF-EA-DUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4481" y="1547"/>
+            <point key="canvasLocation" x="4577" y="1547"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="drw-mr-KFf">
@@ -817,7 +817,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS6-is-0hp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3829.5999999999999" y="44.527736131934034"/>
+            <point key="canvasLocation" x="3868" y="45"/>
         </scene>
     </scenes>
     <resources>
