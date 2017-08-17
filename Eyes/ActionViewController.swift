@@ -25,7 +25,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     @IBOutlet weak var lastCheckInLabel: UILabel!
     @IBOutlet weak var deactivateButton: UIButton!
     
-
+    
     
     var person = Person()
     var contacts = [Contact]()
@@ -33,6 +33,10 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lastCheckInLabel.text = "you haven't checked in yet"
+
+        
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "myNotificationKey"), object: nil)
         
@@ -40,16 +44,14 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
         
-        if person.lastCheckInTime != nil {
-            lastCheckInLabel.text = person.lastCheckInTime?.convertToString()
-        }
+        
+        
         
         
         //customization
         alertButton.layer.cornerRadius = 150
         alertButton.layer.borderColor = darkRed.cgColor
         alertButton.layer.borderWidth = 7.0
-        lastCheckInLabel.text = (person.lastCheckInTime)?.convertToString()
         
         alertButton.titleLabel?.layer.shadowColor = darkRed.cgColor
         alertButton.titleLabel?.layer.shadowRadius = 4
@@ -66,13 +68,16 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         deactivateButton.layer.borderWidth = 2.0
         
         authenticateUser()
-
         
     }
     
     func notificationReceived(_ notification: Notification) {
-        print("user authenticated")
-        self.person.notRespondedTo = 0
+        print("got notification that the foreground was entered.")
+        //print("user authenticated")
+//        if lastCheckInLabel.text != "you haven't checked in yet" {
+//            authenticateUser()
+//        }
+        alertButton.flash()
         self.resetCheckInLabel()
         self.sendNormalNotification()
     }
@@ -94,20 +99,18 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         switch response.actionIdentifier {
         case "Check-in":
             print("Checked in from notification!")
-
+            
             UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            person.notRespondedTo = 0
             CoreDataHelperPerson.savePerson()
             sendNormalNotification()
         default:
             print("You have checked in by opening the app!")
-
+            
             UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            person.notRespondedTo = 0
             CoreDataHelperPerson.savePerson()
             sendNormalNotification()
         }
@@ -119,22 +122,23 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         alertButton.flash()
-
+        print("view did appear")
+        
         if person.lastCheckInTime != nil {
             if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                authenticateUser()
+                if lastCheckInLabel.text != "you haven't checked in yet" {
+                    authenticateUser()
+                }
             }
         }
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
-        //authenticateUser()
-        person.notRespondedTo = 0
-        CoreDataHelperPerson.savePerson()
+        
         super.viewWillAppear(true)
-
+        print("view will appear")
+        
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
@@ -152,11 +156,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         let content = UNMutableNotificationContent()
         content.title = "Check in with Eyes!"
         content.body = "It's been half an hour, open the app to assure us you're ok."
+        content.sound = UNNotificationSound.default()
         //content.categoryIdentifier = "myCategory"
         
         
         let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 1800.0,
+            timeInterval: 20.0,
             repeats: false)
         
         let request = UNNotificationRequest(
@@ -183,11 +188,10 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                 DispatchQueue.main.async {
                     if success {
                         self.resetCheckInLabel()
-                        self.person.notRespondedTo = 0
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                         self.sendNormalNotification()
-
+                        
                     } else {
                         let ac = UIAlertController(title: "Enter Passcode", message: "", preferredStyle: .alert)
                         
@@ -197,7 +201,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                                                 if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
                                                     if alertTextField.text! == self.person.passcode {
                                                         self.resetCheckInLabel()
-                                                        self.person.notRespondedTo = 0
                                                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                                                         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                                                         self.sendNormalNotification()
@@ -234,7 +237,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                                         if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
                                             if alertTextField.text! == self.person.passcode {
                                                 self.resetCheckInLabel()
-                                                self.person.notRespondedTo = 0
                                                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                                                 UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                                                 self.sendNormalNotification()

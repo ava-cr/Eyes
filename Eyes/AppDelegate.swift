@@ -151,12 +151,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
+            if person.activated == false {
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "notActivatedKey"), object: nil, userInfo: nil)
+            }
             if person.activated == true {
                 if person.lastCheckInTime != nil {
                     
                     if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                        print("more than 10 seconds since last check in")
-                        authenticateUser()
+                        print("application entered foreground")
+
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "myNotificationKey"), object: nil, userInfo: nil)
+                        //authenticateUser()
                     }
                 }
             }
@@ -266,8 +271,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if person.lastCheckInTime != nil {
                 //only send follow up if it has been more than half an hour
                 if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                    CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
-                    CoreDataHelperPerson.savePerson()
+                    
                     sendFollowUpNotification()
                 }
             }
@@ -277,14 +281,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func sendFollowUpNotification() {
         
-        let followUpNumber = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo
-        
-        // first follow up
-        if followUpNumber == 1 {
             print("haven't responded to 1 notification")
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"
-            content.body = "This is the first follow-up, if you don't open the second and check in, your contacts will be notified."
+            content.body = "Open the app and ALERT your contacts or send your location if you're in a dangerous situation."
+            content.sound = UNNotificationSound.default()
             //content.categoryIdentifier = "myCategory"
             
             let trigger = UNTimeIntervalNotificationTrigger(
@@ -300,58 +301,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 request, withCompletionHandler: nil)
             
             sleep(30)
-        }
-        // second follow up
-        if followUpNumber == 2 {
-            
-            print("haven't responded to 2 notifications")
-            
-            let content = UNMutableNotificationContent()
-            content.title = "Warning: You Haven't Checked In!"
-            content.body = "If you don't respond to this notification and check in, your contacts will be notified!"
-            //content.categoryIdentifier = "myCategory"
-            
-            let trigger = UNTimeIntervalNotificationTrigger(
-                timeInterval: 5.0,
-                repeats: false)
-            
-            let request = UNNotificationRequest(
-                identifier: "second.followup",
-                content: content,
-                trigger: trigger
-            )
-            UNUserNotificationCenter.current().add(
-                request, withCompletionHandler: nil)
-            
-            sleep(30)
-        }
-        // third follow up - notifying contacts
-        if followUpNumber == 3 {
-            
-            let content = UNMutableNotificationContent()
-            content.title = "Your Contacts Are Being Notified!"
-            content.body = "You have been unresponsive and your stuation is potentially dangerous."
-            content.categoryIdentifier = "myCategory"
-            
-            let trigger = UNTimeIntervalNotificationTrigger(
-                timeInterval: 5.0,
-                repeats: false)
-            
-            let request = UNNotificationRequest(
-                identifier: "contacts.message",
-                content: content,
-                trigger: trigger
-            )
-            UNUserNotificationCenter.current().add(
-                request, withCompletionHandler: nil)
-            
-            notifyContacts()
-        }
     }
-    
-    func notifyContacts() {
-        
-    }
+
+
     
     
     // MARK: - Core Data stack

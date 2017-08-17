@@ -67,6 +67,7 @@ class DeactivateViewController: UIViewController {
                                                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                                                         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                                                         self.person.activated = false
+                                                        self.person.lastCheckInTime = nil
                                                         CoreDataHelperPerson.savePerson()
                                                         self.present(viewController, animated: true, completion: nil)
                                                     }
@@ -108,6 +109,7 @@ class DeactivateViewController: UIViewController {
                                                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                                                 UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                                                 self.person.activated = false
+                                                self.person.lastCheckInTime = nil
                                                 CoreDataHelperPerson.savePerson()
                                                 self.present(viewController, animated: true, completion: nil)
                                             }

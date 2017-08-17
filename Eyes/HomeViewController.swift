@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import NotificationCenter
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var activateButton: UIButton!
@@ -18,8 +19,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "notActivatedKey"), object: nil)
+        
         person = CoreDataHelperPerson.retrievePerson()[0]
-        person.timeInterval = 1800
+        person.timeInterval = 20
         CoreDataHelperPerson.savePerson()
         
         activateButton.isUserInteractionEnabled = true
@@ -30,6 +33,12 @@ class HomeViewController: UIViewController {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
+    
+    func notificationReceived(_ notification: Notification) {
+        activateButton.pulsate()
+        
+    }
+
 
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,9 +46,10 @@ class HomeViewController: UIViewController {
         activateButton.pulsate()
     }
     
+    
     @IBAction func activateButtonTapped(_ sender: UIButton) {
         print("activateButtonTapped")
-        activateButton.layer.removeAllAnimations()
+        //activateButton.layer.removeAllAnimations()
         self.person.activated = true
         CoreDataHelperPerson.savePerson()
     }

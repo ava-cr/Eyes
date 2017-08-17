@@ -130,7 +130,6 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
         messageViewController.recipients = [(contact?.phoneNumber)!]
         messageViewController.messageComposeDelegate = self
         messageViewController.view.tintColor = darkRed
-        
         self.present(messageViewController, animated: true, completion: nil)
     }
     

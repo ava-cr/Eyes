@@ -98,14 +98,14 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE1-rU-NqS">
-                                <rect key="frame" x="21" y="159.5" width="343" height="184.5"/>
-                                <string key="text">Once activated for a night out, Eyes works by periodically sending notifications to check in on you. Tell us which friends &amp; family you want alerted if you fail to respond.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
+                                <rect key="frame" x="21" y="159.5" width="343" height="190"/>
+                                <string key="text">Once activated for a night out, Eyes works by sending notifications to check in on you and stream-lining the process of alerting your family &amp; friends of a potentially dangerous situation. Choose the contacts you want added to the app.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpq-Jf-xVX">
-                                <rect key="frame" x="36" y="374" width="303" height="43"/>
+                                <rect key="frame" x="36" y="379.5" width="303" height="43"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="2kI-UX-ieo"/>
