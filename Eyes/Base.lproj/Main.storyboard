@@ -227,7 +227,7 @@
                                     <color key="titleColor" red="0.36862745099999999" green="0.3411764706" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="iig-hb-AxU" kind="presentation" modalTransitionStyle="coverVertical" id="FOd-Jc-wTL"/>
+                                    <segue destination="iig-hb-AxU" kind="custom" customClass="SplitSegue" customModule="Eyes" customModuleProvider="target" id="FOd-Jc-wTL"/>
                                 </connections>
                             </button>
                         </subviews>

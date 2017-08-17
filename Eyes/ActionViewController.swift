@@ -72,6 +72,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     
     func notificationReceived(_ notification: Notification) {
         print("user authenticated")
+        self.person.notRespondedTo = 0
         self.resetCheckInLabel()
         self.sendNormalNotification()
     }
@@ -182,6 +183,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                 DispatchQueue.main.async {
                     if success {
                         self.resetCheckInLabel()
+                        self.person.notRespondedTo = 0
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                         self.sendNormalNotification()
@@ -195,6 +197,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                                                 if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
                                                     if alertTextField.text! == self.person.passcode {
                                                         self.resetCheckInLabel()
+                                                        self.person.notRespondedTo = 0
                                                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                                                         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                                                         self.sendNormalNotification()
@@ -231,6 +234,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                                         if let alertTextField = ac.textFields?.first, alertTextField.text != nil {
                                             if alertTextField.text! == self.person.passcode {
                                                 self.resetCheckInLabel()
+                                                self.person.notRespondedTo = 0
                                                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                                                 UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                                                 self.sendNormalNotification()

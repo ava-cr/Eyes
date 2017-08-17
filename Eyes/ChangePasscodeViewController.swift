@@ -44,6 +44,10 @@ class ChangePasscodeViewController: UIViewController {
                 performSegue(withIdentifier: "unwindToSettings", sender: self)
             }
         }
+        else {
+            oldPasscodeTextField.text = ""
+            oldPasscodeTextField.attributedPlaceholder = NSAttributedString(string: "wrong passcode", attributes: [NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 27.0)!])
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

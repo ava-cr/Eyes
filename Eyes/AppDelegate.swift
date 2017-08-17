@@ -263,11 +263,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("background fetch complete!!")
         person = CoreDataHelperPerson.retrievePerson()[0]
         if person.activated == true {
-            //only send follow up if it has been more than half an hour
-            if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
-                CoreDataHelperPerson.savePerson()
-                sendFollowUpNotification()
+            if person.lastCheckInTime != nil {
+                //only send follow up if it has been more than half an hour
+                if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
+                    CoreDataHelperPerson.retrievePerson()[0].notRespondedTo = CoreDataHelperPerson.retrievePerson()[0].notRespondedTo + 1
+                    CoreDataHelperPerson.savePerson()
+                    sendFollowUpNotification()
+                }
             }
         }
         completionHandler(UIBackgroundFetchResult.newData)
@@ -342,7 +344,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             UNUserNotificationCenter.current().add(
                 request, withCompletionHandler: nil)
+            
+            notifyContacts()
         }
+    }
+    
+    func notifyContacts() {
+        
     }
     
     

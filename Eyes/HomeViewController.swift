@@ -29,10 +29,6 @@ class HomeViewController: UIViewController {
         CoreDataHelperPerson.savePerson()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-
-        //customization
-        
-
     }
 
     
@@ -48,13 +44,10 @@ class HomeViewController: UIViewController {
         CoreDataHelperPerson.savePerson()
     }
     @IBAction func unwindToHome(segue:UIStoryboardSegue) {
-//        self.person.activated = false
-//        CoreDataHelperPerson.savePerson()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

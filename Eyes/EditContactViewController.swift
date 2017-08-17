@@ -39,11 +39,22 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
         
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height+100)
         
+        if contact?.givenName != nil {
+            firstNameTextField.text = contact?.givenName
+        } else {
+            firstNameTextField.attributedPlaceholder = NSAttributedString(string: ("contact's first name"), attributes: [NSForegroundColorAttributeName: mintGreen])
+        }
+        if contact?.familyName != nil {
+            lastNameTextField.text = contact?.familyName
+        } else {
+            lastNameTextField.attributedPlaceholder = NSAttributedString(string: ("contact's last name"), attributes: [NSForegroundColorAttributeName: mintGreen])
+        }
+        if contact?.phoneNumber != nil {
+            phoneNumberTextField.text = contact?.phoneNumber
+        } else {
+            phoneNumberTextField.attributedPlaceholder = NSAttributedString(string: ("contact's phone number"), attributes: [NSForegroundColorAttributeName: mintGreen])
+        }
         
-        firstNameTextField.attributedPlaceholder = NSAttributedString(string: (contact?.givenName ?? "contact's first name"), attributes: [NSForegroundColorAttributeName: mintGreen])
-        lastNameTextField.attributedPlaceholder = NSAttributedString(string: (contact?.familyName ?? "contact's last name"), attributes: [NSForegroundColorAttributeName: mintGreen])
-        phoneNumberTextField.attributedPlaceholder = NSAttributedString(string: (contact?.phoneNumber ?? "contact's phone number"), attributes: [NSForegroundColorAttributeName: mintGreen])
-
         contacts = CoreDataHelperContact.retrieveContacts()
         print(contacts.count)
         
@@ -118,18 +129,20 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cancelButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToEditContacts", sender: self)
     }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         // if contact exists, update it
         let contact = self.contact ?? CoreDataHelperContact.newContact()
         if firstNameTextField.text != "" {
             contact.givenName = firstNameTextField.text
-        }
+        } else { contact.givenName = nil }
         if lastNameTextField.text != "" {
             contact.familyName = lastNameTextField.text
-        }
+        } else {contact.familyName = nil}
         if phoneNumberTextField.text != "" {
             contact.phoneNumber = phoneNumberTextField.text
-        }
+        } else {contact.phoneNumber = nil}
+        
         CoreDataHelperContact.saveContact()
         
         performSegue(withIdentifier: "backToEditContacts", sender: self)

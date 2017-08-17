@@ -33,7 +33,6 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         person = CoreDataHelperPerson.newPerson()
         
         
-        
         //customization
         chooseContactsButton.layer.cornerRadius = 8
         chooseContactsButton.layer.borderColor = mintGreen.cgColor
@@ -119,7 +118,6 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         // after contacts have been chosen
         contactInfoLabel.text = "If a contact has multiple numbers, Eyes will select the \"mobile\" or \"iPhone\" number. This can be modified in Settings."
-//        okButton.titleLabel?.textColor = UIColor(red: 167, green: 196, blue: 194, alpha: 1)
         okButton.setTitle("Ok, thanks.", for: UIControlState.normal)
         okButton.layer.cornerRadius = 8
         okButton.layer.borderWidth = 1.0
