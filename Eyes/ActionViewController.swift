@@ -36,7 +36,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         lastCheckInLabel.text = ""
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.authenticateNotificationRecieved(_:)), name: Notification.Name(rawValue: "AuthenticateUser"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.foregroundNotificationRecieved(_:)), name: Notification.Name(rawValue: "TimeIntervalNotElapsed"), object: nil)
         
@@ -57,27 +56,25 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         alertButton.titleLabel?.layer.masksToBounds = false
         
         
-        contactButton.layer.cornerRadius = 15
+        contactButton.layer.cornerRadius = 8
         contactButton.layer.borderColor = greyBlue.cgColor
-        contactButton.layer.borderWidth = 2.0
-        deactivateButton.layer.cornerRadius = 15
+        contactButton.layer.borderWidth = 1.0
+        deactivateButton.layer.cornerRadius = 8
         deactivateButton.layer.borderColor = greyBlue.cgColor
-        deactivateButton.layer.borderWidth = 2.0
+        deactivateButton.layer.borderWidth = 1.0
         
         authenticateUser()
         
     }
     
     func authenticateNotificationRecieved(_ notification: Notification) {
-        print("got notification that the foreground was entered.")
+        person = CoreDataHelperPerson.retrievePerson()[0]
         
         if person.activated {
             if person.lastCheckInTime != nil {
                 if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
                     if lastCheckInLabel.text != "" {
                         authenticateUser()
-                        self.resetCheckInLabel()
-                        self.sendNormalNotification()
                     }
                 }
             }
@@ -101,36 +98,11 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         UNUserNotificationCenter.current().delegate = self
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        switch response.actionIdentifier {
-        case "Check-in":
-            print("Checked in from notification!")
-            
-            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            CoreDataHelperPerson.savePerson()
-            sendNormalNotification()
-        default:
-            print("You have checked in by opening the app!")
-            
-            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            CoreDataHelperPerson.savePerson()
-            sendNormalNotification()
-        }
-        completionHandler()
-    }
-    
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         alertButton.flash()
-        self.person = CoreDataHelperPerson.retrievePerson()[0]
-        self.contacts = CoreDataHelperContact.retrieveContacts()
-        print("view did appear")
+        person = CoreDataHelperPerson.retrievePerson()[0]
+        contacts = CoreDataHelperContact.retrieveContacts()
         
         if person.lastCheckInTime != nil {
             if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
@@ -143,6 +115,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     
     func sendNormalNotification() {
         
+        // first time interval
         let content = UNMutableNotificationContent()
         content.title = "Check in with Eyes!"
         content.body = "It's been \(person.timeInterval / 60) minutes, open the app to assure us you're ok."
@@ -161,9 +134,53 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         UNUserNotificationCenter.current().add(
             request, withCompletionHandler: nil)
+        
+        // second time interval
+        
+        let content2 = UNMutableNotificationContent()
+        content2.title = "Check in with Eyes!"
+        content2.body = "It's been \(person.timeInterval / 30) minutes, open the app to assure us you're ok."
+        content2.sound = UNNotificationSound.default()
+        
+        
+        let trigger2 = UNTimeIntervalNotificationTrigger(
+            timeInterval: TimeInterval(person.timeInterval * 2),
+            repeats: false)
+        
+        let request2 = UNNotificationRequest(
+            identifier: "checkin2.message",
+            content: content2,
+            trigger: trigger2
+            )
+        
+            UNUserNotificationCenter.current().add(
+                request2, withCompletionHandler: nil)
+            
+        // third time interval
+        
+        let content3 = UNMutableNotificationContent()
+        content3.title = "Check in with Eyes!"
+        content3.body = "It's been \(person.timeInterval / 20) minutes, open the app to assure us you're ok."
+        content3.sound = UNNotificationSound.default()
+        
+        
+        let trigger3 = UNTimeIntervalNotificationTrigger(
+            timeInterval: TimeInterval(person.timeInterval * 3),
+            repeats: false)
+        
+        let request3 = UNNotificationRequest(
+            identifier: "checkin3.message",
+            content: content3,
+            trigger: trigger3
+        )
+        
+        UNUserNotificationCenter.current().add(
+            request3, withCompletionHandler: nil)
     }
     
     func authenticateUser() {
+        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         let context = LAContext()
         var error: NSError?
@@ -248,10 +265,10 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
             ac.addAction(enterPasscode)
             present(ac, animated: true)
         }
+        alertButton.flash()
     }
     
     @IBAction func alertButtonTapped(_ sender: Any) {
-        print("alertButtonTapped")
         let messageViewController = MFMessageComposeViewController()
         messageViewController.body = "\(self.person.name ?? "The User") has sent an ALERT, signalling a potentially dangerous situation. Please try to get in touch with \(self.person.name ?? "The User") immediately. This alert has been sent to every one of \(self.person.name ?? "The User")'s predetermined contacts."
         
@@ -259,7 +276,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         for contact in contacts {
             numbers.append(contact.phoneNumber ?? "")
         }
-        print(numbers)
         messageViewController.recipients = numbers
         
         messageViewController.messageComposeDelegate = self
@@ -268,9 +284,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         self.present(messageViewController, animated: true, completion: nil)
     }
     
-    @IBAction func deactivateButtonTapped(_ sender: UIButton) {
-        print("deactivateButtonTapped")
-    }
+    @IBAction func deactivateButtonTapped(_ sender: UIButton) { }
     
     @IBAction func unwindToActionView(segue:UIStoryboardSegue) { }
     

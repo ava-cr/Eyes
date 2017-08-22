@@ -46,7 +46,6 @@ class ChangeTimeIntervalViewController: UIViewController {
             let newTimeInterval = Int16(self.newIntervalTextField.text!)
             person.timeInterval = Int16(newTimeInterval! * 60)
             CoreDataHelperPerson.savePerson()
-            print(person.timeInterval)
             performSegue(withIdentifier: "backToSettings", sender: self)
         }
     }

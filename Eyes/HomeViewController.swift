@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "notActivatedKey"), object: nil)
         
         person = CoreDataHelperPerson.retrievePerson()[0]
+        person.lastCheckInTime = nil
+        CoreDataHelperPerson.savePerson()
         
         
         activateButton.isUserInteractionEnabled = true
@@ -34,7 +36,6 @@ class HomeViewController: UIViewController {
     }
     
     func notificationReceived(_ notification: Notification) {
-        print("entered foreground")
         activateButton.pulsate()
     }
 
@@ -46,13 +47,10 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func activateButtonTapped(_ sender: UIButton) {
-        print("activateButtonTapped")
-        //activateButton.layer.removeAllAnimations()
         self.person.activated = true
         CoreDataHelperPerson.savePerson()
     }
-    @IBAction func unwindToHome(segue:UIStoryboardSegue) {
-    }
+    @IBAction func unwindToHome(segue:UIStoryboardSegue) {}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

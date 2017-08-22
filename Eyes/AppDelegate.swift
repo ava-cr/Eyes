@@ -120,9 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 //Set the content of the notification
                 let content = UNMutableNotificationContent()
-                content.title = "Don't Quit Eyes!"
-                //content.subtitle = "From MakeAppPie.com"
-                content.body = "Eyes will continue to check in on you unless you quit the app!"
+                content.title = "EYES ACTIVE"
+                content.body = "eyes will continue to check in on you unless you quit the app!"
                 
                 //Set the trigger of the notification -- here a timer.
                 let trigger = UNTimeIntervalNotificationTrigger(
@@ -131,14 +130,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 //Set the request for the notification from the above
                 let request = UNNotificationRequest(
-                    identifier: "10.second.message",
+                    identifier: "reminder.message",
                     content: content,
                     trigger: trigger
                 )
                 UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
                     if let error = error {
                         print("Error \(error)")
-                        // Something went wrong
                     }
                 })
                 
@@ -152,16 +150,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == false {
-                print("not activated")
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "notActivatedKey"), object: nil, userInfo: nil)
             }
             if person.activated == true {
-                print("activated")
                 if person.lastCheckInTime != nil {
-                    print("last check in not nil")
-
                     if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                        print("sending activated notification")
                         NotificationCenter.default.post(name: Notification.Name(rawValue: "AuthenticateUser"), object: nil, userInfo: nil)
                     }
                     else {
@@ -269,7 +262,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        print("background fetch complete!!")
         person = CoreDataHelperPerson.retrievePerson()[0]
         if person.activated == true {
             if person.lastCheckInTime != nil {
@@ -285,7 +277,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func sendFollowUpNotification() {
         
-            print("haven't responded to 1 notification")
             let content = UNMutableNotificationContent()
             content.title = "Warning: You Haven't Checked In!"
             content.body = "Open the app and ALERT your contacts or send your location if you're in a dangerous situation."
@@ -303,7 +294,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             UNUserNotificationCenter.current().add(
                 request, withCompletionHandler: nil)
-            
+        
             sleep(30)
     }
 

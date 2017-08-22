@@ -24,19 +24,9 @@ class EditContactsTableViewController: UITableViewController {
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
-        print("there are \(contacts.count) contacts")
-        
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:darkBlue]
         navigationBarAppearace.barTintColor = darkGrey
-        //tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background2"))
     }
     @IBAction func backButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "backToSettings", sender: self)

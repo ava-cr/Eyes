@@ -25,7 +25,7 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
 
     
     var textSelected = ""
-    let textPickerData = ["Alert Message", "I'm safe.", "I'm okay.", "I feel unsafe.", "I'm going home now.", "Come get me please"]
+    let textPickerData = ["Alert Message", "I'm safe.", "I'm okay.", "I feel unsafe.", "I'm going home now.", "Come get me please."]
     
     let locationManager = CLLocationManager()
     var userLocation = CLLocationCoordinate2D()
@@ -192,7 +192,6 @@ class SendTextViewController: UIViewController, MFMessageComposeViewControllerDe
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
-        print("text selected: " + "\(textPickerData[row])")
         textSelected = textPickerData[row]
     }
     

@@ -56,7 +56,6 @@ class EditContactViewController: UIViewController, UITextFieldDelegate {
         }
         
         contacts = CoreDataHelperContact.retrieveContacts()
-        print(contacts.count)
         
         //customization
         

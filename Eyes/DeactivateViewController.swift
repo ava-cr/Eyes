@@ -27,6 +27,11 @@ class DeactivateViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tryAgainButton.titleLabel?.textColor = UIColor.clear
+        self.tryAgainButton.layer.borderWidth = 1.0
+        self.tryAgainButton.layer.cornerRadius = 15
+        self.tryAgainButton.layer.borderColor = UIColor.clear.cgColor
+        
+
         super.viewDidAppear(true)
         authenticateUser()
     }
@@ -136,7 +141,9 @@ class DeactivateViewController: UIViewController {
     }
     
     func showLabel() {
-        self.tryAgainButton.titleLabel?.textColor = darkBlue
+        self.tryAgainButton.layer.borderColor = darkRed.cgColor
+        self.tryAgainButton.titleLabel?.textColor = darkRed
+        self.tryAgainButton.pulsate()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

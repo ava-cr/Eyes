@@ -113,10 +113,8 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             currentContact.familyName = contact.familyName
             CoreDataHelperContact.saveContact()
             self.contacts.append(currentContact)
-            print(currentContact.givenName!)
-            print(currentContact.phoneNumber!)
+
         }
-        print(contacts.count)
         
         // after contacts have been chosen
         contactInfoLabel.text = "If a contact has multiple numbers, Eyes will select the \"mobile\" or \"iPhone\" number. This can be modified in Settings."
