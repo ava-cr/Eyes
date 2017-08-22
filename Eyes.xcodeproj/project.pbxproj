@@ -262,7 +262,7 @@
 				TargetAttributes = {
 					37EBC1041F264401000015DD = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 833EANH5C9;
+						DevelopmentTeam = DTY9TBD24Y;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -484,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
-				DEVELOPMENT_TEAM = 833EANH5C9;
+				DEVELOPMENT_TEAM = DTY9TBD24Y;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.avacr.eyes;
@@ -498,7 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
-				DEVELOPMENT_TEAM = 833EANH5C9;
+				DEVELOPMENT_TEAM = DTY9TBD24Y;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.avacr.eyes;

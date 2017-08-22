@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "notActivatedKey"), object: nil)
         
         person = CoreDataHelperPerson.retrievePerson()[0]
-        person.timeInterval = 20
+        person.timeInterval = 1800
         CoreDataHelperPerson.savePerson()
         
         activateButton.isUserInteractionEnabled = true
@@ -35,10 +35,9 @@ class HomeViewController: UIViewController {
     }
     
     func notificationReceived(_ notification: Notification) {
+        print("entered foreground")
         activateButton.pulsate()
-        
     }
-
 
     
     override func viewDidAppear(_ animated: Bool) {

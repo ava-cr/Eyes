@@ -33,12 +33,12 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         lastCheckInLabel.text = "you haven't checked in yet"
-
         
         
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "myNotificationKey"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.authenticateNotificationRecieved(_:)), name: Notification.Name(rawValue: "AuthenticateUser"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.foregroundNotificationRecieved(_:)), name: Notification.Name(rawValue: "TimeIntervalNotElapsed"), object: nil)
         
         
         person = CoreDataHelperPerson.retrievePerson()[0]
@@ -71,15 +71,24 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
     }
     
-    func notificationReceived(_ notification: Notification) {
+    func authenticateNotificationRecieved(_ notification: Notification) {
         print("got notification that the foreground was entered.")
-        //print("user authenticated")
-//        if lastCheckInLabel.text != "you haven't checked in yet" {
-//            authenticateUser()
-//        }
+        
+        if person.activated {
+            if person.lastCheckInTime != nil {
+                if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
+                    if lastCheckInLabel.text != "you haven't checked in yet" {
+                        authenticateUser()
+                        self.resetCheckInLabel()
+                        self.sendNormalNotification()
+                    }
+                }
+            }
+        }
+    }
+    
+    func foregroundNotificationRecieved(_ notification: Notification) {
         alertButton.flash()
-        self.resetCheckInLabel()
-        self.sendNormalNotification()
     }
     
     func resetCheckInLabel() {
@@ -161,7 +170,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         
         let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 20.0,
+            timeInterval: TimeInterval(person.timeInterval),
             repeats: false)
         
         let request = UNNotificationRequest(

@@ -152,16 +152,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
             if person.activated == false {
+                print("not activated")
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "notActivatedKey"), object: nil, userInfo: nil)
             }
             if person.activated == true {
+                print("activated")
                 if person.lastCheckInTime != nil {
-                    
-                    if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                        print("application entered foreground")
+                    print("last check in not nil")
 
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: "myNotificationKey"), object: nil, userInfo: nil)
-                        //authenticateUser()
+                    if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
+                        print("sending activated notification")
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "AuthenticateUser"), object: nil, userInfo: nil)
+                    }
+                    else {
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "TimeIntervalNotElapsed"), object: nil, userInfo: nil)
                     }
                 }
             }
