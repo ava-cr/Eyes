@@ -31,6 +31,8 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
         
         person = CoreDataHelperPerson.newPerson()
+        person.timeInterval = 1800
+        CoreDataHelperPerson.savePerson()
         
         
         //customization

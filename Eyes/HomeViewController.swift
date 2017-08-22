@@ -22,8 +22,7 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: Notification.Name(rawValue: "notActivatedKey"), object: nil)
         
         person = CoreDataHelperPerson.retrievePerson()[0]
-        person.timeInterval = 1800
-        CoreDataHelperPerson.savePerson()
+        
         
         activateButton.isUserInteractionEnabled = true
         activateButton.isEnabled = true

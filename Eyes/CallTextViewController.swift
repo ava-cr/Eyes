@@ -7,23 +7,30 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CallTextViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
     
+    
+    let locationManager = CLLocationManager()
+    var userLocation = CLLocationCoordinate2D()
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        userLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        callButton.layer.cornerRadius = 125
-//        callButton.layer.borderWidth = 3.0
-//        callButton.layer.borderColor = greyBlue.cgColor
-//        textButton.layer.cornerRadius = 125
-//        textButton.layer.borderWidth = 3.0
-//        textButton.layer.borderColor = greyBlue.cgColor
+        
+        locationManager.requestWhenInUseAuthorization()
 
-        // Do any additional setup after loading the view.
+
     }
     @IBAction func backButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "backToAction", sender: self)

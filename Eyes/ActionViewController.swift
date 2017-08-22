@@ -34,7 +34,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lastCheckInLabel.text = "you haven't checked in yet"
+        lastCheckInLabel.text = ""
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.authenticateNotificationRecieved(_:)), name: Notification.Name(rawValue: "AuthenticateUser"), object: nil)
@@ -43,10 +43,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         
         person = CoreDataHelperPerson.retrievePerson()[0]
         contacts = CoreDataHelperContact.retrieveContacts()
-        
-        
-        
-        
+
         
         //customization
         alertButton.layer.cornerRadius = 150
@@ -77,7 +74,7 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
         if person.activated {
             if person.lastCheckInTime != nil {
                 if Date() > NSDate(timeInterval: TimeInterval(person.timeInterval), since: person.lastCheckInTime! as Date) as Date {
-                    if lastCheckInLabel.text != "you haven't checked in yet" {
+                    if lastCheckInLabel.text != "" {
                         authenticateUser()
                         self.resetCheckInLabel()
                         self.sendNormalNotification()
@@ -131,6 +128,8 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         alertButton.flash()
+        self.person = CoreDataHelperPerson.retrievePerson()[0]
+        self.contacts = CoreDataHelperContact.retrieveContacts()
         print("view did appear")
         
         if person.lastCheckInTime != nil {
@@ -140,33 +139,14 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                 }
             }
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(true)
-        print("view will appear")
-        
-        
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        
-        
-        self.person = CoreDataHelperPerson.retrievePerson()[0]
-        self.contacts = CoreDataHelperContact.retrieveContacts()
-        
-        //sendNormalNotification()
-        
     }
     
     func sendNormalNotification() {
         
         let content = UNMutableNotificationContent()
         content.title = "Check in with Eyes!"
-        content.body = "It's been half an hour, open the app to assure us you're ok."
+        content.body = "It's been \(person.timeInterval / 60) minutes, open the app to assure us you're ok."
         content.sound = UNNotificationSound.default()
-        //content.categoryIdentifier = "myCategory"
         
         
         let trigger = UNTimeIntervalNotificationTrigger(
@@ -229,7 +209,6 @@ class ActionViewController: UIViewController, MFMessageComposeViewControllerDele
                         ac.addAction(ok)
                         ac.addAction(cancel)
                         
-                        //ac.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(ac, animated: true, completion: nil)
                     }
                 }
