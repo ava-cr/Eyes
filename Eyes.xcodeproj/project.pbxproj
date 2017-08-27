@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370A17E91F538CAE0089552A /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370A17E81F538CAE0089552A /* IntroViewController.swift */; };
 		370E92D51F41F728009A3A97 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D41F41F728009A3A97 /* Date+convertToString.swift */; };
 		370E92D71F4231E6009A3A97 /* ShareLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D61F4231E6009A3A97 /* ShareLocationTableViewController.swift */; };
 		370E92D91F423204009A3A97 /* ShareLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E92D81F423204009A3A97 /* ShareLocationTableViewCell.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		370A17E81F538CAE0089552A /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		370E92D41F41F728009A3A97 /* Date+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
 		370E92D61F4231E6009A3A97 /* ShareLocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationTableViewController.swift; sourceTree = "<group>"; };
 		370E92D81F423204009A3A97 /* ShareLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				37EBC10A1F264401000015DD /* ViewController.swift */,
+				370A17E81F538CAE0089552A /* IntroViewController.swift */,
 				37EBC11E1F26637A000015DD /* InfoViewController.swift */,
 				37D47E081F27A2D800BE29E4 /* HomeViewController.swift */,
 				37D47E0C1F27B8E500BE29E4 /* ActionViewController.swift */,
@@ -343,6 +346,7 @@
 				379AF6271F337B6500CCEDF3 /* EditContactsTableViewCell.swift in Sources */,
 				370E92D71F4231E6009A3A97 /* ShareLocationTableViewController.swift in Sources */,
 				37B5E0BA1F292283006C384F /* TextContactsTableViewController.swift in Sources */,
+				370A17E91F538CAE0089552A /* IntroViewController.swift in Sources */,
 				37B5E0B81F292000006C384F /* TextContactsTableViewCell.swift in Sources */,
 				379AF6291F337EEA00CCEDF3 /* EditContactViewController.swift in Sources */,
 			);
