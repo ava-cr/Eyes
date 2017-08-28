@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
-class EditContactsTableViewController: UITableViewController {
+class EditContactsTableViewController: UITableViewController, UIPickerViewDelegate, CNContactPickerDelegate {
     
     var navigationBarAppearace = UINavigationBar.appearance()
+
+    
     var person = Person()
     var contacts = [Contact]() {
         
@@ -79,6 +83,51 @@ class EditContactsTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        
+        let contactPickerViewController = CNContactPickerViewController()
+        
+        contactPickerViewController.delegate = self
+        contactPickerViewController.view.tintColor = darkBlue
+        
+        present(contactPickerViewController, animated: true, completion: nil)
+        
+        contactPickerViewController.displayedPropertyKeys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey, CNContactImageDataKey]
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+        
+        var phoneNumber = ""
+        
+        for contact in contacts {
+            if contact.phoneNumbers.count > 1 {
+                for number in contact.phoneNumbers {
+                    if number.label == "_$!<Mobile>!$_" || number.label == "_$!<iPhone>!$_" {
+                        phoneNumber = (number.value).value(forKey: "digits")! as! String
+                        break
+                    }
+                }
+                if phoneNumber == "" {
+                    for number in contact.phoneNumbers {
+                        if number.label == "_$!<Other>!$_" || number.label == "_$!<Work>!$_" {
+                            phoneNumber = (number.value).value(forKey: "digits")! as! String
+                            break
+                        }
+                    }
+                }
+            }
+            if contact.phoneNumbers.count == 1 {
+                phoneNumber = (contact.phoneNumbers[0].value).value(forKey: "digits")! as! String
+            }
+            let currentContact = CoreDataHelperContact.newContact()
+            currentContact.givenName = contact.givenName
+            currentContact.phoneNumber = phoneNumber
+            currentContact.familyName = contact.familyName
+            CoreDataHelperContact.saveContact()
+            self.contacts.append(currentContact)
+            
+        }
+    }
 
     
     // Override to support rearranging the table view.

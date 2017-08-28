@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="EKP-YN-FQe">
-                                <rect key="frame" x="26" y="84" width="323" height="354"/>
+                                <rect key="frame" x="26" y="84" width="323" height="357.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Time Interval:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4d-Cd-6sx">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="35.5"/>
@@ -154,8 +154,8 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(in minutes)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe8-Hw-zv2">
-                                        <rect key="frame" x="0.0" y="330" width="323" height="24"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="330" width="323" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
                                         <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -261,7 +261,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Brr-PC-ER0">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="uN0-Zs-yLf" kind="show" id="vTM-HN-Mnz"/>
+                                <action selector="addButtonTapped:" destination="63A-aA-sTi" id="P4h-FU-4b4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -584,8 +584,5 @@
             <point key="canvasLocation" x="2917.5999999999999" y="2188.1559220389809"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="vTM-HN-Mnz"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
