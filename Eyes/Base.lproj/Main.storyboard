@@ -62,12 +62,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125.59999999999999" y="787.55622188905556"/>
+            <point key="canvasLocation" x="-482" y="788"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="M6B-Io-JQR">
             <objects>
-                <viewController id="guu-kZ-JRb" customClass="InfoViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoViewController" id="guu-kZ-JRb" customClass="InfoViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xCH-Zm-B21"/>
                         <viewControllerLayoutGuide type="bottom" id="No8-e5-tsn"/>
@@ -97,15 +97,14 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE1-rU-NqS">
-                                <rect key="frame" x="21" y="159.5" width="343" height="190"/>
-                                <string key="text">Once activated for a night out, Eyes works by sending notifications to check in on you and stream-lining the process of alerting your family &amp; friends of a potentially dangerous situation. Choose the contacts you want added to the app.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the emergency contacts you want included in Eyes. You can add as many as you want." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE1-rU-NqS">
+                                <rect key="frame" x="21" y="159.5" width="343" height="81.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpq-Jf-xVX">
-                                <rect key="frame" x="36" y="379.5" width="303" height="43"/>
+                                <rect key="frame" x="36" y="271" width="303" height="43"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="2kI-UX-ieo"/>
@@ -189,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSh-22-WHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="788"/>
+            <point key="canvasLocation" x="214" y="788"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="SSh-kN-aYA">
@@ -210,30 +209,39 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Kjj-oV-Xoa"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-r5-rG4">
-                                <rect key="frame" x="21" y="30" width="333" height="523"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">When walking home alone, going somewhere you don’t entirely trust, or just feeling unsafe, press “Activate” on the next screen. 
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-r5-rG4">
+                                <rect key="frame" x="10" y="30" width="355" height="517"/>
+                                <string key="text">When you feel unsafe, whether you are walking at night or going out alone, press “Activate” on the next screen. 
 
-After activating, you will be sent a notification every half an hour asking you to check in with the app, and you will be able to send your location, texts, and calls from within the app in a streamlined system.
+After activating, you will be sent a notification every 30 minutes asking you to check in. You will be able to send your location, texts, and calls from within the app in a streamlined system.
 
-Modify your contacts, passcode, and the time interval of notifications in Settings.</string>
+Modify your contacts, passcode, and the time interval between notifications in Settings.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="xoe-hc-SZQ">
-                                <rect key="frame" x="21" y="561" width="343" height="46"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                                <rect key="frame" x="21" y="557" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="woN-Vr-Dam"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="37"/>
                                 <state key="normal" title="Ok, I got it.">
                                     <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Er2-No-gsP" kind="custom" customClass="ScaleSegue" customModule="Eyes" customModuleProvider="target" id="vau-Iv-iRo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w8b-n0-zl0" firstAttribute="leading" secondItem="Enk-PG-Vu9" secondAttribute="leadingMargin" constant="5" id="4xo-vZ-ITt"/>
+                            <constraint firstAttribute="trailing" secondItem="fw5-r5-rG4" secondAttribute="trailing" constant="10" id="5R7-JY-Z9F"/>
+                            <constraint firstItem="fw5-r5-rG4" firstAttribute="leading" secondItem="Enk-PG-Vu9" secondAttribute="leading" constant="10" id="6oG-Fd-GMz"/>
+                            <constraint firstItem="xoe-hc-SZQ" firstAttribute="top" secondItem="fw5-r5-rG4" secondAttribute="bottom" constant="10" id="9mB-dc-iIA"/>
                             <constraint firstItem="xoe-hc-SZQ" firstAttribute="leading" secondItem="Enk-PG-Vu9" secondAttribute="leadingMargin" constant="5" id="Cdx-0W-SQp"/>
+                            <constraint firstItem="fw5-r5-rG4" firstAttribute="top" secondItem="V9s-Nj-945" secondAttribute="bottom" constant="10" id="LCh-xa-Od4"/>
                             <constraint firstItem="njT-aV-V3P" firstAttribute="top" secondItem="w8b-n0-zl0" secondAttribute="bottom" constant="10" id="Qq5-YH-EmS"/>
                             <constraint firstItem="w8b-n0-zl0" firstAttribute="top" secondItem="xoe-hc-SZQ" secondAttribute="bottom" constant="30" id="Uaq-k8-xPe"/>
                             <constraint firstItem="w8b-n0-zl0" firstAttribute="trailing" secondItem="Enk-PG-Vu9" secondAttribute="trailingMargin" constant="5" id="qhI-uO-ahc"/>
@@ -248,10 +256,13 @@ Modify your contacts, passcode, and the time interval of notifications in Settin
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="okButton" destination="xoe-hc-SZQ" id="vRb-hZ-GjJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1X-uB-PzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552.79999999999995" y="1485.6071964017992"/>
+            <point key="canvasLocation" x="1596" y="788"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="8GP-gQ-4cL">
@@ -332,17 +343,16 @@ Modify your contacts, passcode, and the time interval of notifications in Settin
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="PP1-e7-b6k">
-                                <rect key="frame" x="5" y="70" width="365" height="337.5"/>
+                                <rect key="frame" x="5" y="70" width="365" height="267"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8O-Gh-8Qg">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="212.5"/>
-                                        <string key="text">Choose a passcode for  responding to check-in notifications and deactivating check-in mode. Input a four digit code that you will remember!</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a passcode for  checking in with Eyes. Input a four digit code that you will remember!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8O-Gh-8Qg">
+                                        <rect key="frame" x="1" y="0.0" width="363" height="142"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qw-L0-rSU">
-                                        <rect key="frame" x="0.0" y="237.5" width="365" height="100"/>
+                                        <rect key="frame" x="1" y="167" width="363" height="100"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="bp4-lU-GAj"/>
@@ -362,15 +372,15 @@ Modify your contacts, passcode, and the time interval of notifications in Settin
                                     <constraint firstAttribute="height" constant="60" id="Rmz-jm-9tB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
-                                <state key="normal" title="done">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Er2-No-gsP" kind="custom" identifier="passcodeInputted" customClass="ScaleSegue" customModule="Eyes" customModuleProvider="target" id="L0J-O8-K0M"/>
+                                    <segue destination="zj6-Hp-ReY" kind="custom" identifier="passcodeInputted" customClass="SplitSegue" customModule="Eyes" customModuleProvider="target" id="grm-Of-XH9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(you will also be able to use touch ID)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slW-bc-QTh">
-                                <rect key="frame" x="16" y="417.5" width="343" height="24"/>
+                                <rect key="frame" x="16" y="347" width="343" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.65490196079999996" green="0.76862745099999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -404,7 +414,7 @@ Modify your contacts, passcode, and the time interval of notifications in Settin
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf4-cT-00L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586" y="788"/>
+            <point key="canvasLocation" x="914" y="788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1k9-2K-mnd">

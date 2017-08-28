@@ -75,7 +75,7 @@ class InfoViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         let contactPickerViewController = CNContactPickerViewController()
         
         contactPickerViewController.delegate = self
-        contactPickerViewController.view.tintColor = mintGreen
+        contactPickerViewController.view.tintColor = darkBlue
         
         present(contactPickerViewController, animated: true, completion: nil)
         

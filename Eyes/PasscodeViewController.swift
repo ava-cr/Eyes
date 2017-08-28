@@ -26,12 +26,6 @@ class PasscodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
-            if !accepted {
-                print("Notification access denied.")
-            }
-        }
-        
         person = CoreDataHelperPerson.retrievePerson()[0]
 
         // Do any additional setup after loading the view.

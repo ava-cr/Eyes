@@ -85,13 +85,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if CoreDataHelperPerson.retrievePerson().count == 1 {
             let person = CoreDataHelperPerson.retrievePerson()[0]
-            if person.activated == true {
-                storyboard = UIStoryboard(name: "Activated", bundle: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "ActivatedViewController")
+            let contacts = CoreDataHelperContact.retrieveContacts()
+            if person.name != nil || contacts.count != 0 {
+                
+                if person.activated == true {
+                    storyboard = UIStoryboard(name: "Activated", bundle: nil)
+                    initialViewController = storyboard.instantiateViewController(withIdentifier: "ActivatedViewController")
+                }
+                else {
+                    storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+                }
             }
             else {
                 storyboard = UIStoryboard(name: "Main", bundle: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+                initialViewController = storyboard.instantiateViewController(withIdentifier: "InfoViewController")
             }
             
         }
@@ -277,28 +285,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func sendFollowUpNotification() {
         
-            let content = UNMutableNotificationContent()
-            content.title = "Warning: You Haven't Checked In!"
-            content.body = "Open the app and ALERT your contacts or send your location if you're in a dangerous situation."
-            content.sound = UNNotificationSound.default()
-            //content.categoryIdentifier = "myCategory"
-            
-            let trigger = UNTimeIntervalNotificationTrigger(
-                timeInterval: 5.0,
-                repeats: false)
-            
-            let request = UNNotificationRequest(
-                identifier: "followup.message",
-                content: content,
-                trigger: trigger
-            )
-            UNUserNotificationCenter.current().add(
-                request, withCompletionHandler: nil)
+        let content = UNMutableNotificationContent()
+        content.title = "Warning: You Haven't Checked In!"
+        content.body = "Open the app and ALERT your contacts or send your location if you're in a dangerous situation."
+        content.sound = UNNotificationSound.default()
+        //content.categoryIdentifier = "myCategory"
         
-            sleep(30)
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 5.0,
+            repeats: false)
+        
+        let request = UNNotificationRequest(
+            identifier: "followup.message",
+            content: content,
+            trigger: trigger
+        )
+        UNUserNotificationCenter.current().add(
+            request, withCompletionHandler: nil)
+        
+        sleep(30)
     }
-
-
+    
+    
     
     
     // MARK: - Core Data stack
